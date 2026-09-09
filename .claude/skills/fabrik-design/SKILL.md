@@ -16,9 +16,8 @@ description: >
   #ffffff, Text #1a1a1a. Keine weiteren Akzentfarben ohne Freigabe.
 - Kontrast mind. 4.5:1 (WCAG AA); geprüft: #1a1a1a/#ffffff = 17.4:1,
   Weiss/#005CA9 = 6.8:1. Neue Kombinationen nachrechnen, nicht schätzen.
-- Schrift: Gotham Rounded Medium (Überschrift), Gotham Rounded Book
-  (Text). Keine dritte Schrift. Lizenz/Fallback vor Einsatz klären
-  (kostenpflichtig, kein Google Font).
+- Schrift: Poppins SemiBold (Überschrift), Poppins Regular (Text) —
+  Google Font, kostenlos. Keine dritte Schrift.
 - Mobil zuerst: 375 px Breite ohne horizontales Scrollen lesbar.
 - Tonalität: Sie, warm, persönlich. Keine unbelegten Superlative
   ("das beste", "einzigartig").
