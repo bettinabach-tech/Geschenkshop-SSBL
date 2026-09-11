@@ -14,8 +14,7 @@
 - Foto-Masse nie direkt lesen (`foto.width`) → `masse()` (src/lib/fotos.ts).
 - Satzregeln (Abkürzungen, Ordnungszahlen) stehen oben in text.ts; neue
   Abkürzung → dort ergänzen + Test in abschnitte-oben.test.ts.
-- ? verify --quick Dauer beobachten (Grenze 10 s).
-- Unbekanntes nie raten: Telefon, Rechts-URLs, Endpunkt, adresse, Preise.
+- verify --quick war 9.6 s → vitest `pool: "threads"` (jetzt ~6 s). Unbekanntes nie raten.
 
 ## Für den Auftraggeber zu prüfen
 - **006 Sichtprüfung:** `npm run dev`, dann http://localhost:4321/muster/ — Hero,

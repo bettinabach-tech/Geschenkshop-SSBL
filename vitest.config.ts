@@ -7,5 +7,8 @@ import { getViteConfig } from "astro/config";
 export default getViteConfig({
   test: {
     include: ["tests/**/*.test.ts"],
+    // Worker-Threads statt Prozesse: unter Windows ~2.5× schneller (6.7 s → 2.8 s),
+    // hält verify --quick unter 10 s. Jede Testdatei bleibt isoliert.
+    pool: "threads",
   },
 });
