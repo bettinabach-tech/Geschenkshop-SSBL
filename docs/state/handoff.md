@@ -13,8 +13,7 @@
 ## Achtung nächste Sitzung
 - Foto-Masse nie direkt lesen (`foto.width`) → `masse()` aus src/lib/fotos.ts
   (sonst liefert Astro das 3–8-MB-Original mit). Siehe CLAUDE.md «Bekannte Fallen».
-- Hero-Bild mit `loading="eager"`, alle anderen lazy (Standard).
-- ? verify --quick braucht 8.3 s (Grenze 10 s) — Container-Tests wachsen; beobachten.
+- Hero-Bild mit `loading="eager"`, sonst lazy · ? verify --quick braucht 8.3 s (Grenze 10 s) — Container-Tests wachsen; beobachten.
 - Unbekanntes nie raten: Telefon, Rechts-URLs, Endpunkt, adresse, Preise fehlen bewusst.
 
 ## Für den Auftraggeber zu prüfen
