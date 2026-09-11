@@ -1,5 +1,6 @@
 /* basis.css — Grundstil aller Seiten: Poppins Regular für Text,
-   Poppins SemiBold für Überschriften, dunkler Text auf Weiss. */
+   Poppins SemiBold für Überschriften, dunkler Text auf Weiss,
+   Überschriften in der Primärfarbe. */
 *,
 *::before,
 *::after {
@@ -23,6 +24,8 @@ h3 {
   font-family: var(--schrift);
   font-weight: 600;
   line-height: 1.25;
+  /* Überschriften in der Primärfarbe (Freigabe Auftraggeber, decisions.md Nr. 18) */
+  color: var(--farbe-primaer);
 }
 
 p {

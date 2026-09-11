@@ -18,7 +18,8 @@
 
 ## Für den Auftraggeber zu prüfen
 - **Aufgabe 002 (Sichtprüfung):** `npm run dev`, dann http://localhost:4321/geschenkshop-ssbl/
-  öffnen: Titel in Poppins SemiBold, dunkler Text auf Weiss, SSBL-Logo als
+  öffnen: Titel in Poppins SemiBold und neu in SSBL-Blau (Ihr Wunsch,
+  decisions.md Nr. 18), Fliesstext dunkel auf Weiss, SSBL-Logo als
   Symbol im Browser-Tab. (Sonst ist die Seite noch leer — Abschnitte folgen.)
 - Arbeitstitel «Weihnachtsgeschenke aus den Werkstätten der SSBL» + Kurzbeschreibung
   in src/sites/geschenkshop-ssbl/site.ts — vorläufig, endgültig in 015.

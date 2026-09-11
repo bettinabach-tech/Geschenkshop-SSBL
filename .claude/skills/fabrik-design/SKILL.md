@@ -12,8 +12,10 @@ description: >
 ## Nicht verhandelbar (Verstoss = Aufgabe falsch, auch bei grünem verify)
 - Genau EIN primärer CTA pro Seite: Produkt kaufen/bestellen. Alle
   anderen Links (Kontakt, mehr erfahren) nie als Button.
-- Farben: Primär #005CA9 (nur Kauf-Button/Hervorhebung), Hintergrund
-  #ffffff, Text #1a1a1a. Keine weiteren Akzentfarben ohne Freigabe.
+- Farben: Primär #005CA9 (nur Überschriften h1–h3, Kauf-Button,
+  Hervorhebung), Hintergrund #ffffff, Fliesstext #1a1a1a. Keine weiteren
+  Akzentfarben ohne Freigabe. (Blaue Überschriften: Freigabe Auftraggeber
+  11.09.2026, decisions.md Nr. 18.)
 - Kontrast mind. 4.5:1 (WCAG AA); geprüft: #1a1a1a/#ffffff = 17.4:1,
   Weiss/#005CA9 = 6.8:1. Neue Kombinationen nachrechnen, nicht schätzen.
 - Schrift: Poppins SemiBold (Überschrift), Poppins Regular (Text) —

@@ -164,6 +164,19 @@ describe("Schrift und Farben (CSS)", () => {
       /color:\s*var\(--farbe-text\)/,
     );
   });
+
+  it("F-05: Überschriften h1–h3 in der Primärfarbe, Fliesstext dunkel", () => {
+    const basisCss = css("basis.css");
+    expect(block(basisCss, /h1,\s*h2,\s*h3/)).toMatch(
+      /(?:^|[\s;])color:\s*var\(--farbe-primaer\)/,
+    );
+    expect(block(basisCss, /(?:^|\n)body/)).not.toMatch(/--farbe-primaer/);
+    expect(block(basisCss, /(?:^|\n)p/)).not.toMatch(/--farbe-primaer/);
+  });
+
+  it("F-06: blaue Überschrift auf Weiss ist lesbar (#005CA9 = 6.77:1)", () => {
+    expect(kontrast("#005CA9", "#ffffff")).toBeGreaterThanOrEqual(4.5);
+  });
 });
 
 describe("Kontrast (WCAG)", () => {

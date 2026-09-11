@@ -10,7 +10,7 @@
 - [PASSING] F-02 Überschriften erscheinen in Poppins SemiBold, Fliesstext in Poppins Regular.
 - [PASSING] F-03 Die Schrift kommt vom eigenen Server; beim Aufruf der Seite gehen keine Daten an Google oder andere Dritte.
 - [PASSING] F-04 Die Seite setzt kein Cookie und enthält kein Tracking.
-- [PASSING] F-05 Text erscheint dunkel (#1a1a1a) auf Weiss; die Primärfarbe (#005CA9) kommt nur beim Kauf-Button und bei Hervorhebungen vor.
+- [PASSING] F-05 Fliesstext erscheint dunkel (#1a1a1a) auf Weiss; die Primärfarbe (#005CA9) kommt nur bei Überschriften, beim Kauf-Button und bei Hervorhebungen vor.
 - [PASSING] F-06 Jede Text-/Hintergrund-Kombination hat einen Kontrast von mindestens 4.5:1.
 - [FAILING] F-07 Das Logo steht oben auf der Seite, mindestens 32 px hoch, unverzerrt und mit freier Schutzzone ringsum.
 - [PASSING] F-08 Der Browser-Tab zeigt den Seitentitel und das Logo als kleines Symbol.

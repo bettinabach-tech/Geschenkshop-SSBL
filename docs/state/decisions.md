@@ -178,3 +178,14 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   Regel liefert die Seite nur, was sie wirklich braucht (ca. 45 KB).
 - **Folge für Sie:** Keine. Ein neues Logo für eine andere Seite einfach als
   SVG oder PNG in `assets/` legen.
+
+### 18. Überschriften in SSBL-Blau (Ihr Entscheid, 11.09.2026)
+- **Was:** Titel und Zwischentitel erscheinen im SSBL-Blau #005CA9, der
+  Fliesstext bleibt dunkel (#1a1a1a). Die Design-Regeln (Skill) sind entsprechend
+  angepasst und gelten für alle Seiten.
+- **Warum:** Wunsch des Auftraggebers nach der Sichtprüfung. Nur die
+  Überschriften, damit längere Texte gut lesbar bleiben und der blaue
+  Kauf-Button sich noch abhebt.
+- **Folge für Sie:** Blau auf Weiss hat einen Kontrast von 6.77:1, also gut
+  lesbar. Wählt eine andere Seite eine eigene Hauptfarbe, werden auch ihre
+  Überschriften in dieser Farbe gezeigt; zu helle Farben lehnt die Prüfung ab.
