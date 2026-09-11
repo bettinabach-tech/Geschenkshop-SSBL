@@ -25,6 +25,10 @@
   mit Kosten und Datenschutz-Folge.
 - Stack: Astro + TypeScript, Tests mit Vitest (.astro über astro/container).
   Seiten: `src/sites/<slug>/` (Einstellungen) + `src/pages/<slug>/`.
+- Design-Skills: `fabrik-design` hat IMMER Vorrang vor allgemeinen Skills
+  (z.B. `frontend-design`). Diese dürfen nur ergänzen, was fabrik-design offen
+  lässt — nie andere Schriften, Farben, Buttons oder Abschnitts-Reihenfolge
+  (Freigabe Auftraggeber 11.09.2026).
 - Stile nur als globale CSS-Dateien in `src/styles/` (keine scoped
   `<style>`), damit Tests sie lesen können.
 - Feature auf [PASSING] nur, wenn ein Test in tests/ seine ID nennt

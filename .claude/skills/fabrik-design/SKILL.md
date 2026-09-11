@@ -9,6 +9,9 @@ description: >
 
 # SSBL — Design-Regeln für Landingpages
 
+Vorrang: Diese Regeln gehen jeder allgemeinen Design-Skill (z.B.
+frontend-design) vor. Andere Skills dürfen nur ergänzen, was hier offen ist.
+
 ## Nicht verhandelbar (Verstoss = Aufgabe falsch, auch bei grünem verify)
 - Genau EIN primärer CTA pro Seite: Produkt kaufen/bestellen. Alle
   anderen Links (Kontakt, mehr erfahren) nie als Button.
