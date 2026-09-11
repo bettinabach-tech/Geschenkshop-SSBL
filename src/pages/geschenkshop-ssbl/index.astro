@@ -1,15 +1,75 @@
 ---
-// Seite «Geschenkshop SSBL». Abschnitte folgen mit den Aufgaben 005–016.
-import Seite from "../../layouts/Seite.astro";
+// Seite «Geschenkshop SSBL» (Brief: docs/briefs/geschenkshop-ssbl.md).
+// Texte vom Auftraggeber freigegeben am 11.09.2026 (Aufgabe 015).
+// Noch offen: Produktkarten + Formular im Kauf-Bereich (016–020),
+// Werkstatt-Geschichte + Foto im Vertrauens-Abschnitt (025).
+import Bild from "../../components/Bild.astro";
+import Hero from "../../components/Hero.astro";
+import KaufBereich from "../../components/KaufBereich.astro";
+import Landingpage from "../../components/Landingpage.astro";
+import Nutzen from "../../components/Nutzen.astro";
+import Vertrauen from "../../components/Vertrauen.astro";
 import { getSite } from "../../lib/sites";
 // Prüft die Produktliste schon beim Bauen (Anzeige folgt mit Aufgabe 016).
 import "../../sites/geschenkshop-ssbl/produkte";
 
 const site = getSite("geschenkshop-ssbl");
+const BILDBREITE = "(min-width: 48rem) 36rem, 100vw";
 ---
 
-<Seite site={site}>
-  <main>
-    <h1>{site.titel}</h1>
-  </main>
-</Seite>
+<Landingpage site={site}>
+  <Hero
+    slot="hero"
+    ueberschrift="Weihnachtsgeschenke, die doppelt Freude machen"
+    unterzeile="Keramik, Anzündholz und Klosterwein aus der SSBL: Mit jedem Geschenk unterstützen Sie die Stiftung."
+    ctaText="Jetzt bestellen"
+    ctaHref="#bestellen"
+  >
+    <p class="hero__hinweis">
+      Bestellschluss 15.12.2026 · Lieferzeit ca. eine Woche
+    </p>
+    <Bild
+      slot="bild"
+      src="assets/products/keramik-pflanzenstecker-kraeuter.jpg"
+      alt="Fünf Pflanzenstecker aus heller Keramik mit türkis glasierten, gemusterten Spitzen, beschriftet mit Basilikum, Rosmarin, Schnittlauch und Oregano"
+      sizes={BILDBREITE}
+      loading="eager"
+    />
+  </Hero>
+
+  <Nutzen
+    slot="nutzen"
+    ueberschrift="Was Ihr Geschenk bewirkt"
+    punkte={[
+      {
+        titel: "Gutes tun",
+        text: "Mit Ihrem Kauf unterstützen Sie die SSBL und die Menschen, die dort leben und arbeiten.",
+      },
+      {
+        titel: "Sinnvoll schenken, ohne lange zu suchen",
+        text: "Statt stundenlang zu suchen, finden Sie hier eine kleine Auswahl an sinnvollen Geschenken. Sie holen im Lädeli ab oder lassen liefern.",
+      },
+      {
+        titel: "Ein Geschenk mit Geschichte",
+        text: "Hinter den Produkten stehen Menschen der SSBL und ihre Arbeit. So verschenken Sie etwas mit echter Geschichte statt etwas Beliebiges.",
+      },
+    ]}
+  />
+
+  <Vertrauen slot="vertrauen" titel="Wer hinter den Geschenken steht">
+    <p>
+      Die SSBL – Stiftung für selbstbestimmtes und begleitetes Leben – hat ihren
+      Hauptsitz in Rathausen (Emmen) und neun weitere Standorte. Sie bietet bis
+      zu 305 Wohnplätze und 80 Arbeitsplätze für Tagesbeschäftigte.
+    </p>
+    {/* Vorläufig ein Produktfoto; das Werkstattfoto kommt mit Aufgabe 025. */}
+    <Bild
+      slot="bild"
+      src="assets/products/keramik-schalen-set.jpg"
+      alt="Drei Keramikschalen in Rosa, Blau und Rot mit eingeritzten Mustern"
+      sizes={BILDBREITE}
+    />
+  </Vertrauen>
+
+  <KaufBereich slot="kauf" ueberschrift="Geschenke auswählen und bestellen" />
+</Landingpage>

@@ -3,7 +3,7 @@ id: 015
 title: "Geschenkshop-Seite mit Hero, Nutzen und SSBL-Fakten zusammensetzen"
 depends_on: [007, 008]
 features: [GS-01, GS-02, GS-03, GS-04, GS-05, GS-13]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/geschenkshop-seite.test.ts"

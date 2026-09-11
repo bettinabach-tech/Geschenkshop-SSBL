@@ -1,14 +1,14 @@
 // Einstellungen der Seite «Geschenkshop SSBL» (Brief: docs/briefs/geschenkshop-ssbl.md).
-// titel/beschreibung sind Arbeitsstand; die endgültigen Texte kommen mit Aufgabe 015.
+// titel/beschreibung: vom Auftraggeber freigegeben am 11.09.2026 (Aufgabe 015).
 // Noch unbekannt und darum bewusst weggelassen (nie raten): adresse,
 // kontakt.telefon, rechtliches.impressumUrl/datenschutzUrl, formular.endpunkt.
 import { defineSite } from "../../lib/site";
 
 export default defineSite({
   slug: "geschenkshop-ssbl",
-  titel: "Weihnachtsgeschenke aus den Werkstätten der SSBL",
+  titel: "Weihnachtsgeschenke aus der SSBL – Geschenkshop",
   beschreibung:
-    "Sinnvolle Geschenke aus den Werkstätten der SSBL: bis 15.12.2026 bestellen, im Lädeli in Rathausen abholen oder liefern lassen.",
+    "Keramik, Anzündholz und Klosterwein aus der SSBL: bis 15.12.2026 bestellen, im Lädeli in Rathausen abholen oder liefern lassen.",
   logoAlt: "SSBL – Stiftung für selbstbestimmtes und begleitetes Leben",
   kontakt: {
     email: "laedeli@ssbl.ch",

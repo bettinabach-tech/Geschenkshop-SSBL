@@ -25,6 +25,9 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 | Bestätigungs-E-Mail | Eingang + Übersicht + Rückmeldung innert 2 Arbeitstagen, noch nicht verbindlich |
 | Internetadresse | geschenke.ssbl.ch (Eintrag durch die SSBL-IT) |
 | Lieferung | Nur Schweiz |
+| Überschriften-Farbe (11.09.) | h1–h3 in SSBL-Blau, Fliesstext dunkel (Nr. 18) |
+| Rangfolge Design-Skills (11.09.) | fabrik-design vor frontend-design |
+| Texte Geschenkshop (11.09.) | Überschrift «Weihnachtsgeschenke, die doppelt Freude machen», Hero-Foto Pflanzenstecker, übrige Texte wie vorgeschlagen freigegeben (Aufgabe 015) |
 
 ## Technische Entscheidungen des Agenten
 

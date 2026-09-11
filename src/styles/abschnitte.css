@@ -62,6 +62,12 @@
   margin-block: 0 1rem;
 }
 
+/* Wichtige Kurzangabe im Hero (z.B. Bestellschluss) */
+.hero__hinweis {
+  font-weight: 600;
+  margin-block: 0 1rem;
+}
+
 .hero__aktion {
   margin-block: 1.5rem;
 }

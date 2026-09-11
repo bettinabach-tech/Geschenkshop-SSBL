@@ -40,11 +40,11 @@
 
 ## Geschenkshop SSBL
 
-- [FAILING] GS-01 Überschrift und Unterzeile im Hero sprechen Menschen an, die ein sinnvolles Weihnachtsgeschenk suchen, und nennen die SSBL.
-- [FAILING] GS-02 Der Hero zeigt ein echtes Produktfoto.
-- [FAILING] GS-03 Der Kauf-Button im Hero führt direkt zum Bestellbereich.
-- [FAILING] GS-04 Der Nutzen-Abschnitt zeigt genau 3 Punkte: Gutes tun (Unterstützung der SSBL), sinnvolles Geschenk ohne langes Suchen, Geschenk mit echter Geschichte.
-- [FAILING] GS-05 Der Vertrauens-Abschnitt nennt die SSBL-Fakten: Hauptsitz Rathausen (Emmen) und neun weitere Standorte, bis zu 305 Wohnplätze, 80 Arbeitsplätze für Tagesbeschäftigte.
+- [PASSING] GS-01 Überschrift und Unterzeile im Hero sprechen Menschen an, die ein sinnvolles Weihnachtsgeschenk suchen, und nennen die SSBL.
+- [PASSING] GS-02 Der Hero zeigt ein echtes Produktfoto.
+- [PASSING] GS-03 Der Kauf-Button im Hero führt direkt zum Bestellbereich.
+- [PASSING] GS-04 Der Nutzen-Abschnitt zeigt genau 3 Punkte: Gutes tun (Unterstützung der SSBL), sinnvolles Geschenk ohne langes Suchen, Geschenk mit echter Geschichte.
+- [PASSING] GS-05 Der Vertrauens-Abschnitt nennt die SSBL-Fakten: Hauptsitz Rathausen (Emmen) und neun weitere Standorte, bis zu 305 Wohnplätze, 80 Arbeitsplätze für Tagesbeschäftigte.
 - [FAILING] GS-06 Der Vertrauens-Abschnitt erzählt die Geschichte der Menschen und Werkstätten hinter den Produkten, mit echtem Foto.
 - [FAILING] GS-07 Alle 5 Produkte erscheinen: Keramik-Pflanzenstecker Kräuter, Anzündholz-Bündel, Keramik-Schalen-Set, Klosterwein Rathausen Divico, Klosterwein Rathausen Souvignier Gris.
 - [FAILING] GS-08 Jedes Produkt zeigt Foto, Namen und eine kurze Beschreibung.
@@ -52,7 +52,7 @@
 - [FAILING] GS-10 Jedes Produkt zeigt, wie viele Stück noch verfügbar sind.
 - [FAILING] GS-11 Ein ausverkauftes Produkt bleibt sichtbar, trägt den Hinweis «ausverkauft» und lässt sich nicht bestellen.
 - [FAILING] GS-12 Die beiden Weine tragen den Hinweis «Abgabe ab 16 Jahren».
-- [FAILING] GS-13 Bestellschluss (15.12.2026) und Lieferzeit (ca. eine Woche) stehen im Hero.
+- [PASSING] GS-13 Bestellschluss (15.12.2026) und Lieferzeit (ca. eine Woche) stehen im Hero.
 - [FAILING] GS-14 Die Seite erklärt die zwei Wege: Abholung im Lädeli in Rathausen (Emmen) oder Versand innerhalb der Schweiz.
 - [FAILING] GS-15 Die Seite erklärt die Zahlung: Twint oder Karte, keine Rechnung; bei Abholung im Lädeli, bei Versand per Zahlungslink nach der Rückmeldung.
 - [FAILING] GS-16 Die Seite sagt, dass die Bestellung erst mit der Rückmeldung des Lädeli verbindlich wird.
