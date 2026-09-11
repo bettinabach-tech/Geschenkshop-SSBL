@@ -3,7 +3,7 @@ id: 018
 title: "Bestellregeln für Browser und Server festlegen"
 depends_on: [012]
 features: []
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/bestellregeln.test.ts"

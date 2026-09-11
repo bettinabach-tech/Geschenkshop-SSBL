@@ -316,3 +316,16 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   Fehler-Hinweis nur die E-Mail-Adresse. Solange es keinen Empfänger gibt
   (Aufgabe 010/027), endet jedes Absenden mit diesem Hinweis. Ausprobieren
   können Sie das auf http://localhost:4321/muster/.
+
+### 28. Bestellregeln an einer einzigen Stelle (Aufgabe 018)
+- **Was:** Die Regeln einer Bestellung stehen in einer Datei
+  (`src/sites/geschenkshop-ssbl/bestellregeln.ts`): mindestens ein Geschenk,
+  nicht mehr als vorrätig, nichts Ausverkauftes oder «Preis folgt», Name,
+  Vorname, E-Mail, Telefon, Lieferung oder Abholung, bei Lieferung Strasse,
+  4-stellige PLZ und Ort, Twint oder Karte, bei Wein das Häkchen «ab 16».
+  Die Hinweistexte haben Sie am 11.09.2026 freigegeben.
+- **Warum:** Browser und Server prüfen mit genau denselben Regeln. So kann die
+  Seite nie etwas durchlassen, das der Server danach ablehnt, oder umgekehrt.
+- **Folge für Sie:** Keine. Leere Felder zeigen im Browser den allgemeinen
+  Hinweis «Bitte füllen Sie dieses Feld aus.». Die genaueren Texte («Bitte
+  geben Sie Ihren Vornamen an.») erscheinen, wenn der Server etwas ablehnt.

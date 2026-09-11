@@ -3,6 +3,8 @@
 // prüft beim Verlassen eines Feldes und beim Absenden, zeigt Hinweise direkt am
 // Feld (#<feld>-fehler) und schickt die Daten als JSON an den Endpunkt.
 // Texte: vom Auftraggeber freigegeben am 11.09.2026.
+// E-Mail- und Telefonformat: regeln.ts (dieselben Regeln wie auf dem Server).
+import { FORMAT_MELDUNG, istEmail, istTelefon } from "./regeln";
 
 export type Daten = Record<string, unknown>;
 /** Hinweise je Feldname; `_formular` = Hinweis oben am Formular. */
@@ -14,8 +16,7 @@ export const MELDUNG = {
   pflicht: "Bitte füllen Sie dieses Feld aus.",
   auswahl: "Bitte wählen Sie eine Möglichkeit aus.",
   haekchen: "Bitte bestätigen Sie dies mit dem Häkchen.",
-  email: "Bitte prüfen Sie die E-Mail-Adresse, z.B. name@beispiel.ch.",
-  telefon: "Bitte geben Sie eine Telefonnummer mit mindestens 9 Ziffern an.",
+  ...FORMAT_MELDUNG,
   zahl: (min: string, max: string) =>
     `Bitte geben Sie eine Zahl von ${min} bis ${max} an.`,
   senden: "Wird gesendet …",
@@ -23,10 +24,6 @@ export const MELDUNG = {
     "Leider hat das Senden nicht geklappt. Ihre Angaben sind noch da. Bitte versuchen Sie es noch einmal oder melden Sie sich direkt bei uns:",
 } as const;
 
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-// Wie die Bestellregeln auf dem Server (018): Ziffern, Leerzeichen, + - / ( )
-const TELEFON_ZEICHEN = /^[\d\s+\-/()]*$/;
-const TELEFON_MIN_ZIFFERN = 9;
 /** Unsichtbares Spam-Feld (decisions.md Nr. 9): wird mitgesendet, nie geprüft. */
 const FALLE = "website";
 
@@ -112,13 +109,8 @@ function pruefeFeld(elemente: Eingabe[]): string | null {
   }
   const text = el.value.trim();
   if (text === "") return pflicht ? MELDUNG.pflicht : null;
-  if (el.type === "email" && !EMAIL.test(text)) return MELDUNG.email;
-  if (el.type === "tel") {
-    const ziffern = text.replace(/\D/g, "").length;
-    if (!TELEFON_ZEICHEN.test(text) || ziffern < TELEFON_MIN_ZIFFERN) {
-      return MELDUNG.telefon;
-    }
-  }
+  if (el.type === "email" && !istEmail(text)) return MELDUNG.email;
+  if (el.type === "tel" && !istTelefon(text)) return MELDUNG.telefon;
   return null;
 }
 
