@@ -16,3 +16,4 @@ task_id,class,model,rounds,tokens_total,outcome,date
 020,open,claude-opus-5,1,110000,done,2026-09-11
 010,patterned,claude-opus-5,1,70000,done,2026-09-11
 021,open,claude-opus-5,1,90000,done,2026-09-11
+022,open,claude-opus-5,1,110000,done,2026-09-11

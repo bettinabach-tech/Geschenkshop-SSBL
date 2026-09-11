@@ -6,27 +6,11 @@
 // Wortlaut: vom Auftraggeber freigegeben am 11.09.2026.
 import type { Mail } from "../../server/empfaenger";
 import type { Site } from "../../lib/site";
+import { datumZuerich, uhrzeitZuerich } from "../../lib/zeit";
 import type { Produkt } from "./produkte";
 import { formatierePreis } from "./status";
 
 type MailProdukt = Pick<Produkt, "id" | "name" | "preis" | "wein">;
-
-const ZEITZONE = "Europe/Zurich";
-const DATUM = new Intl.DateTimeFormat("de-CH", {
-  timeZone: ZEITZONE,
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric",
-});
-const UHRZEIT = new Intl.DateTimeFormat("de-CH", {
-  timeZone: ZEITZONE,
-  hour: "2-digit",
-  minute: "2-digit",
-});
-
-/** Datum in Zürcher Zeit, z.B. «16.12.2026». */
-export const datumZuerich = (zeit: Date) => DATUM.format(zeit);
-const uhrzeitZuerich = (zeit: Date) => UHRZEIT.format(zeit);
 
 /** Eingaben einzeilig machen: Zeilenumbrüche und Steuerzeichen → Leerzeichen.
  *  So kann niemand über einen Namen weitere Zeilen (z.B. «Bcc:») einschleusen. */

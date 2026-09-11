@@ -75,8 +75,8 @@
 - [PASSING] GS-33 Die bestellende Person erhält eine Bestätigungs-E-Mail: Eingang bestätigt, Übersicht ihrer Angaben, Rückmeldung des Lädeli innert 2 Arbeitstagen, noch nicht verbindlich.
 - [PASSING] GS-34 Die Danke-Meldung sagt, dass eine Bestätigung per E-Mail kommt und sich das Lädeli innert 2 Arbeitstagen meldet.
 - [FAILING] GS-35 Schlägt das Absenden fehl, nennt die Meldung die Telefonnummer des Lädeli und laedeli@ssbl.ch.
-- [FAILING] GS-36 Ab 16.12.2026 ist das Formular automatisch ausgeblendet; stattdessen steht ein Hinweis zum Bestellschluss, die Produkte bleiben sichtbar.
-- [FAILING] GS-37 Wer nach Bestellschluss eine noch offene Seite abschickt, erhält den Hinweis «Bestellschluss vorbei» statt einer Bestätigung.
+- [PASSING] GS-36 Ab 16.12.2026 ist das Formular automatisch ausgeblendet; stattdessen steht ein Hinweis zum Bestellschluss, die Produkte bleiben sichtbar.
+- [PASSING] GS-37 Wer nach Bestellschluss eine noch offene Seite abschickt, erhält den Hinweis «Bestellschluss vorbei» statt einer Bestätigung.
 - [FAILING] GS-38 Der Footer verlinkt Impressum und Datenschutz auf ssbl.ch und nennt als Kontakt laedeli@ssbl.ch und die Telefonnummer des Lädeli.
 - [FAILING] GS-39 Beim Teilen auf Social Media zeigt die Vorschau ein Produktfoto und einen Titel zum Geschenkshop.
 - [FAILING] GS-40 Die Seite ist unter geschenke.ssbl.ch mit sicherer Verbindung (https) erreichbar.

@@ -12,7 +12,8 @@ import {
 } from "../../server/empfaenger";
 import type { Site } from "../../lib/site";
 import { bereinige, pruefeBestellung } from "./bestellregeln";
-import { baueMails, datumZuerich } from "./mails";
+import { datumZuerich } from "../../lib/zeit";
+import { baueMails } from "./mails";
 import type { Produkt } from "./produkte";
 
 export interface BestellEmpfaengerOptionen {

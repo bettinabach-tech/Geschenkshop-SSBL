@@ -1,7 +1,7 @@
 ---
 // Seite «Geschenkshop SSBL» (Brief: docs/briefs/geschenkshop-ssbl.md).
 // Texte vom Auftraggeber freigegeben am 11.09.2026 (Aufgabe 015).
-// Bestellformular: Aufgabe 019. Noch offen: Adresse/Alter (020), Hinweise (017),
+// Bestellformular: Aufgaben 019–022. Noch offen: Hinweise (017),
 // Werkstatt-Geschichte + Foto im Vertrauens-Abschnitt (025).
 import Bild from "../../components/Bild.astro";
 import Hero from "../../components/Hero.astro";
@@ -9,6 +9,7 @@ import KaufBereich from "../../components/KaufBereich.astro";
 import Landingpage from "../../components/Landingpage.astro";
 import Nutzen from "../../components/Nutzen.astro";
 import Vertrauen from "../../components/Vertrauen.astro";
+import { istGeschlossen } from "../../lib/formular/schluss";
 import { getSite } from "../../lib/sites";
 import Bestellformular from "../../sites/geschenkshop-ssbl/Bestellformular.astro";
 import Produktkarten from "../../sites/geschenkshop-ssbl/Produktkarten.astro";
@@ -16,6 +17,8 @@ import { produkte } from "../../sites/geschenkshop-ssbl/produkte";
 
 const site = getSite("geschenkshop-ssbl");
 const BILDBREITE = "(min-width: 48rem) 36rem, 100vw";
+// Nach dem Bestellschluss gebaut: keine Mengenfelder (Aufgabe 022).
+const offen = !istGeschlossen(site.formular.schluss, new Date());
 ---
 
 <Landingpage site={site}>
@@ -73,7 +76,10 @@ const BILDBREITE = "(min-width: 48rem) 36rem, 100vw";
   </Vertrauen>
 
   <KaufBereich slot="kauf" ueberschrift="Geschenke auswählen und bestellen">
-    <Produktkarten produkte={produkte} formular="bestellung" />
+    <Produktkarten
+      produkte={produkte}
+      formular={offen ? "bestellung" : undefined}
+    />
     <Bestellformular slot="aktion" site={site} produkte={produkte} />
   </KaufBereich>
 </Landingpage>

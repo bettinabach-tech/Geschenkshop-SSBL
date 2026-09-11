@@ -3,7 +3,7 @@ id: 022
 title: "Bestellschluss automatisch umsetzen"
 depends_on: [019, 021]
 features: [GS-36, GS-37]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/bestellschluss.test.ts"

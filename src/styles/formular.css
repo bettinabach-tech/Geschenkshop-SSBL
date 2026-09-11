@@ -172,3 +172,10 @@
 .feld__eingabe[autocomplete="postal-code"] {
   max-width: 8rem;
 }
+
+/* Hinweis nach dem Bestellschluss (Aufgabe 022), an Stelle des Formulars */
+.formular__schluss {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}

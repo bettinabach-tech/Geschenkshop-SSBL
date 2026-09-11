@@ -7,6 +7,7 @@ import {
   HANDY_BREITE,
   breiteProbleme,
   fokusProbleme,
+  versteckteProbleme,
   seiten,
 } from "./pruefungen";
 
@@ -25,6 +26,13 @@ for (const pfad of seiten()) {
     }) => {
       await page.goto(pfad);
       expect(await fokusProbleme(page)).toEqual([]);
+    });
+
+    test("Ausgeblendetes («hidden») ist wirklich unsichtbar", async ({
+      page,
+    }) => {
+      await page.goto(pfad);
+      expect(await versteckteProbleme(page)).toEqual([]);
     });
 
     test("axe: keine schweren Barrierefreiheits-Fehler", async ({ page }) => {

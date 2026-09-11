@@ -400,3 +400,19 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   Wahl vom 11.09.2026). Die Anzeige im Formular folgt mit Aufgabe 022.
 - **Folge für Sie:** Keine. Aktiv wird der Versand mit dem Anschluss an den
   Anbieter (Aufgabe 027).
+
+### 33. Bestellschluss auf der Seite (Aufgabe 022) — und ein behobener Anzeigefehler
+- **Was:** Ab 16.12.2026, 00:00 Uhr Zürcher Zeit verschwinden Formular und
+  Mengenfelder von selbst; die Produkte bleiben sichtbar. An Stelle des
+  Formulars steht «Der Bestellschluss war am 15.12.2026. Herzlichen Dank für
+  Ihr Interesse!» (Ihre Freigabe vom 11.09.2026). Wird die Seite erst nach dem
+  Schluss neu gebaut, entsteht gar kein Formular mehr. Wer eine vorher
+  geöffnete Seite danach abschickt, erhält «Bestellschluss vorbei …» (Nr. 32).
+- **Behobener Fehler aus 019/020:** Ausgeblendete Bereiche blieben im Browser
+  sichtbar, weil eine Gestaltungsregel das Ausblenden überstimmte. Betroffen:
+  Die Lieferadresse war schon beim Laden sichtbar (statt nur bei «Lieferung»),
+  und nach erfolgreichem Absenden wäre das Formular neben dem Danke-Text
+  stehen geblieben. Eine allgemeine Regel verhindert das jetzt; `--deep`
+  prüft auf jeder Seite, dass Ausgeblendetes wirklich unsichtbar ist.
+- **Folge für Sie:** Keine Handarbeit am Stichtag. Bitte bei der Sichtprüfung
+  auf /muster/ nochmals kurz «Lieferung»/«Abholung» wechseln.

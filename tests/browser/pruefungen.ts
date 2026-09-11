@@ -41,6 +41,19 @@ export async function breiteProbleme(page: Page): Promise<string[]> {
     : [];
 }
 
+/** Alles mit dem Attribut «hidden» muss wirklich unsichtbar sein. Eine Klasse
+ *  mit display: grid/flex kann das sonst überstimmen (Fehler aus 019/020). */
+export async function versteckteProbleme(page: Page): Promise<string[]> {
+  return page.evaluate(() =>
+    [...document.querySelectorAll<HTMLElement>("[hidden]")]
+      .filter((el) => getComputedStyle(el).display !== "none")
+      .map((el) => {
+        const name = el.id ? `#${el.id}` : "";
+        return `<${el.tagName.toLowerCase()}${name}> ist trotz «hidden» sichtbar.`;
+      }),
+  );
+}
+
 /** F-23: Mit der Tab-Taste jedes fokussierbare Element erreichen; jedes zeigt
  *  einen sichtbaren Fokusrahmen (outline oder box-shadow). Eine Gruppe von
  *  Radio-Knöpfen ist EIN Tab-Halt (innerhalb wechseln die Pfeiltasten). */

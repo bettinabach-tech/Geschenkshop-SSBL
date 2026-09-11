@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fixture: hidden überstimmt</title>
+    <style>
+      .formular {
+        display: grid;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Fehler: display: grid schlägt «hidden» -->
+    <form id="bestellung" class="formular" hidden>Formular</form>
+    <!-- korrekt: ohne Klasse bleibt «hidden» wirksam -->
+    <p id="ok" hidden>Versteckt</p>
+  </body>
+</html>

@@ -1,11 +1,16 @@
 ---
 // Formular (Aufgabe 009): Rahmen für alle Fabrik-Formulare. Felder kommen in
 // den Standard-Slot (Textfeld, Auswahl, Menge, Haekchen), eine Überschrift in
-// den Slot «kopf», der Danke-Text in den Slot «danke». Prüfung und Versand: src/lib/formular/client.ts.
+// den Slot «kopf», der Danke-Text in den Slot «danke». Prüfung und Versand:
+// src/lib/formular/client.ts.
 // Der Absende-Button ist die Kaufhandlung der Seite und sieht darum wie der
 // Kauf-Button aus (Skill fabrik-design: genau ein primärer Button).
+// Bestellschluss (Aufgabe 022, formular.schluss): Ist er beim Bauen schon
+// erreicht, entsteht gar kein Formular, nur der Hinweis. Sonst prüft der
+// Browser beim Laden und blendet Formular und Mengenfelder aus (client.ts).
 import "../../styles/abschnitte.css";
 import "../../styles/formular.css";
+import { istGeschlossen, schlussHinweis } from "../../lib/formular/schluss";
 import type { Site } from "../../lib/site";
 
 interface Props {
@@ -22,48 +27,60 @@ if (!sendenText?.trim())
 if (!Astro.slots.has("danke")) {
   throw new Error(`Formular «${id}» braucht einen Danke-Text (Slot «danke»).`);
 }
+const { schluss } = site.formular;
+const geschlossen = istGeschlossen(schluss, new Date());
 ---
 
-<form
-  id={id}
-  class="formular"
-  method="post"
-  action={site.formular.endpunkt}
-  novalidate
-  data-formular
-  data-endpunkt={site.formular.endpunkt}
-  data-telefon={site.kontakt.telefon}
-  data-email={site.kontakt.email}
->
-  {/* Slot «kopf»: z.B. Überschrift; verschwindet mit dem Formular. */}
-  <slot name="kopf" />
-  <p class="formular__pflicht">* Pflichtfeld</p>
-  <div
-    id={`${id}-meldung`}
-    class="formular__meldung"
-    role="alert"
-    tabindex="-1"
-    hidden
-  ></div>
-  <slot />
-  {/* Spam-Falle (decisions.md Nr. 9): Menschen sehen und erreichen sie nicht. */}
-  <div class="formular__falle" aria-hidden="true">
-    <label for={`${id}-website`}>Website</label>
-    <input
-      id={`${id}-website`}
-      name="website"
-      type="text"
-      tabindex="-1"
-      autocomplete="off"
-    />
-  </div>
-  <button type="submit" class="kauf-button formular__senden">
-    {sendenText}
-  </button>
-</form>
-<div id={`${id}-danke`} class="formular__danke" tabindex="-1" hidden>
-  <slot name="danke" />
-</div>
+{schluss && (
+  <p id={`${id}-schluss`} class="formular__schluss" hidden={!geschlossen}>
+    {schlussHinweis(schluss)}
+  </p>
+)}
+{!geschlossen && (
+  <>
+    <form
+      id={id}
+      class="formular"
+      method="post"
+      action={site.formular.endpunkt}
+      novalidate
+      data-formular
+      data-endpunkt={site.formular.endpunkt}
+      data-telefon={site.kontakt.telefon}
+      data-email={site.kontakt.email}
+      data-schluss={schluss}
+    >
+      {/* Slot «kopf»: z.B. Überschrift; verschwindet mit dem Formular. */}
+      <slot name="kopf" />
+      <p class="formular__pflicht">* Pflichtfeld</p>
+      <div
+        id={`${id}-meldung`}
+        class="formular__meldung"
+        role="alert"
+        tabindex="-1"
+        hidden
+      />
+      <slot />
+      {/* Spam-Falle (decisions.md Nr. 9): Menschen sehen und erreichen sie nicht. */}
+      <div class="formular__falle" aria-hidden="true">
+        <label for={`${id}-website`}>Website</label>
+        <input
+          id={`${id}-website`}
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+      <button type="submit" class="kauf-button formular__senden">
+        {sendenText}
+      </button>
+    </form>
+    <div id={`${id}-danke`} class="formular__danke" tabindex="-1" hidden>
+      <slot name="danke" />
+    </div>
+  </>
+)}
 
 <script>
   import { verbindeAlle } from "../../lib/formular/client";

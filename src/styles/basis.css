@@ -50,6 +50,12 @@ img {
   height: auto;
 }
 
+/* «hidden» heisst immer unsichtbar — auch wenn eine Klasse display: grid/flex
+   setzt (sonst blieben z.B. Formular, Adresse oder Mengenfelder sichtbar). */
+[hidden] {
+  display: none !important;
+}
+
 /* Text nur für Screenreader (z.B. Produktname beim Mengenfeld) */
 .nur-screenreader {
   position: absolute;

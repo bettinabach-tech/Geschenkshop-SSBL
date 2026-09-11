@@ -3,7 +3,21 @@
 // kaputte Prüfung jede Seite durchwinken.
 import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
-import { HANDY_BREITE, breiteProbleme, fokusProbleme } from "./pruefungen";
+import {
+  HANDY_BREITE,
+  breiteProbleme,
+  fokusProbleme,
+  versteckteProbleme,
+} from "./pruefungen";
+
+test("Selbsttest: «hidden», von display: grid überstimmt, wird gemeldet", async ({
+  page,
+}) => {
+  await page.setContent(fixture("hidden-ueberstimmt.html"));
+  expect(await versteckteProbleme(page)).toEqual([
+    "<form#bestellung> ist trotz «hidden» sichtbar.",
+  ]);
+});
 
 const fixture = (name: string) =>
   readFileSync(new URL(`fixtures/${name}`, import.meta.url), "utf8");

@@ -5,6 +5,7 @@
 // Texte: vom Auftraggeber freigegeben am 11.09.2026.
 // E-Mail- und Telefonformat: regeln.ts (dieselben Regeln wie auf dem Server).
 import { FORMAT_MELDUNG, istEmail, istTelefon } from "./regeln";
+import { istGeschlossen } from "./schluss";
 
 export type Daten = Record<string, unknown>;
 /** Hinweise je Feldname; `_formular` = Hinweis oben am Formular. */
@@ -390,9 +391,33 @@ export function verbinde(
   });
 }
 
+/**
+ * Bestellschluss beim Laden (Aufgabe 022): Ist er erreicht, verschwinden das
+ * Formular und seine Felder ausserhalb des <form> (z.B. Mengen in den
+ * Produktkarten); der Hinweis #<id>-schluss erscheint. true = geschlossen.
+ */
+export function pruefeSchluss(
+  form: HTMLFormElement,
+  jetzt: Date = new Date(),
+): boolean {
+  if (!istGeschlossen(form.dataset.schluss, jetzt)) return false;
+  form.hidden = true;
+  for (const el of Array.from(form.elements)) {
+    if (el instanceof HTMLElement && !form.contains(el)) {
+      const feld = el.closest<HTMLElement>(".feld") ?? el;
+      feld.hidden = true;
+    }
+  }
+  const hinweis = document.getElementById(`${form.id}-schluss`);
+  if (hinweis) hinweis.hidden = false;
+  return true;
+}
+
 /** Verbindet alle Fabrik-Formulare der Seite (aufgerufen von Formular.astro). */
 export function verbindeAlle(): void {
   document
     .querySelectorAll<HTMLFormElement>("form[data-formular]")
-    .forEach((form) => verbinde(form));
+    .forEach((form) => {
+      if (!pruefeSchluss(form)) verbinde(form);
+    });
 }

@@ -10,6 +10,7 @@ import KaufBereich from "../components/KaufBereich.astro";
 import Landingpage from "../components/Landingpage.astro";
 import Nutzen from "../components/Nutzen.astro";
 import Vertrauen from "../components/Vertrauen.astro";
+import { istGeschlossen } from "../lib/formular/schluss";
 import { getSite } from "../lib/sites";
 import Bestellformular from "../sites/geschenkshop-ssbl/Bestellformular.astro";
 import Produktkarten from "../sites/geschenkshop-ssbl/Produktkarten.astro";
@@ -124,7 +125,14 @@ const beispielProdukte = pruefeProdukte([
       mit 020. Da es noch keinen Empfänger gibt, zeigt «Bestellung absenden»
       hier immer den Hinweis für technische Fehler.)
     </p>
-    <Produktkarten produkte={beispielProdukte} formular="bestellung" />
+    <Produktkarten
+      produkte={beispielProdukte}
+      formular={
+        istGeschlossen(site.formular.schluss, new Date())
+          ? undefined
+          : "bestellung"
+      }
+    />
     <Bestellformular slot="aktion" site={site} produkte={beispielProdukte} />
   </KaufBereich>
 </Landingpage>
