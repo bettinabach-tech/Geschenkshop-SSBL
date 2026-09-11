@@ -1,0 +1,65 @@
+---
+// Produktkarten des Geschenkshops (im Kauf-Bereich).
+// Pro Karte: Foto, Name, Beschreibung (falls vorhanden), Preis oder
+// «Preis folgt», verfügbare Stückzahl oder «ausverkauft», bei Wein
+// «Abgabe ab 16 Jahren». Nie erfundene Werte (decisions.md Nr. 6).
+// Mengenfelder für die Bestellung folgen mit Aufgabe 019.
+import "../../styles/produkte.css";
+import Bild from "../../components/Bild.astro";
+import { formatierePreis, produktStatus, type Produkt } from "./produkte";
+
+interface Props {
+  produkte: Produkt[];
+}
+
+const { produkte } = Astro.props;
+
+const karten = produkte.map((produkt) => {
+  const status = produktStatus(produkt);
+  const preis =
+    status !== "preis-folgt" && produkt.preis !== undefined
+      ? formatierePreis(produkt.preis)
+      : "Preis folgt";
+  const stueck =
+    status === "bestellbar"
+      ? `Noch ${produkt.stueck} Stück verfügbar`
+      : status === "ausverkauft"
+        ? "ausverkauft"
+        : undefined;
+  return { produkt, status, preis, stueck };
+});
+---
+
+<ul class="produkte">
+  {karten.map(({ produkt, status, preis, stueck }) => (
+    <li
+      class="produkt"
+      id={`produkt-${produkt.id}`}
+      data-produkt={produkt.id}
+      data-status={status}
+    >
+      <Bild
+        src={produkt.foto}
+        alt={produkt.alt}
+        sizes="(min-width: 36rem) 18rem, 100vw"
+        class="produkt__bild"
+      />
+      <h3 class="produkt__name">{produkt.name}</h3>
+      {produkt.beschreibung && (
+        <p class="produkt__beschreibung">{produkt.beschreibung}</p>
+      )}
+      <p class="produkt__preis">{preis}</p>
+      {stueck && (
+        <p
+          class:list={[
+            "produkt__stueck",
+            { "produkt__stueck--aus": status === "ausverkauft" },
+          ]}
+        >
+          {stueck}
+        </p>
+      )}
+      {produkt.wein && <p class="produkt__hinweis">Abgabe ab 16 Jahren</p>}
+    </li>
+  ))}
+</ul>

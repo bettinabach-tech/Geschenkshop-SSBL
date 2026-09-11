@@ -46,12 +46,12 @@
 - [PASSING] GS-04 Der Nutzen-Abschnitt zeigt genau 3 Punkte: Gutes tun (Unterstützung der SSBL), sinnvolles Geschenk ohne langes Suchen, Geschenk mit echter Geschichte.
 - [PASSING] GS-05 Der Vertrauens-Abschnitt nennt die SSBL-Fakten: Hauptsitz Rathausen (Emmen) und neun weitere Standorte, bis zu 305 Wohnplätze, 80 Arbeitsplätze für Tagesbeschäftigte.
 - [FAILING] GS-06 Der Vertrauens-Abschnitt erzählt die Geschichte der Menschen und Werkstätten hinter den Produkten, mit echtem Foto.
-- [FAILING] GS-07 Alle 5 Produkte erscheinen: Keramik-Pflanzenstecker Kräuter, Anzündholz-Bündel, Keramik-Schalen-Set, Klosterwein Rathausen Divico, Klosterwein Rathausen Souvignier Gris.
+- [PASSING] GS-07 Alle 5 Produkte erscheinen: Keramik-Pflanzenstecker Kräuter, Anzündholz-Bündel, Keramik-Schalen-Set, Klosterwein Rathausen Divico, Klosterwein Rathausen Souvignier Gris.
 - [FAILING] GS-08 Jedes Produkt zeigt Foto, Namen und eine kurze Beschreibung.
 - [FAILING] GS-09 Jedes Produkt zeigt seinen Preis in CHF.
 - [FAILING] GS-10 Jedes Produkt zeigt, wie viele Stück noch verfügbar sind.
-- [FAILING] GS-11 Ein ausverkauftes Produkt bleibt sichtbar, trägt den Hinweis «ausverkauft» und lässt sich nicht bestellen.
-- [FAILING] GS-12 Die beiden Weine tragen den Hinweis «Abgabe ab 16 Jahren».
+- [PASSING] GS-11 Ein ausverkauftes Produkt bleibt sichtbar, trägt den Hinweis «ausverkauft» und lässt sich nicht bestellen.
+- [PASSING] GS-12 Die beiden Weine tragen den Hinweis «Abgabe ab 16 Jahren».
 - [PASSING] GS-13 Bestellschluss (15.12.2026) und Lieferzeit (ca. eine Woche) stehen im Hero.
 - [FAILING] GS-14 Die Seite erklärt die zwei Wege: Abholung im Lädeli in Rathausen (Emmen) oder Versand innerhalb der Schweiz.
 - [FAILING] GS-15 Die Seite erklärt die Zahlung: Twint oder Karte, keine Rechnung; bei Abholung im Lädeli, bei Versand per Zahlungslink nach der Rückmeldung.

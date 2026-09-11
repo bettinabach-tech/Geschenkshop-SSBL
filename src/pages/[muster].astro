@@ -11,12 +11,43 @@ import Landingpage from "../components/Landingpage.astro";
 import Nutzen from "../components/Nutzen.astro";
 import Vertrauen from "../components/Vertrauen.astro";
 import { getSite } from "../lib/sites";
+import Produktkarten from "../sites/geschenkshop-ssbl/Produktkarten.astro";
+import { pruefeProdukte } from "../sites/geschenkshop-ssbl/produkte";
 
 export function getStaticPaths() {
   return import.meta.env.DEV ? [{ params: { muster: "muster" } }] : [];
 }
 
 const site = getSite("geschenkshop-ssbl");
+
+// BEISPIELWERTE nur für die Sichtprüfung der Kartenzustände — keine echten
+// Preise. Die echten stehen in produkte.yaml (Aufgabe 026).
+const beispielProdukte = pruefeProdukte([
+  {
+    id: "beispiel-bestellbar",
+    name: "Beispiel: bestellbar",
+    foto: "assets/products/keramik-schalen-set.jpg",
+    alt: "Drei Keramikschalen in Rosa, Blau und Rot mit eingeritzten Mustern",
+    beschreibung: "Beispieltext für eine Beschreibung (kommt mit Aufgabe 014).",
+    preis: 24.5,
+    stueck: 3,
+  },
+  {
+    id: "beispiel-ausverkauft",
+    name: "Beispiel: ausverkauft",
+    foto: "assets/products/anzuendholz-buendel.jpg",
+    alt: "Bündel aus hellem, gespaltenem Anzündholz, mit Hanfschnur zusammengebunden",
+    preis: 12,
+    stueck: 0,
+  },
+  {
+    id: "beispiel-wein",
+    name: "Beispiel: Wein, Preis folgt",
+    foto: "assets/products/klosterwein-divico.jpg",
+    alt: "Weinflasche «Klosterwein Rathausen Divico 2023», die Etikette zeigt eine gemalte blaue Traube",
+    wein: true,
+  },
+]);
 ---
 
 <Landingpage site={site}>
@@ -76,6 +107,10 @@ const site = getSite("geschenkshop-ssbl");
     />
   </Vertrauen>
   <KaufBereich slot="kauf" ueberschrift="Jetzt bestellen">
-    <p>(Muster: Hier folgen Produkte und Bestellformular, Aufgaben 016–020.)</p>
+    <p>
+      (Muster: Kartenzustände mit Beispielwerten — keine echten Preise. Das
+      Bestellformular folgt mit den Aufgaben 017–020.)
+    </p>
+    <Produktkarten produkte={beispielProdukte} />
   </KaufBereich>
 </Landingpage>

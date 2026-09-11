@@ -71,6 +71,26 @@ export const produktListeSchema = z
 
 export type Produkt = z.output<typeof produktSchema>;
 
+/**
+ * Zustand eines Produkts für Anzeige und Bestellung (decisions.md Nr. 6):
+ * - «preis-folgt»: Preis oder Stückzahl fehlen noch → nicht bestellbar
+ * - «ausverkauft»: stueck 0 → sichtbar, nicht bestellbar
+ * - «bestellbar»: Preis und Stückzahl ≥ 1 vorhanden
+ */
+export type ProduktStatus = "preis-folgt" | "ausverkauft" | "bestellbar";
+
+export function produktStatus(produkt: Produkt): ProduktStatus {
+  if (produkt.preis === undefined || produkt.stueck === undefined) {
+    return "preis-folgt";
+  }
+  return produkt.stueck === 0 ? "ausverkauft" : "bestellbar";
+}
+
+/** Preis in Franken mit zwei Stellen: 24.5 → «CHF 24.50». */
+export function formatierePreis(preis: number): string {
+  return `CHF ${preis.toFixed(2)}`;
+}
+
 /** Prüft bereits gelesene Daten; wirft mit Produkt und Feld in der Meldung. */
 export function pruefeProdukte(daten: unknown): Produkt[] {
   const ergebnis = produktListeSchema.safeParse(daten);

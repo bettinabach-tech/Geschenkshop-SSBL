@@ -1,0 +1,60 @@
+/* produkte.css — Produktkarten im Kauf-Bereich.
+   Nur Farben aus der Skill; die Primärfarbe bleibt dem Kauf-Button und den
+   Überschriften vorbehalten (nicht für «ausverkauft»). */
+
+.produkte {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.produkt {
+  display: flex;
+  flex-direction: column;
+}
+
+.produkt__bild {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.produkt__name {
+  font-size: 1.125rem;
+  margin-block: 0.75rem 0.25rem;
+}
+
+.produkt__beschreibung,
+.produkt__preis,
+.produkt__stueck,
+.produkt__hinweis {
+  margin-block: 0 0.25rem;
+}
+
+.produkt__preis {
+  font-weight: 600;
+}
+
+/* «ausverkauft»: Textfarbe, als Rahmen-Etikett gut erkennbar */
+.produkt__stueck--aus {
+  align-self: flex-start;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--farbe-text);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Ausverkaufte Produkte: Foto in Graustufen (Text bleibt voll lesbar) */
+.produkt[data-status="ausverkauft"] .produkt__bild {
+  filter: grayscale(1);
+}
+
+.produkt__hinweis {
+  font-size: 0.9375rem;
+}

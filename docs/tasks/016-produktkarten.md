@@ -3,7 +3,7 @@ id: 016
 title: "Produktkarten im Kauf-Bereich anzeigen"
 depends_on: [012, 015]
 features: [GS-07, GS-11, GS-12]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/produktkarten.test.ts"
