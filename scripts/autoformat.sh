@@ -2,7 +2,7 @@
 # autoformat.sh — PostToolUse-Hook (Edit|Write). Formatiert die bearbeitete
 # Datei. Still bei Erfolg. Liest den Dateipfad aus dem Hook-JSON auf stdin
 # (.tool_input.file_path); alternativ als Argument.
-# Der Initializer ergänzt die Formatter (prettier etc.), sobald der Stack feststeht.
+# Stack: Astro/TypeScript — Formatter ist prettier (+ prettier-plugin-astro).
 # Bewusst KEIN npx: npx lädt einen fehlenden Formatter ungefragt aus dem Netz —
 # bei jeder Dateiänderung, unsichtbar und langsam. Das lokale Binary aufrufen;
 # fehlt es, wird eben nicht formatiert.
@@ -16,7 +16,7 @@ if [ -z "$f" ] && [ ! -t 0 ]; then
 fi
 [ -n "$f" ] || exit 0
 case "$f" in
-  *.ts|*.tsx|*.js|*.mjs|*.astro|*.css|*.json)
+  *.ts|*.tsx|*.js|*.mjs|*.cjs|*.astro|*.css|*.json|*.yaml|*.yml)
     [ -x node_modules/.bin/prettier ] \
       && node_modules/.bin/prettier --write "$f" >/dev/null 2>&1 || true ;;
 esac

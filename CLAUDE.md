@@ -10,7 +10,10 @@
   Runden = deine Antworten an dieser Aufgabe, Tokens = grobe Schätzung des
   Verbrauchs. Ohne sie steht in metrics.csv nur ein Strich, und das
   Meilenstein-Review (KURSANLEITUNG, Schritt 5) hat keine Zahlen.
-- (weitere Befehle trägt der Initializer ein — z.B. dev, build, new)
+- `npm run dev` (Vorschau) · `npm run build` (nach dist/) · `npm test` ·
+  `npm run new -- <slug>` (neue Seite aus docs/briefs/<slug>.md)
+- `./scripts/verify.sh --quick` (Commit-Hook) · `--deep` (Browser, Lighthouse, audit)
+- `./scripts/next-tasks.sh` — bereite Aufgaben
 
 ## Nicht-offensichtliche Konventionen
 
@@ -20,6 +23,16 @@
   Rechtliches) stellst du IMMER, bevor du rätst.
 - Keine externen Dienste (Formular, Analytics) ohne Eintrag in decisions.md
   mit Kosten und Datenschutz-Folge.
+- Stack: Astro + TypeScript, Tests mit Vitest (.astro über astro/container).
+  Seiten: `src/sites/<slug>/` (Einstellungen) + `src/pages/<slug>/`.
+- Stile nur als globale CSS-Dateien in `src/styles/` (keine scoped
+  `<style>`), damit Tests sie lesen können.
+- Feature auf [PASSING] nur, wenn ein Test in tests/ seine ID nennt
+  (verify-Stufe "features"). Browser-Tests: `tests/browser/*.spec.ts`.
+- `status: blocked` = wartet auf Auftraggeber/IT (Grund im Kontext der
+  Aufgabe); erst nach Lieferung auf `todo` setzen.
+- `.env` existiert ggf. lokal, ist in .gitignore und wird NIE gelesen oder
+  zitiert. Variablennamen stehen in `.env.example`.
 
 ## Bekannte Fallen
 

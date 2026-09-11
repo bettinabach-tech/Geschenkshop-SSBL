@@ -1,0 +1,10 @@
+# Nur Code formatieren; Doku, Briefe und Zustandsdateien schreibt der Mensch/Agent von Hand.
+dist/
+.astro/
+node_modules/
+docs/
+assets/
+*.md
+package-lock.json
+.claude/
+.mcp.json
