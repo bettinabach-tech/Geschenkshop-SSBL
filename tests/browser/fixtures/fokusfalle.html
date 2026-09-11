@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fixture: Fokusfalle</title>
+    <style>
+      :focus-visible {
+        outline: 3px solid #1a1a1a;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#eins" id="eins">Erster Link</a>
+    <a href="#zwei" id="zwei">Zweiter Link</a>
+    <button type="button">Bestellen</button>
+    <script>
+      // Tab auf dem zweiten Link springt zurück zum ersten: der Knopf
+      // dahinter ist per Tastatur nie erreichbar.
+      document.getElementById("zwei").addEventListener("keydown", (e) => {
+        if (e.key === "Tab" && !e.shiftKey) {
+          e.preventDefault();
+          document.getElementById("eins").focus();
+        }
+      });
+    </script>
+  </body>
+</html>

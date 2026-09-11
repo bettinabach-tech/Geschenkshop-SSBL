@@ -47,6 +47,8 @@
   (`foto.width`) — Masse nur über `masse()` aus src/lib/fotos.ts.
 - Prettier schreibt Hex-Farben in CSS klein (#005ca9) — Farbtests ohne
   Rücksicht auf Gross-/Kleinschreibung vergleichen.
+- `astro preview` geht unter Claude von selbst in den Hintergrund und endet
+  sofort (Prozess bleibt liegen) → für Tests `node scripts/serve-dist.mjs <port>`.
 - Zod v4: `.regex()` bricht die Prüfkette nicht ab; ein folgendes `.refine()`
   läuft auch bei falschem Format → `{ abort: true }` setzen.
 

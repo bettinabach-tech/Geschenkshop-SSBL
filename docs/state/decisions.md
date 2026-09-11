@@ -260,3 +260,23 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Kosten / Datenschutz:** Keine Kosten. Beim Start lädt npm das Werkzeug
   einmalig herunter; danach läuft alles auf Ihrem Rechner. Die Besucher der
   Seite merken davon nichts — es ist nur ein Werkzeug für die Entwicklung.
+
+### 25. Browser-Prüfungen mit dem installierten Edge (Aufgabe 004)
+- **Was:** `./scripts/verify.sh --deep` öffnet jede fertige Seite in Microsoft
+  Edge (unsichtbar im Hintergrund) und prüft: Handy-Breite 375 px ohne
+  seitliches Scrollen, alles per Tab-Taste erreichbar mit sichtbarem Rahmen,
+  Barrierefreiheit (Werkzeug «axe»), Google-Lighthouse (Handy) mit mindestens
+  90 Punkten je Bereich, und ob Links auf fremde Seiten funktionieren.
+  Werkzeuge: Playwright, axe-core, Lighthouse — alle kostenlos, nur auf Ihrem
+  Rechner, gehören nicht zur Seite.
+- **Warum Edge:** Er ist auf allen SSBL-Rechnern schon installiert; so muss
+  kein zusätzlicher Browser (ca. 150 MB) heruntergeladen werden.
+- **Lighthouse-Schwelle:** fest 90, wird nie gesenkt. Jede Seite wird 3-mal
+  gemessen, es zählt der mittlere Wert — so kippt die Prüfung nicht wegen
+  eines zufällig langsamen Moments. Stand heute: 100 in allen vier Bereichen.
+- **Selbsttest:** Absichtlich fehlerhafte Testseiten (zu breit, ohne
+  Fokusrahmen, mit Tastatur-Falle) müssen durchfallen. So ist bewiesen, dass
+  die Prüfung Fehler wirklich findet.
+- **Internet:** Nur der Link-Test fragt fremde Adressen ab, die auf der Seite
+  verlinkt sind (heute: keine). Das macht das Prüfprogramm, nicht Claude.
+- **Folge für Sie:** `--deep` dauert jetzt ca. 1,5 Minuten. Keine Kosten.

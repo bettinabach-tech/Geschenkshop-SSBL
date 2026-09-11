@@ -25,3 +25,7 @@ __pycache__/
 
 # Office-Sperrdateien
 ~$*
+
+# Playwright (Browser-Prüfungen, Aufgabe 004)
+test-results/
+playwright-report/

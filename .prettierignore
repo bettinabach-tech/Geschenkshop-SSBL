@@ -8,3 +8,5 @@ assets/
 package-lock.json
 .claude/
 .mcp.json
+test-results/
+playwright-report/

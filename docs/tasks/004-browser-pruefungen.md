@@ -3,7 +3,7 @@ id: 004
 title: "Browser-Prüfungen für verify --deep einrichten"
 depends_on: []
 features: []
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "./scripts/verify.sh --deep"
