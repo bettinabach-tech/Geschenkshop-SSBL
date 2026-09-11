@@ -189,3 +189,16 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Folge für Sie:** Blau auf Weiss hat einen Kontrast von 6.77:1, also gut
   lesbar. Wählt eine andere Seite eine eigene Hauptfarbe, werden auch ihre
   Überschriften in dieser Farbe gezeigt; zu helle Farben lehnt die Prüfung ab.
+
+### 19. Tippfehler in der Produktliste stoppen die Veröffentlichung
+- **Was:** Die Produktliste wird bei jedem Bauen geprüft (Preis grösser als 0,
+  mit Punkt und höchstens zwei Stellen danach; Stückzahl ganze Zahl ab 0; Foto
+  vorhanden). Findet die Prüfung einen Fehler, wird nicht veröffentlicht, und
+  die Meldung nennt Produkt und Feld, z.B. «Produkt anzuendholz-buendel, Feld
+  preis: muss eine Zahl sein, z.B. 24.50 (mit Punkt)». Zum Lesen der Liste
+  dient das kostenlose Werkzeug «yaml».
+- **Warum:** Lieber keine neue Seite als eine mit falschem Preis oder
+  negativer Stückzahl.
+- **Folge für Sie:** Nach einer Änderung auf GitHub kurz prüfen, ob die neue
+  Zahl auf der Seite erscheint. Wenn nicht, zeigt der Anbieter die
+  Fehlermeldung (wo genau, klärt sich mit Aufgabe 027).

@@ -1,0 +1,68 @@
+# Produktliste des Geschenkshops
+#
+# SO ÄNDERN SIE DIE STÜCKZAHL (oder den Preis) AUF GITHUB:
+#   1. Diese Datei auf github.com öffnen.
+#   2. Oben rechts auf das Stift-Symbol klicken («Edit this file»).
+#   3. Beim Produkt die Zahl hinter «stueck:» ändern, z.B. «stueck: 12».
+#   4. Oben rechts auf «Commit changes» klicken und nochmals bestätigen.
+#   Die Seite zeigt die neue Zahl, sobald sie neu veröffentlicht ist
+#   (meist nach wenigen Minuten).
+#
+# REGELN:
+#   - stueck: 0 bedeutet «ausverkauft». Das Produkt bleibt sichtbar, ist aber
+#     nicht bestellbar. Nur ganze Zahlen (keine Kommas).
+#   - preis: in Franken, mit PUNKT geschrieben: 24.50 (nicht 24,50).
+#     Höchstens zwei Stellen nach dem Punkt.
+#   - Ist preis oder stueck leer, zeigt die Seite «Preis folgt» und das
+#     Produkt ist nicht bestellbar.
+#   - Die Einrückung (Leerzeichen am Zeilenanfang) nicht verändern.
+#   - Enthält die Datei einen Fehler, wird die Seite NICHT veröffentlicht; die
+#     Fehlermeldung nennt Produkt und Feld. Bei den üblichen Anbietern bleibt
+#     die bisherige Seite so lange online.
+#
+# Felder, die nur die Fabrik ändert: id, foto, alt, wein.
+
+- id: keramik-pflanzenstecker-kraeuter
+  name: Keramik-Pflanzenstecker Kräuter
+  foto: assets/products/keramik-pflanzenstecker-kraeuter.jpg
+  alt: Fünf Pflanzenstecker aus heller Keramik mit türkis glasierten, gemusterten Spitzen, beschriftet mit Basilikum, Rosmarin, Schnittlauch und Oregano
+  wein: false
+  beschreibung:
+  preis:
+  stueck:
+
+- id: anzuendholz-buendel
+  name: Anzündholz-Bündel
+  foto: assets/products/anzuendholz-buendel.jpg
+  alt: Bündel aus hellem, gespaltenem Anzündholz, mit Hanfschnur zusammengebunden
+  wein: false
+  beschreibung:
+  preis:
+  stueck:
+
+- id: keramik-schalen-set
+  name: Keramik-Schalen-Set
+  foto: assets/products/keramik-schalen-set.jpg
+  alt: Drei Keramikschalen in Rosa, Blau und Rot mit eingeritzten Mustern
+  wein: false
+  beschreibung:
+  preis:
+  stueck:
+
+- id: klosterwein-divico
+  name: Klosterwein Rathausen Divico
+  foto: assets/products/klosterwein-divico.jpg
+  alt: Weinflasche «Klosterwein Rathausen Divico 2023», die Etikette zeigt eine gemalte blaue Traube
+  wein: true
+  beschreibung:
+  preis:
+  stueck:
+
+- id: klosterwein-souvignier-gris
+  name: Klosterwein Rathausen Souvignier Gris
+  foto: assets/products/klosterwein-souvignier-gris.jpg
+  alt: Weinflasche «Klosterwein Rathausen Souvignier Gris 2023», die Etikette zeigt eine gemalte Kirche über Rebbergen
+  wein: true
+  beschreibung:
+  preis:
+  stueck:

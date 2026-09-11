@@ -3,7 +3,7 @@ id: 012
 title: "Produktliste als bearbeitbare Datei mit Prüfung anlegen"
 depends_on: [001]
 features: []
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/produkte.test.ts"

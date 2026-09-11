@@ -2,6 +2,8 @@
 // Seite «Geschenkshop SSBL». Abschnitte folgen mit den Aufgaben 005–016.
 import Seite from "../../layouts/Seite.astro";
 import { getSite } from "../../lib/sites";
+// Prüft die Produktliste schon beim Bauen (Anzeige folgt mit Aufgabe 016).
+import "../../sites/geschenkshop-ssbl/produkte";
 
 const site = getSite("geschenkshop-ssbl");
 ---
