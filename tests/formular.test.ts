@@ -1,11 +1,8 @@
 // Formular-Bausteine mit Prüfung am Feld (Aufgabe 009, F-26 bis F-30).
 // Das HTML kommt aus den echten Bausteinen (tests/fixtures/FormularMuster.astro);
 // fetch wird im Test ersetzt.
-// Browser-Umgebung: happy-dom, aber erst NACH dem Rendern — in einer
-// vollständigen DOM-Umgebung (@vitest-environment) erkennt der Astro-Container
-// seine Bausteine nicht mehr.
+// Browser-Umgebung: tests/hilfen/dom.ts (erst NACH dem Rendern).
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { Window } from "happy-dom";
 import { readFileSync } from "node:fs";
 import {
   afterEach,
@@ -19,6 +16,7 @@ import {
 import { MELDUNG, verbinde, type Zusatz } from "../src/lib/formular/client";
 import { defineSite } from "../src/lib/site";
 import FormularMuster from "./fixtures/FormularMuster.astro";
+import { richteDomEin } from "./hilfen/dom";
 
 const TELEFON = "041 123 45 67";
 const EMAIL = "laedeli@example.ch";
@@ -35,25 +33,7 @@ let html: string;
 beforeAll(async () => {
   const container = await AstroContainer.create();
   html = await container.renderToString(FormularMuster, { props: { site } });
-  const fenster = new Window({ url: "http://localhost/" });
-  const namen = [
-    "document",
-    "Event",
-    "Node",
-    "HTMLElement",
-    "HTMLFormElement",
-    "HTMLInputElement",
-    "HTMLButtonElement",
-    "HTMLAnchorElement",
-    "HTMLParagraphElement",
-  ] as const;
-  for (const name of namen) {
-    Object.defineProperty(globalThis, name, {
-      value: fenster[name],
-      configurable: true,
-      writable: true,
-    });
-  }
+  richteDomEin();
 });
 
 let form: HTMLFormElement;

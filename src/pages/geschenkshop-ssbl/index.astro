@@ -1,7 +1,7 @@
 ---
 // Seite «Geschenkshop SSBL» (Brief: docs/briefs/geschenkshop-ssbl.md).
 // Texte vom Auftraggeber freigegeben am 11.09.2026 (Aufgabe 015).
-// Noch offen: Formular im Kauf-Bereich (017–020),
+// Bestellformular: Aufgabe 019. Noch offen: Adresse/Alter (020), Hinweise (017),
 // Werkstatt-Geschichte + Foto im Vertrauens-Abschnitt (025).
 import Bild from "../../components/Bild.astro";
 import Hero from "../../components/Hero.astro";
@@ -10,6 +10,7 @@ import Landingpage from "../../components/Landingpage.astro";
 import Nutzen from "../../components/Nutzen.astro";
 import Vertrauen from "../../components/Vertrauen.astro";
 import { getSite } from "../../lib/sites";
+import Bestellformular from "../../sites/geschenkshop-ssbl/Bestellformular.astro";
 import Produktkarten from "../../sites/geschenkshop-ssbl/Produktkarten.astro";
 import { produkte } from "../../sites/geschenkshop-ssbl/produkte";
 
@@ -72,6 +73,7 @@ const BILDBREITE = "(min-width: 48rem) 36rem, 100vw";
   </Vertrauen>
 
   <KaufBereich slot="kauf" ueberschrift="Geschenke auswählen und bestellen">
-    <Produktkarten produkte={produkte} />
+    <Produktkarten produkte={produkte} formular="bestellung" />
+    <Bestellformular slot="aktion" site={site} produkte={produkte} />
   </KaufBereich>
 </Landingpage>

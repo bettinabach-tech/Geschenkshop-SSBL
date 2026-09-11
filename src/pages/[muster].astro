@@ -5,17 +5,13 @@
 // Kauf-Bereich, Footer), bevor die echte Seite (Aufgabe 015) sie verwendet.
 // Texte sind Muster, nicht endgültig.
 import Bild from "../components/Bild.astro";
-import Auswahl from "../components/formular/Auswahl.astro";
-import Formular from "../components/formular/Formular.astro";
-import Haekchen from "../components/formular/Haekchen.astro";
-import Menge from "../components/formular/Menge.astro";
-import Textfeld from "../components/formular/Textfeld.astro";
 import Hero from "../components/Hero.astro";
 import KaufBereich from "../components/KaufBereich.astro";
 import Landingpage from "../components/Landingpage.astro";
 import Nutzen from "../components/Nutzen.astro";
 import Vertrauen from "../components/Vertrauen.astro";
 import { getSite } from "../lib/sites";
+import Bestellformular from "../sites/geschenkshop-ssbl/Bestellformular.astro";
 import Produktkarten from "../sites/geschenkshop-ssbl/Produktkarten.astro";
 import { pruefeProdukte } from "../sites/geschenkshop-ssbl/produkte";
 
@@ -114,34 +110,11 @@ const beispielProdukte = pruefeProdukte([
   <KaufBereich slot="kauf" ueberschrift="Jetzt bestellen">
     <p>
       (Muster: Kartenzustände mit Beispielwerten — keine echten Preise. Das
-      Bestellformular folgt mit den Aufgaben 017–020.)
+      echte Bestellformular (Aufgabe 019) ist unten; Adresse und Alter folgen
+      mit 020. Da es noch keinen Empfänger gibt, zeigt «Bestellung absenden»
+      hier immer den Hinweis für technische Fehler.)
     </p>
-    <Produktkarten produkte={beispielProdukte} />
-    <Formular slot="aktion" site={site} id="muster" sendenText="Absenden">
-      <p>
-        (Muster der Formular-Bausteine, Aufgabe 009. Die echten Felder folgen
-        mit 019/020. Da es noch keinen Empfänger gibt, zeigt «Absenden» hier
-        immer den Hinweis für technische Fehler.)
-      </p>
-      <Textfeld name="name" label="Name" pflicht />
-      <Textfeld name="email" label="E-Mail" typ="email" pflicht />
-      <Textfeld name="telefon" label="Telefon" typ="tel" pflicht />
-      <Auswahl
-        name="weg"
-        legende="Lieferung oder Abholung"
-        optionen={[
-          { wert: "lieferung", text: "Lieferung" },
-          { wert: "abholung", text: "Abholung im Lädeli" },
-        ]}
-        pflicht
-      />
-      <Menge name="menge-muster" label="Menge (0 bis 5)" max={5} />
-      <Haekchen
-        name="alter16"
-        label="Ich bin mindestens 16 Jahre alt"
-        pflicht
-      />
-      <p slot="danke">Danke! (Muster-Text)</p>
-    </Formular>
+    <Produktkarten produkte={beispielProdukte} formular="bestellung" />
+    <Bestellformular slot="aktion" site={site} produkte={beispielProdukte} />
   </KaufBereich>
 </Landingpage>

@@ -1,0 +1,17 @@
+---
+// Kauf-Bereich mit Produktkarten (Mengenfelder) und Bestellformular, wie auf
+// der Shop-Seite — für tests/bestellformular.test.ts.
+import type { Site } from "../../src/lib/site";
+import Bestellformular from "../../src/sites/geschenkshop-ssbl/Bestellformular.astro";
+import Produktkarten from "../../src/sites/geschenkshop-ssbl/Produktkarten.astro";
+import type { Produkt } from "../../src/sites/geschenkshop-ssbl/produkte";
+
+interface Props {
+  site: Site;
+  produkte: Produkt[];
+}
+const { site, produkte } = Astro.props;
+---
+
+<Produktkarten produkte={produkte} formular="bestellung" />
+<Bestellformular site={site} produkte={produkte} />

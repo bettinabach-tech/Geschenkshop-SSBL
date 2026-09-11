@@ -329,3 +329,20 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Folge für Sie:** Keine. Leere Felder zeigen im Browser den allgemeinen
   Hinweis «Bitte füllen Sie dieses Feld aus.». Die genaueren Texte («Bitte
   geben Sie Ihren Vornamen an.») erscheinen, wenn der Server etwas ablehnt.
+
+### 29. Bestellformular auf der Shop-Seite (Aufgabe 019)
+- **Was:** Jedes bestellbare Produkt hat in seiner Karte ein Feld «Menge»
+  (0 bis zur verfügbaren Stückzahl). Darunter folgt «Ihre Angaben»: Name,
+  Vorname, E-Mail, Telefon, Lieferung per Post oder Abholung im Lädeli,
+  Twint oder Karte, dann der Button «Bestellung absenden». Danach erscheint
+  «Vielen Dank für Ihre Bestellung!» mit dem Hinweis auf die Bestätigung per
+  E-Mail und die Rückmeldung innert 2 Arbeitstagen. Texte: Ihre Freigabe vom
+  11.09.2026.
+- **Warum Mengen in den Karten:** Man sieht Foto, Preis und Vorrat direkt
+  neben dem Feld und kann mehrere Geschenke in einer Bestellung wählen.
+- **Folge für Sie:** Solange überall «Preis folgt» steht, hat die Shop-Seite
+  noch keine Mengenfelder und das Absenden meldet «Bitte wählen Sie
+  mindestens ein Geschenk aus.». Sobald Preise und Stückzahlen eingetragen
+  sind (Aufgabe 026), erscheinen die Felder von selbst. Adresse und
+  Altersbestätigung für Wein folgen mit Aufgabe 020; vorher ist die Seite
+  nicht bereit für echte Bestellungen.

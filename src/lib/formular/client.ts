@@ -30,7 +30,11 @@ const FALLE = "website";
 type Eingabe = HTMLInputElement;
 
 // Zusatzprüfungen je Formular-id; Seiten melden sie mit setzeZusatz() an.
-const zusaetze = new Map<string, Zusatz>();
+// Über globalThis geteilt: Landet dieses Modul in zwei Skript-Bündeln, sehen
+// trotzdem beide dieselbe Liste.
+const zusaetze = ((globalThis as Record<symbol, unknown>)[
+  Symbol.for("fabrik.formular.zusaetze")
+] ??= new Map<string, Zusatz>()) as Map<string, Zusatz>;
 
 /** Meldet die Zusatzprüfung einer Seite für das Formular mit dieser id an. */
 export function setzeZusatz(formularId: string, zusatz: Zusatz): void {
@@ -114,6 +118,20 @@ function pruefeFeld(elemente: Eingabe[]): string | null {
   return null;
 }
 
+/** Felder mit data-gruppe, nach Gruppe (z.B. «mengen» → alle Mengenfelder). */
+function gruppen(alle: Map<string, Eingabe[]>): Map<string, Eingabe[]> {
+  const nachGruppe = new Map<string, Eingabe[]>();
+  for (const elemente of alle.values()) {
+    const gruppe = elemente[0].dataset.gruppe;
+    if (!gruppe) continue;
+    nachGruppe.set(gruppe, [...(nachGruppe.get(gruppe) ?? []), ...elemente]);
+  }
+  return nachGruppe;
+}
+
+const eigenerHinweisSichtbar = (el: Eingabe) =>
+  document.getElementById(`${el.name}-fehler`)?.hidden === false;
+
 /** Hinweis am Feld zeigen (meldung) oder entfernen (null). Gibt false zurück,
  *  wenn es für diesen Namen keinen Platz für einen Hinweis gibt. */
 function zeige(
@@ -122,20 +140,42 @@ function zeige(
   meldung: string | null,
 ): boolean {
   const kasten = document.getElementById(`${name}-fehler`);
-  const elemente = felder(form).get(name) ?? [];
-  // Bei Radio-Gruppen trägt die Gruppe den Fehlerzustand, sonst das Feld.
-  const ziel =
-    elemente[0]?.type === "radio"
-      ? elemente[0].closest("fieldset")
-      : elemente[0];
-  if (ziel) {
-    if (meldung) ziel.setAttribute("aria-invalid", "true");
-    else ziel.removeAttribute("aria-invalid");
+  const alle = felder(form);
+  const eigene = alle.get(name);
+  if (eigene) {
+    // Bei Radio-Gruppen trägt die Gruppe den Fehlerzustand, sonst das Feld.
+    const ziel =
+      eigene[0].type === "radio" ? eigene[0].closest("fieldset") : eigene[0];
+    if (meldung) ziel?.setAttribute("aria-invalid", "true");
+    else ziel?.removeAttribute("aria-invalid");
+  } else {
+    // Hinweis für eine ganze Gruppe (z.B. «mengen»): alle Felder markieren;
+    // beim Entfernen nur die ohne eigenen Hinweis zurücksetzen.
+    for (const el of gruppen(alle).get(name) ?? []) {
+      if (meldung) el.setAttribute("aria-invalid", "true");
+      else if (!eigenerHinweisSichtbar(el)) el.removeAttribute("aria-invalid");
+    }
   }
   if (!kasten) return false;
   kasten.textContent = meldung ?? "";
   kasten.hidden = !meldung;
   return true;
+}
+
+/** Alle Hinweise zeigen bzw. entfernen: an Feldern, an Gruppen, Rest oben. */
+function zeigeAlle(form: HTMLFormElement, fehler: Fehler): void {
+  const alle = felder(form);
+  for (const name of alle.keys()) zeige(form, name, fehler[name] ?? null);
+  const nachGruppe = gruppen(alle);
+  for (const gruppe of nachGruppe.keys()) {
+    zeige(form, gruppe, fehler[gruppe] ?? null);
+  }
+  const oben: string[] = [];
+  for (const [name, meldung] of Object.entries(fehler)) {
+    if (alle.has(name) || nachGruppe.has(name)) continue;
+    if (!zeige(form, name, meldung)) oben.push(meldung);
+  }
+  zeigeOben(form, oben.length ? oben.map((m) => absatz(m)) : null);
 }
 
 function zeigeOben(form: HTMLFormElement, inhalt: Node[] | null): void {
@@ -161,24 +201,8 @@ export function pruefeAlle(form: HTMLFormElement, zusatz?: Zusatz): Fehler {
   for (const [name, meldung] of Object.entries(extra)) {
     fehler[name] ??= meldung;
   }
-  for (const name of alle.keys()) zeige(form, name, fehler[name] ?? null);
-  zeigeFehlerOhneFeld(form, fehler, alle);
+  zeigeAlle(form, fehler);
   return fehler;
-}
-
-/** Hinweise ohne eigenes Feld (z.B. `mengen`, `_formular`): an ihren Kasten,
- *  falls es einen gibt, sonst oben ans Formular. */
-function zeigeFehlerOhneFeld(
-  form: HTMLFormElement,
-  fehler: Fehler,
-  alle = felder(form),
-): void {
-  const oben: string[] = [];
-  for (const [name, meldung] of Object.entries(fehler)) {
-    if (alle.has(name)) continue;
-    if (!zeige(form, name, meldung)) oben.push(meldung);
-  }
-  zeigeOben(form, oben.length ? oben.map((m) => absatz(m)) : null);
 }
 
 function absatz(text: string): HTMLParagraphElement {
@@ -189,7 +213,8 @@ function absatz(text: string): HTMLParagraphElement {
 
 function fokusAufErstes(form: HTMLFormElement, fehler: Fehler): void {
   for (const [name, elemente] of felder(form)) {
-    if (!fehler[name]) continue;
+    const gruppe = elemente[0].dataset.gruppe;
+    if (!fehler[name] && !(gruppe && fehler[gruppe])) continue;
     (elemente.find((e) => e.checked) ?? elemente[0]).focus();
     return;
   }
@@ -254,9 +279,7 @@ async function werteAus(form: HTMLFormElement, antwort: Response) {
     } | null;
     if (json?.fehler && typeof json.fehler === "object") {
       const fehler = json.fehler as Fehler;
-      const alle = felder(form);
-      for (const name of alle.keys()) zeige(form, name, fehler[name] ?? null);
-      zeigeFehlerOhneFeld(form, fehler, alle);
+      zeigeAlle(form, fehler);
       fokusAufErstes(form, fehler);
       return false;
     }
@@ -276,23 +299,34 @@ export function verbinde(
 
   // Beim Verlassen eines Feldes: nur dieses Feld prüfen und seinen Hinweis
   // zeigen. Ist ein Hinweis sichtbar, verschwindet er, sobald die Eingabe passt.
+  // Ein sichtbarer Gruppen-Hinweis (z.B. «mengen») wird dabei nur entfernt
+  // oder angepasst, nie neu gezeigt — sonst erschiene er schon beim Durchtabben.
   const pruefeEines = (name: string) => {
     const elemente = felder(form).get(name);
     if (!elemente) return;
     const extra = zusatzVon(form, optionen.pruefeZusatz)?.(sammle(form)) ?? {};
     zeige(form, name, pruefeFeld(elemente) ?? extra[name] ?? null);
-  };
-  for (const [name, elemente] of felder(form)) {
-    if (name === FALLE) continue;
-    for (const el of elemente) {
-      el.addEventListener("blur", () => pruefeEines(name));
-      const nachkorrektur = () => {
-        const ziel = el.type === "radio" ? el.closest("fieldset") : el;
-        if (ziel?.getAttribute("aria-invalid") === "true") pruefeEines(name);
-      };
-      el.addEventListener("input", nachkorrektur);
-      el.addEventListener("change", nachkorrektur);
+    const gruppe = elemente[0].dataset.gruppe;
+    if (
+      gruppe &&
+      document.getElementById(`${gruppe}-fehler`)?.hidden === false
+    ) {
+      zeige(form, gruppe, extra[gruppe] ?? null);
     }
+  };
+  // Auch an Feldern, die jetzt noch ausgeblendet sind (z.B. Adresse, 020).
+  for (const el of Array.from(form.elements)) {
+    if (!(el instanceof HTMLInputElement) || !el.name || el.name === FALLE) {
+      continue;
+    }
+    const name = el.name;
+    el.addEventListener("blur", () => pruefeEines(name));
+    const nachkorrektur = () => {
+      const ziel = el.type === "radio" ? el.closest("fieldset") : el;
+      if (ziel?.getAttribute("aria-invalid") === "true") pruefeEines(name);
+    };
+    el.addEventListener("input", nachkorrektur);
+    el.addEventListener("change", nachkorrektur);
   }
 
   form.addEventListener("submit", async (ereignis) => {

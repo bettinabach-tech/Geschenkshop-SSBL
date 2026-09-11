@@ -3,7 +3,7 @@ id: 019
 title: "Bestellformular mit Mengen, Kontakt und Zahlungsart bauen"
 depends_on: [009, 016, 018]
 features: [GS-17, GS-18, GS-19, GS-20, GS-21, GS-22, GS-23, GS-29, GS-34]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/bestellformular.test.ts"

@@ -141,3 +141,9 @@
 .feld__fehler::before {
   content: "⚠ " / "";
 }
+
+/* Überschrift im Formular (Slot «kopf») */
+.formular__titel {
+  font-size: 1.25rem;
+  margin: 0;
+}

@@ -56,24 +56,24 @@
 - [FAILING] GS-14 Die Seite erklärt die zwei Wege: Abholung im Lädeli in Rathausen (Emmen) oder Versand innerhalb der Schweiz.
 - [FAILING] GS-15 Die Seite erklärt die Zahlung: Twint oder Karte, keine Rechnung; bei Abholung im Lädeli, bei Versand per Zahlungslink nach der Rückmeldung.
 - [FAILING] GS-16 Die Seite sagt, dass die Bestellung erst mit der Rückmeldung des Lädeli verbindlich wird.
-- [FAILING] GS-17 Im Formular hat jedes bestellbare Produkt ein Mengenfeld von 0 bis zur verfügbaren Stückzahl.
-- [FAILING] GS-18 Ohne mindestens ein Produkt mit Menge 1 oder mehr lässt sich nicht bestellen; der Hinweis erscheint bei den Mengenfeldern.
-- [FAILING] GS-19 Das Feld «Name» ist Pflicht.
-- [FAILING] GS-20 Das Feld «Vorname» ist Pflicht.
-- [FAILING] GS-21 Das Feld «E-Mail» ist Pflicht und wird auf gültiges Format geprüft.
-- [FAILING] GS-22 Das Feld «Telefon» ist Pflicht und wird auf gültiges Format geprüft.
-- [FAILING] GS-23 Die Auswahl «Lieferung» oder «Abholung» ist Pflicht.
+- [PASSING] GS-17 Im Formular hat jedes bestellbare Produkt ein Mengenfeld von 0 bis zur verfügbaren Stückzahl.
+- [PASSING] GS-18 Ohne mindestens ein Produkt mit Menge 1 oder mehr lässt sich nicht bestellen; der Hinweis erscheint bei den Mengenfeldern.
+- [PASSING] GS-19 Das Feld «Name» ist Pflicht.
+- [PASSING] GS-20 Das Feld «Vorname» ist Pflicht.
+- [PASSING] GS-21 Das Feld «E-Mail» ist Pflicht und wird auf gültiges Format geprüft.
+- [PASSING] GS-22 Das Feld «Telefon» ist Pflicht und wird auf gültiges Format geprüft.
+- [PASSING] GS-23 Die Auswahl «Lieferung» oder «Abholung» ist Pflicht.
 - [FAILING] GS-24 Bei «Lieferung» erscheinen die Adressfelder; bei «Abholung» sind sie ausgeblendet und nicht Pflicht.
 - [FAILING] GS-25 Das Feld «Strasse und Nr.» ist bei Lieferung Pflicht.
 - [FAILING] GS-26 Das Feld «PLZ» ist bei Lieferung Pflicht und muss 4-stellig sein.
 - [FAILING] GS-27 Das Feld «Ort» ist bei Lieferung Pflicht.
 - [FAILING] GS-28 Beim Adressbereich steht «Lieferung nur innerhalb der Schweiz».
-- [FAILING] GS-29 Die Auswahl der Zahlungsart «Twint» oder «Karte» ist Pflicht.
+- [PASSING] GS-29 Die Auswahl der Zahlungsart «Twint» oder «Karte» ist Pflicht.
 - [FAILING] GS-30 Sobald ein Wein gewählt ist, erscheint das Pflicht-Häkchen «Ich bin mindestens 16 Jahre alt»; ohne Wein erscheint es nicht.
 - [FAILING] GS-31 Beim Formular steht ein Hinweis mit Link zur Datenschutzerklärung auf ssbl.ch.
 - [FAILING] GS-32 Die Bestellung kommt als E-Mail bei laedeli@ssbl.ch an, mit allen Angaben der bestellenden Person.
 - [FAILING] GS-33 Die bestellende Person erhält eine Bestätigungs-E-Mail: Eingang bestätigt, Übersicht ihrer Angaben, Rückmeldung des Lädeli innert 2 Arbeitstagen, noch nicht verbindlich.
-- [FAILING] GS-34 Die Danke-Meldung sagt, dass eine Bestätigung per E-Mail kommt und sich das Lädeli innert 2 Arbeitstagen meldet.
+- [PASSING] GS-34 Die Danke-Meldung sagt, dass eine Bestätigung per E-Mail kommt und sich das Lädeli innert 2 Arbeitstagen meldet.
 - [FAILING] GS-35 Schlägt das Absenden fehl, nennt die Meldung die Telefonnummer des Lädeli und laedeli@ssbl.ch.
 - [FAILING] GS-36 Ab 16.12.2026 ist das Formular automatisch ausgeblendet; stattdessen steht ein Hinweis zum Bestellschluss, die Produkte bleiben sichtbar.
 - [FAILING] GS-37 Wer nach Bestellschluss eine noch offene Seite abschickt, erhält den Hinweis «Bestellschluss vorbei» statt einer Bestätigung.

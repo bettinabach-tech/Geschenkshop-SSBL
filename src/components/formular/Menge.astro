@@ -4,6 +4,7 @@
 // (gruppe «mengen», schluessel «keramik» → { mengen: { keramik: 2 } }).
 // Das Feld darf ausserhalb des <form> stehen (z.B. in einer Produktkarte),
 // dann verbindet es das Attribut `form` mit dem Formular.
+import "../../styles/formular.css";
 import Stern from "./Stern.astro";
 
 interface Props {
@@ -17,6 +18,8 @@ interface Props {
   schluessel?: string;
   /** id des Formulars, falls das Feld ausserhalb des <form> steht. */
   form?: string;
+  /** Nur für Screenreader hinter dem Label, z.B. der Produktname. */
+  labelZusatz?: string;
 }
 
 const {
@@ -29,7 +32,12 @@ const {
   gruppe,
   schluessel,
   form,
+  labelZusatz,
 } = Astro.props;
+// Hinweise: eigener (#<name>-fehler) und der Gruppe (#<gruppe>-fehler).
+const beschrieben = [`${name}-fehler`, gruppe && `${gruppe}-fehler`]
+  .filter(Boolean)
+  .join(" ");
 if (!Number.isInteger(min) || !Number.isInteger(max) || max < min) {
   throw new Error(`Menge «${name}»: min ${min} / max ${max} ungültig.`);
 }
@@ -38,6 +46,7 @@ if (!Number.isInteger(min) || !Number.isInteger(max) || max < min) {
 <div class="feld feld--menge">
   <label class="feld__label" for={name}>
     {label}
+    {labelZusatz && <span class="nur-screenreader"> {labelZusatz}</span>}
     <Stern pflicht={pflicht} />
   </label>
   <input
@@ -52,7 +61,7 @@ if (!Number.isInteger(min) || !Number.isInteger(max) || max < min) {
     value={wert}
     form={form}
     aria-required={pflicht ? "true" : undefined}
-    aria-describedby={`${name}-fehler`}
+    aria-describedby={beschrieben}
     data-pflicht={pflicht ? "" : undefined}
     data-gruppe={gruppe}
     data-schluessel={schluessel}

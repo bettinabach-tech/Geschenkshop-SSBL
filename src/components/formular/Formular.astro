@@ -1,7 +1,7 @@
 ---
 // Formular (Aufgabe 009): Rahmen für alle Fabrik-Formulare. Felder kommen in
-// den Standard-Slot (Textfeld, Auswahl, Menge, Haekchen), der Danke-Text in
-// den Slot «danke». Prüfung und Versand: src/lib/formular/client.ts.
+// den Standard-Slot (Textfeld, Auswahl, Menge, Haekchen), eine Überschrift in
+// den Slot «kopf», der Danke-Text in den Slot «danke». Prüfung und Versand: src/lib/formular/client.ts.
 // Der Absende-Button ist die Kaufhandlung der Seite und sieht darum wie der
 // Kauf-Button aus (Skill fabrik-design: genau ein primärer Button).
 import "../../styles/abschnitte.css";
@@ -35,6 +35,8 @@ if (!Astro.slots.has("danke")) {
   data-telefon={site.kontakt.telefon}
   data-email={site.kontakt.email}
 >
+  {/* Slot «kopf»: z.B. Überschrift; verschwindet mit dem Formular. */}
+  <slot name="kopf" />
   <p class="formular__pflicht">* Pflichtfeld</p>
   <div
     id={`${id}-meldung`}

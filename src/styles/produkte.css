@@ -58,3 +58,14 @@
 .produkt__hinweis {
   font-size: 0.9375rem;
 }
+
+/* Mengenfeld der Bestellung (Aufgabe 019): unten in der Karte */
+.produkt .feld--menge {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+/* Hinweis «mindestens ein Geschenk» unter den Produkten */
+#mengen-fehler {
+  margin-top: 1.5rem;
+}

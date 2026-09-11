@@ -3,16 +3,21 @@
 // Pro Karte: Foto, Name, Beschreibung (falls vorhanden), Preis oder
 // «Preis folgt», verfügbare Stückzahl oder «ausverkauft», bei Wein
 // «Abgabe ab 16 Jahren». Nie erfundene Werte (decisions.md Nr. 6).
-// Mengenfelder für die Bestellung folgen mit Aufgabe 019.
+// Mit `formular` (id des Bestellformulars) hat jedes bestellbare Produkt ein
+// Mengenfeld von 0 bis zur Stückzahl (Aufgabe 019); darunter steht der Platz
+// für den Hinweis «mindestens ein Geschenk» (#mengen-fehler).
 import "../../styles/produkte.css";
 import Bild from "../../components/Bild.astro";
+import Menge from "../../components/formular/Menge.astro";
 import { formatierePreis, produktStatus, type Produkt } from "./produkte";
 
 interface Props {
   produkte: Produkt[];
+  /** id des Bestellformulars; ohne sie gibt es keine Mengenfelder. */
+  formular?: string;
 }
 
-const { produkte } = Astro.props;
+const { produkte, formular } = Astro.props;
 
 const karten = produkte.map((produkt) => {
   const status = produktStatus(produkt);
@@ -28,6 +33,8 @@ const karten = produkte.map((produkt) => {
         : undefined;
   return { produkt, status, preis, stueck };
 });
+const mitMengen =
+  formular !== undefined && karten.some((k) => k.status === "bestellbar");
 ---
 
 <ul class="produkte">
@@ -60,6 +67,18 @@ const karten = produkte.map((produkt) => {
         </p>
       )}
       {produkt.wein && <p class="produkt__hinweis">Abgabe ab 16 Jahren</p>}
+      {mitMengen && status === "bestellbar" && (
+        <Menge
+          name={`menge-${produkt.id}`}
+          label="Menge"
+          labelZusatz={produkt.name}
+          max={produkt.stueck!}
+          gruppe="mengen"
+          schluessel={produkt.id}
+          form={formular}
+        />
+      )}
     </li>
   ))}
 </ul>
+{mitMengen && <p class="feld__fehler" id="mengen-fehler" hidden />}

@@ -1,0 +1,73 @@
+---
+// Bestellformular des Geschenkshops (Aufgabe 019), im Slot «aktion» des
+// Kauf-Bereichs. Die Mengenfelder sitzen in den Produktkarten
+// (<Produktkarten formular="bestellung">) und gehören per form= dazu.
+// Prüfung: Formular-Bausteine (009) + Bestellregeln (018).
+// Texte: vom Auftraggeber freigegeben am 11.09.2026.
+// Noch offen: Adresse und Altersbestätigung (020), Datenschutz-Hinweis (023).
+import Auswahl from "../../components/formular/Auswahl.astro";
+import Formular from "../../components/formular/Formular.astro";
+import Textfeld from "../../components/formular/Textfeld.astro";
+import type { Site } from "../../lib/site";
+import { BESTELLFORMULAR_ID, regelDaten } from "./bestellformular";
+import type { Produkt } from "./produkte";
+
+interface Props {
+  site: Site;
+  produkte: Produkt[];
+}
+
+const { site, produkte } = Astro.props;
+const id = BESTELLFORMULAR_ID;
+---
+
+<Formular site={site} id={id} sendenText="Bestellung absenden">
+  <h3 slot="kopf" class="formular__titel">
+    Ihre Angaben
+  </h3>
+  <Textfeld name="name" label="Name" autocomplete="family-name" pflicht />
+  <Textfeld name="vorname" label="Vorname" autocomplete="given-name" pflicht />
+  <Textfeld name="email" label="E-Mail" typ="email" pflicht />
+  <Textfeld name="telefon" label="Telefon" typ="tel" pflicht />
+  <Auswahl
+    name="weg"
+    legende="Lieferung oder Abholung"
+    optionen={[
+      { wert: "lieferung", text: "Lieferung per Post" },
+      { wert: "abholung", text: "Abholung im Lädeli in Rathausen" },
+    ]}
+    pflicht
+  />
+  <Auswahl
+    name="zahlung"
+    legende="Zahlungsart"
+    optionen={[
+      { wert: "twint", text: "Twint" },
+      { wert: "karte", text: "Karte" },
+    ]}
+    pflicht
+  />
+  <div slot="danke">
+    <h3>Vielen Dank für Ihre Bestellung!</h3>
+    <p>
+      Sie erhalten in Kürze eine Bestätigung per E-Mail. Das Lädeli meldet sich
+      innert 2 Arbeitstagen bei Ihnen – erst mit dieser Rückmeldung wird Ihre
+      Bestellung verbindlich.
+    </p>
+  </div>
+</Formular>
+<script
+  type="application/json"
+  id={`${id}-produkte`}
+  is:inline
+  set:html={JSON.stringify(regelDaten(produkte))}
+></script>
+<script>
+  import {
+    BESTELLFORMULAR_ID,
+    richteBestellformularEin,
+  } from "./bestellformular";
+
+  const form = document.getElementById(BESTELLFORMULAR_ID);
+  if (form instanceof HTMLFormElement) richteBestellformularEin(form);
+</script>
