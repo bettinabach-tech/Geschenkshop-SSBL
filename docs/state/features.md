@@ -25,8 +25,8 @@
 - [FAILING] F-17 Textzeilen sind höchstens 65 Zeichen breit.
 - [FAILING] F-18 Abschnitte haben 96 px Abstand auf dem Desktop und 64 px auf dem Handy.
 - [FAILING] F-19 Der Footer enthält Links zu Impressum, Datenschutz und Kontakt.
-- [FAILING] F-20 Jedes Bild hat einen beschreibenden Alternativtext.
-- [FAILING] F-21 Bilder laden in passender Grösse und modernem Format; kein Bild ist auf dem Handy grösser als 300 KB.
+- [PASSING] F-20 Jedes Bild hat einen beschreibenden Alternativtext.
+- [PASSING] F-21 Bilder laden in passender Grösse und modernem Format; kein Bild ist auf dem Handy grösser als 300 KB.
 - [FAILING] F-22 Die Seite erreicht in Lighthouse (Handy) mindestens 90 Punkte in Performance, Barrierefreiheit, Best Practices und SEO.
 - [FAILING] F-23 Alle Links, Buttons und Formularfelder sind per Tastatur erreichbar und haben einen sichtbaren Fokusrahmen.
 - [PASSING] F-24 Die Seite ist als deutschsprachig ausgezeichnet, damit Screenreader sie deutsch vorlesen.

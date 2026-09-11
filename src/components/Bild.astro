@@ -1,0 +1,50 @@
+---
+// Bild-Baustein: echte Fotos aus assets/, beim Bauen verkleinert
+// (avif + webp in 400/800/1200 px). Alt-Text ist Pflicht (Skill fabrik-design).
+import { Picture } from "astro:assets";
+import { ladeFoto, masse } from "../lib/fotos";
+
+interface Props {
+  /** Pfad unter assets/, z.B. «assets/products/keramik-schalen-set.jpg» */
+  src: string;
+  /** Beschreibt, was auf dem Bild zu sehen ist (für Screenreader). */
+  alt: string;
+  /** Wie breit das Bild auf der Seite erscheint, z.B. «(min-width: 48rem) 50vw, 100vw». */
+  sizes?: string;
+  /** «eager» nur für das erste sichtbare Bild (Hero), sonst «lazy». */
+  loading?: "eager" | "lazy";
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  sizes = "100vw",
+  loading = "lazy",
+  class: klasse,
+} = Astro.props;
+
+if (typeof alt !== "string" || alt.trim() === "") {
+  throw new Error(
+    `Bild «${src}» braucht einen Alt-Text, der beschreibt, was zu sehen ist.`,
+  );
+}
+
+const foto = await ladeFoto(src);
+// Nie foto.width direkt lesen — sonst liefert Astro das Original mit aus.
+const { width: originalBreite } = masse(foto);
+const BREITEN = [400, 800, 1200];
+---
+
+<Picture
+  src={foto}
+  alt={alt}
+  formats={["avif", "webp"]}
+  fallbackFormat="jpg"
+  widths={BREITEN.filter((b) => b <= originalBreite)}
+  width={Math.min(1200, originalBreite)}
+  sizes={sizes}
+  loading={loading}
+  decoding="async"
+  class={klasse}
+/>

@@ -3,7 +3,7 @@ id: 008
 title: "Bild-Baustein mit automatischer Verkleinerung bauen"
 depends_on: []
 features: [F-20, F-21]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/bild.test.ts"

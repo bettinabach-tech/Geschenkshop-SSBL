@@ -202,3 +202,16 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Folge für Sie:** Nach einer Änderung auf GitHub kurz prüfen, ob die neue
   Zahl auf der Seite erscheint. Wenn nicht, zeigt der Anbieter die
   Fehlermeldung (wo genau, klärt sich mit Aufgabe 027).
+
+### 20. Nach dem Bauen werden ungenutzte Foto-Originale weggeräumt
+- **Was:** Der Bild-Baustein erzeugt aus jedem Foto kleine Fassungen in den
+  modernen Formaten AVIF und WebP (400, 800 und 1200 px breit); der Browser
+  wählt die passende. Ein kleiner Aufräum-Schritt entfernt danach alle
+  Original-Fotos, die keine Seite zeigt. Eine eigene Prüfung schlägt Alarm,
+  wenn eine Handy-Fassung grösser als 300 KB oder irgendeine Datei grösser als
+  1 MB ist.
+- **Warum:** Ohne diesen Schritt hätte das Werkzeug alle Originale (25 MB)
+  mitgeliefert, obwohl nie jemand sie sieht. Das kostet Speicher beim Anbieter
+  und im schlimmsten Fall Ladezeit.
+- **Folge für Sie:** Keine. Ein Produktfoto im Handy-Format ist ca. 10–60 KB
+  gross statt 3–8 MB. Fotos weiterhin einfach in Originalgrösse liefern.

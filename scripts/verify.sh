@@ -5,7 +5,7 @@
 # Kein set -e: alle Stufen laufen durch, alle Fehler kommen auf einmal.
 #
 #   ./scripts/verify.sh           Standard (≤ 90 s): lint, format, tests,
-#                                 typecheck, build, html, links, features
+#                                 typecheck, build, bilder, html, links, features
 #   ./scripts/verify.sh --quick   Commit-Hook (≤ 10 s): lint, format, tests
 #   ./scripts/verify.sh --deep    Standard + teure Stufen: audit, browser
 set -uo pipefail
@@ -49,6 +49,8 @@ if [ "$mode" != quick ]; then
   # --- Standard ---
   step typecheck "$bin/astro check --minimumSeverity warning"
   step build "$bin/astro build --silent"
+  # Handy-Bildfassungen ≤ 300 KB, keine Datei in dist/ > 1 MB (Aufgabe 008).
+  step bilder "node scripts/check-bilder.mjs dist"
   step html "$bin/html-validate 'dist/**/*.html'"
   step links "node scripts/check-links.mjs dist"
   # Jedes Feature auf [PASSING] braucht einen Test, der seine ID nennt
