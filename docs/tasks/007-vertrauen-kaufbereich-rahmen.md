@@ -3,7 +3,7 @@ id: 007
 title: "Vertrauen, Kauf-Bereich und feste Abschnittsreihenfolge bauen"
 depends_on: [005, 006]
 features: [F-10, F-13, F-14, F-15]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/abschnitte-unten.test.ts"

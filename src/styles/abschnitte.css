@@ -90,3 +90,20 @@
 .nutzen__punkt p {
   margin: 0;
 }
+
+/* Vertrauen: Geschichte, darunter das echte Foto */
+.vertrauen__bild {
+  margin-top: 2rem;
+}
+
+.vertrauen__bild img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Kauf-Bereich: Kauf-Button (oder Formular) nach dem Inhalt */
+.kauf__aktion {
+  margin-top: 2rem;
+}

@@ -1,14 +1,15 @@
 ---
 // Musterseite der Bausteine — NUR in der Vorschau (npm run dev) unter /muster/.
 // Beim Bauen liefert getStaticPaths nichts, die Seite wird nie veröffentlicht.
-// Zweck: Sichtprüfung von Hero, Kauf-Button, Abständen und Nutzen, bevor die
-// echte Seite (Aufgabe 015) sie verwendet. Texte sind Muster, nicht endgültig.
+// Zweck: Sichtprüfung der ganzen Landingpage (Kopf, Hero, Nutzen, Vertrauen,
+// Kauf-Bereich, Footer), bevor die echte Seite (Aufgabe 015) sie verwendet.
+// Texte sind Muster, nicht endgültig.
 import Bild from "../components/Bild.astro";
-import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
-import Kopf from "../components/Kopf.astro";
+import KaufBereich from "../components/KaufBereich.astro";
+import Landingpage from "../components/Landingpage.astro";
 import Nutzen from "../components/Nutzen.astro";
-import Seite from "../layouts/Seite.astro";
+import Vertrauen from "../components/Vertrauen.astro";
 import { getSite } from "../lib/sites";
 
 export function getStaticPaths() {
@@ -18,50 +19,63 @@ export function getStaticPaths() {
 const site = getSite("geschenkshop-ssbl");
 ---
 
-<Seite site={site}>
-  <Kopf site={site} />
-  <main>
+<Landingpage site={site}>
+  <Hero
+    slot="hero"
+    ueberschrift="Sinnvolle Geschenke aus den Werkstätten der SSBL"
+    unterzeile="Bestellen Sie bis 15.12.2026 und holen Sie im Lädeli ab oder lassen Sie liefern."
+    ctaText="Jetzt bestellen"
+    ctaHref="#bestellen"
+  >
     <p>
-      <strong>Musterseite (nur Vorschau):</strong> zeigt die Bausteine mit
-      Mustertexten. Die echten Texte folgen mit Aufgabe 015. Im Footer fehlen
-      Impressum und Datenschutz, bis die Links geliefert sind (Aufgabe 023).
+      <strong>Musterseite (nur Vorschau):</strong> Texte sind Muster, die echten
+      folgen mit Aufgabe 015. Im Footer fehlen Impressum und Datenschutz, bis
+      die Links geliefert sind (Aufgabe 023).
     </p>
-    <Hero
-      ueberschrift="Sinnvolle Geschenke aus den Werkstätten der SSBL"
-      unterzeile="Bestellen Sie bis 15.12.2026 und holen Sie im Lädeli ab oder lassen Sie liefern."
-      ctaText="Jetzt bestellen"
-      ctaHref="#bestellen"
-    >
-      <Bild
-        slot="bild"
-        src="assets/products/keramik-schalen-set.jpg"
-        alt="Drei Keramikschalen in Rosa, Blau und Rot mit eingeritzten Mustern"
-        sizes="(min-width: 48rem) 40rem, 100vw"
-        loading="eager"
-      />
-    </Hero>
-    <Nutzen
-      ueberschrift="Warum ein Geschenk aus der SSBL"
-      punkte={[
-        {
-          titel: "Gutes tun",
-          text: "Mit Ihrem Kauf unterstützen Sie die SSBL.",
-        },
-        {
-          titel: "Sinnvoll schenken",
-          text: "Sie finden ein sinnvolles Geschenk, ohne stundenlang zu suchen.",
-        },
-        {
-          titel: "Mit echter Geschichte",
-          text: "Jedes Geschenk hat eine Geschichte statt etwas Beliebigem.",
-        },
-      ]}
+    <Bild
+      slot="bild"
+      src="assets/products/keramik-schalen-set.jpg"
+      alt="Drei Keramikschalen in Rosa, Blau und Rot mit eingeritzten Mustern"
+      sizes="(min-width: 48rem) 40rem, 100vw"
+      loading="eager"
     />
-    <section id="bestellen" data-abschnitt="kauf" class="abschnitt">
-      <div class="abschnitt__inhalt">
-        <h2>Kauf-Bereich (folgt mit Aufgabe 007)</h2>
-      </div>
-    </section>
-  </main>
-  <Footer site={site} />
-</Seite>
+  </Hero>
+  <Nutzen
+    slot="nutzen"
+    ueberschrift="Warum ein Geschenk aus der SSBL"
+    punkte={[
+      {
+        titel: "Gutes tun",
+        text: "Mit Ihrem Kauf unterstützen Sie die SSBL.",
+      },
+      {
+        titel: "Sinnvoll schenken",
+        text: "Sie finden ein sinnvolles Geschenk, ohne stundenlang zu suchen.",
+      },
+      {
+        titel: "Mit echter Geschichte",
+        text: "Jedes Geschenk hat eine Geschichte statt etwas Beliebigem.",
+      },
+    ]}
+  />
+  <Vertrauen slot="vertrauen" titel="Die SSBL">
+    <p>
+      Die SSBL – Stiftung für selbstbestimmtes und begleitetes Leben – hat ihren
+      Hauptsitz in Rathausen (Emmen) und neun weitere Standorte. Sie bietet bis
+      zu 305 Wohnplätze und 80 Arbeitsplätze für Tagesbeschäftigte.
+    </p>
+    <p>
+      (Muster: Hier folgt die Geschichte der Werkstätten mit echtem Foto,
+      Aufgabe 025.)
+    </p>
+    <Bild
+      slot="bild"
+      src="assets/products/anzuendholz-buendel.jpg"
+      alt="Bündel aus hellem, gespaltenem Anzündholz, mit Hanfschnur zusammengebunden"
+      sizes="(min-width: 48rem) 40rem, 100vw"
+    />
+  </Vertrauen>
+  <KaufBereich slot="kauf" ueberschrift="Jetzt bestellen">
+    <p>(Muster: Hier folgen Produkte und Bestellformular, Aufgaben 016–020.)</p>
+  </KaufBereich>
+</Landingpage>

@@ -1,0 +1,31 @@
+---
+// Vertrauen (Skill fabrik-design, Aufbau Punkt 3): Geschichte der Menschen
+// hinter dem Produkt, immer mit echtem Foto (Slot «bild», Pflicht).
+// Nie erfundene Zitate, nie Platzhalter-Logos.
+import Abschnitt from "./Abschnitt.astro";
+
+interface Props {
+  titel: string;
+}
+
+const { titel } = Astro.props;
+if (!titel?.trim()) throw new Error("Vertrauen braucht einen Titel.");
+if (!Astro.slots.has("bild")) {
+  throw new Error(
+    `Vertrauen «${titel}» braucht ein echtes Foto im Slot «bild» (Skill fabrik-design).`,
+  );
+}
+if (!Astro.slots.has("default")) {
+  throw new Error(`Vertrauen «${titel}» braucht einen Text.`);
+}
+---
+
+<Abschnitt name="vertrauen">
+  <h2>{titel}</h2>
+  <div class="vertrauen__text">
+    <slot />
+  </div>
+  <div class="vertrauen__bild">
+    <slot name="bild" />
+  </div>
+</Abschnitt>

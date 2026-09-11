@@ -15,12 +15,12 @@
 - [PASSING] F-07 Das Logo steht oben auf der Seite, mindestens 32 px hoch, unverzerrt und mit freier Schutzzone ringsum.
 - [PASSING] F-08 Der Browser-Tab zeigt den Seitentitel und das Logo als kleines Symbol.
 - [PASSING] F-09 Beim Teilen des Links auf Social Media erscheint eine Vorschau mit Titel, Beschreibung und Bild.
-- [FAILING] F-10 Die Abschnitte folgen immer der Reihenfolge Hero, Nutzen, Vertrauen, Kauf-Bereich, Footer.
+- [PASSING] F-10 Die Abschnitte folgen immer der Reihenfolge Hero, Nutzen, Vertrauen, Kauf-Bereich, Footer.
 - [PASSING] F-11 Der Hero zeigt eine Überschrift von höchstens 8 Wörtern, eine Unterzeile von einem Satz, den Kauf-Button und ein Produktbild.
 - [PASSING] F-12 Der Nutzen-Abschnitt zeigt höchstens 3 Punkte mit je höchstens 2 Sätzen.
-- [FAILING] F-13 Der Vertrauens-Abschnitt zeigt einen Text und ein echtes Foto.
-- [FAILING] F-14 Der Kauf-Button erscheint im Kauf-Bereich unten ein zweites Mal.
-- [FAILING] F-15 Nur die Kaufhandlung sieht wie ein Button aus; alle anderen Links (Kontakt, mehr erfahren) sind Textlinks.
+- [PASSING] F-13 Der Vertrauens-Abschnitt zeigt einen Text und ein echtes Foto.
+- [PASSING] F-14 Der Kauf-Button erscheint im Kauf-Bereich unten ein zweites Mal.
+- [PASSING] F-15 Nur die Kaufhandlung sieht wie ein Button aus; alle anderen Links (Kontakt, mehr erfahren) sind Textlinks.
 - [PASSING] F-16 Buttons sind mindestens 44 px hoch, haben abgerundete Ecken und keine Grossbuchstaben-Schreibweise.
 - [PASSING] F-17 Textzeilen sind höchstens 65 Zeichen breit.
 - [PASSING] F-18 Abschnitte haben 96 px Abstand auf dem Desktop und 64 px auf dem Handy.

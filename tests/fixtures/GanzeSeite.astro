@@ -1,0 +1,57 @@
+---
+// Test-Fixture: eine vollständige Landingpage aus den echten Bausteinen.
+// Die Slots stehen absichtlich in VERKEHRTER Reihenfolge — die Landingpage
+// muss sie trotzdem als Hero → Nutzen → Vertrauen → Kauf ausgeben.
+import Hero from "../../src/components/Hero.astro";
+import KaufBereich from "../../src/components/KaufBereich.astro";
+import Landingpage from "../../src/components/Landingpage.astro";
+import Nutzen from "../../src/components/Nutzen.astro";
+import Vertrauen from "../../src/components/Vertrauen.astro";
+import type { Site } from "../../src/lib/site";
+
+interface Props {
+  site: Site;
+}
+
+const { site } = Astro.props;
+---
+
+<Landingpage site={site}>
+  <KaufBereich slot="kauf" ueberschrift="Jetzt bestellen">
+    <p>Inhalt des Kauf-Bereichs.</p>
+  </KaufBereich>
+  <Vertrauen slot="vertrauen" titel="Über uns">
+    <p>
+      Eine Geschichte. <a href="https://www.example.ch/mehr">Mehr erfahren</a>
+    </p>
+    <img
+      slot="bild"
+      src="/foto.jpg"
+      alt="Echtes Foto"
+      width="400"
+      height="300"
+    />
+  </Vertrauen>
+  <Nutzen
+    slot="nutzen"
+    punkte={[
+      { titel: "Eins", text: "Erster Punkt." },
+      { titel: "Zwei", text: "Zweiter Punkt." },
+    ]}
+  />
+  <Hero
+    slot="hero"
+    ueberschrift="Ein Titel für den Test"
+    unterzeile="Eine Unterzeile."
+    ctaText="Jetzt bestellen"
+    ctaHref="#bestellen"
+  >
+    <img
+      slot="bild"
+      src="/hero.jpg"
+      alt="Produktfoto"
+      width="400"
+      height="300"
+    />
+  </Hero>
+</Landingpage>

@@ -1,0 +1,37 @@
+---
+// Landingpage: das Gerüst jeder Seite. Reihenfolge verbindlich (Skill
+// fabrik-design): Kopf → Hero → Nutzen → Vertrauen → Kauf-Bereich → Footer.
+// Die Slots erscheinen IMMER in dieser Reihenfolge, egal in welcher
+// Reihenfolge eine Seite sie übergibt. Fehlt ein Abschnitt, bricht das Bauen ab.
+import Seite from "../layouts/Seite.astro";
+import type { Site } from "../lib/site";
+import Footer from "./Footer.astro";
+import Kopf from "./Kopf.astro";
+
+interface Props {
+  site: Site;
+  /** Bild für die Social-Media-Vorschau (siehe Seite.astro). */
+  ogBild?: string;
+}
+
+const { site, ogBild } = Astro.props;
+const ABSCHNITTE = ["hero", "nutzen", "vertrauen", "kauf"] as const;
+const fehlend = ABSCHNITTE.filter((name) => !Astro.slots.has(name));
+if (fehlend.length > 0) {
+  throw new Error(
+    `Landingpage «${site.slug}»: Abschnitt(e) fehlen: ${fehlend.join(", ")}. ` +
+      "Jede Seite braucht hero, nutzen, vertrauen und kauf.",
+  );
+}
+---
+
+<Seite site={site} ogBild={ogBild}>
+  <Kopf site={site} />
+  <main>
+    <slot name="hero" />
+    <slot name="nutzen" />
+    <slot name="vertrauen" />
+    <slot name="kauf" />
+  </main>
+  <Footer site={site} />
+</Seite>

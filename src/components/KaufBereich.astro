@@ -1,0 +1,38 @@
+---
+// Kauf-Bereich (Skill fabrik-design, Aufbau Punkt 4: CTA-Wiederholung).
+// Ziel des Kauf-Buttons im Hero (#bestellen). Inhalt (z.B. Produkte) im
+// Standard-Slot; Slot «aktion» ersetzt den Kauf-Button (z.B. durch das
+// Bestellformular). Ohne «aktion» erscheint der Kauf-Button ein zweites Mal.
+import Abschnitt from "./Abschnitt.astro";
+import KaufButton from "./KaufButton.astro";
+
+interface Props {
+  ueberschrift: string;
+  id?: string;
+  ctaText?: string;
+  /** Ziel des Kauf-Buttons, falls kein Slot «aktion»; Standard: #<id> */
+  ctaHref?: string;
+}
+
+const {
+  ueberschrift,
+  id = "bestellen",
+  ctaText = "Jetzt bestellen",
+  ctaHref = `#${id}`,
+} = Astro.props;
+if (!ueberschrift?.trim()) {
+  throw new Error("Kauf-Bereich braucht eine Überschrift.");
+}
+---
+
+<Abschnitt name="kauf" id={id}>
+  <h2>{ueberschrift}</h2>
+  <slot />
+  <div class="kauf__aktion">
+    {Astro.slots.has("aktion") ? (
+      <slot name="aktion" />
+    ) : (
+      <KaufButton href={ctaHref} text={ctaText} />
+    )}
+  </div>
+</Abschnitt>
