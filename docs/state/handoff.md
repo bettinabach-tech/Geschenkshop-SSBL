@@ -15,8 +15,7 @@
 ## Achtung nächste Sitzung
 - Texte auf der Seite nur nach Freigabe ändern. Unbekanntes nie raten.
 - F-01/22/23 erst in 029 auf PASSING setzen. Handoff ≤ 30 Zeilen.
-- Write/heredoc verschlucken `\u…`/`\\` → nach dem Schreiben Regex-Zeilen prüfen.
-- happy-dom kennt kein CSS: Sichtbarkeit zusätzlich im Edge prüfen.
+- Write/heredoc verschlucken `\u…`/`\\` (Regex prüfen) · happy-dom kennt kein CSS.
 
 ## Für den Auftraggeber zu prüfen
 - **Sichtprüfung:** `npm run dev` → localhost:4321/muster/ (Lieferung/Abholung
