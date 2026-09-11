@@ -1,0 +1,19 @@
+---
+// Der EINE primäre Button einer Seite: Produkt bestellen (Skill fabrik-design).
+// Alle anderen Links bleiben Textlinks.
+import "../styles/abschnitte.css";
+
+interface Props {
+  href: string;
+  text: string;
+}
+
+const { href, text } = Astro.props;
+if (!text?.trim()) throw new Error("KaufButton braucht einen Text.");
+if (!href?.trim())
+  throw new Error(`KaufButton «${text}» braucht ein Ziel (href).`);
+---
+
+<a class="kauf-button" href={href}>
+  {text}
+</a>

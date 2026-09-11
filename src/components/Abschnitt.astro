@@ -1,0 +1,24 @@
+---
+// Rahmen für jeden Seitenabschnitt: einheitliche Abstände (64 px Handy /
+// 96 px ab 768 px) und Inhalt höchstens 65 Zeichen breit.
+import "../styles/abschnitte.css";
+
+interface Props {
+  /** Name des Abschnitts, z.B. «hero», «nutzen» — landet in data-abschnitt. */
+  name: string;
+  id?: string;
+  class?: string;
+}
+
+const { name, id, class: klasse } = Astro.props;
+---
+
+<section
+  class:list={["abschnitt", `abschnitt--${name}`, klasse]}
+  data-abschnitt={name}
+  id={id}
+>
+  <div class="abschnitt__inhalt">
+    <slot />
+  </div>
+</section>

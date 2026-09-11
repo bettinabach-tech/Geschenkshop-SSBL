@@ -3,7 +3,7 @@ id: 006
 title: "Button, Abschnitts-Rahmen, Hero und Nutzen bauen"
 depends_on: [002]
 features: [F-11, F-12, F-16, F-17, F-18]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/abschnitte-oben.test.ts"

@@ -1,0 +1,49 @@
+---
+// Hero (Skill fabrik-design, Aufbau Punkt 1): Überschrift ≤ 8 Wörter,
+// Unterzeile genau 1 Satz, Kauf-Button, Produktbild (Slot «bild»).
+// Der Baustein wirft, statt eine Regel still zu brechen.
+// Weitere kurze Angaben (z.B. Bestellschluss) gehen in den Standard-Slot.
+import { zaehleSaetze, zaehleWoerter } from "../lib/text";
+import Abschnitt from "./Abschnitt.astro";
+import KaufButton from "./KaufButton.astro";
+
+interface Props {
+  ueberschrift: string;
+  unterzeile: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const MAX_WOERTER = 8;
+const { ueberschrift, unterzeile, ctaText, ctaHref } = Astro.props;
+
+const woerter = zaehleWoerter(ueberschrift ?? "");
+if (woerter === 0 || woerter > MAX_WOERTER) {
+  throw new Error(
+    `Hero-Überschrift «${ueberschrift}» hat ${woerter} Wörter — erlaubt sind 1 bis ${MAX_WOERTER}.`,
+  );
+}
+const saetze = zaehleSaetze(unterzeile ?? "");
+if (saetze !== 1) {
+  throw new Error(
+    `Hero-Unterzeile «${unterzeile}» hat ${saetze} Sätze — erlaubt ist genau 1.`,
+  );
+}
+if (!Astro.slots.has("bild")) {
+  throw new Error(
+    "Hero braucht ein Produktbild im Slot «bild» (Skill fabrik-design).",
+  );
+}
+---
+
+<Abschnitt name="hero">
+  <h1 class="hero__ueberschrift">{ueberschrift}</h1>
+  <p class="hero__unterzeile">{unterzeile}</p>
+  <slot />
+  <p class="hero__aktion">
+    <KaufButton href={ctaHref} text={ctaText} />
+  </p>
+  <div class="hero__bild">
+    <slot name="bild" />
+  </div>
+</Abschnitt>

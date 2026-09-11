@@ -1,0 +1,92 @@
+/* abschnitte.css — Abschnitts-Rahmen, Kauf-Button, Hero und Nutzen
+   (Skill fabrik-design: «Aufbau einer Seite», «Abstände & Grössen»). */
+
+/* Rahmen: 64 px Abstand auf dem Handy, 96 px ab 768 px; seitlich 1rem Rand */
+.abschnitt {
+  padding-block: 64px;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .abschnitt {
+    padding-block: 96px;
+  }
+}
+
+/* Inhalt höchstens 65 Zeichen pro Zeile */
+.abschnitt__inhalt {
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+/* Der eine primäre Button: Kauf/Bestellung.
+   Weiss auf #005CA9 = 6.77:1 (Kontrast wird beim Bauen geprüft). */
+.kauf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  background: var(--farbe-primaer);
+  color: #ffffff;
+  font-family: var(--schrift);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.kauf-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Sichtbarer Fokusrahmen für Tastatur: dunkel auf Weiss (17.4:1) */
+.kauf-button:focus-visible {
+  outline: 3px solid var(--farbe-text);
+  outline-offset: 3px;
+}
+
+/* Hero */
+.hero__ueberschrift {
+  font-size: clamp(1.75rem, 1.2rem + 2.8vw, 2.75rem);
+  margin-block: 0 0.75rem;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.hero__unterzeile {
+  font-size: 1.125rem;
+  margin-block: 0 1rem;
+}
+
+.hero__aktion {
+  margin-block: 1.5rem;
+}
+
+.hero__bild img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Nutzen */
+.nutzen__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.nutzen__punkt h3 {
+  font-size: 1.25rem;
+  margin-block: 0 0.5rem;
+}
+
+.nutzen__punkt p {
+  margin: 0;
+}

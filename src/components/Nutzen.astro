@@ -1,0 +1,52 @@
+---
+// Nutzen (Skill fabrik-design, Aufbau Punkt 2): höchstens 3 Punkte, jeder
+// Text höchstens 2 Sätze. Der Baustein wirft, statt eine Regel still zu brechen.
+import { zaehleSaetze } from "../lib/text";
+import Abschnitt from "./Abschnitt.astro";
+
+interface Punkt {
+  titel: string;
+  text: string;
+}
+
+interface Props {
+  punkte: Punkt[];
+  /** Optionale Abschnitts-Überschrift (h2). */
+  ueberschrift?: string;
+}
+
+const MAX_PUNKTE = 3;
+const MAX_SAETZE = 2;
+const { punkte, ueberschrift } = Astro.props;
+
+if (!Array.isArray(punkte) || punkte.length === 0) {
+  throw new Error("Nutzen braucht mindestens einen Punkt.");
+}
+if (punkte.length > MAX_PUNKTE) {
+  throw new Error(
+    `Nutzen hat ${punkte.length} Punkte — erlaubt sind höchstens ${MAX_PUNKTE}.`,
+  );
+}
+for (const punkt of punkte) {
+  if (!punkt.titel?.trim())
+    throw new Error("Jeder Nutzen-Punkt braucht einen Titel.");
+  const saetze = zaehleSaetze(punkt.text ?? "");
+  if (saetze === 0 || saetze > MAX_SAETZE) {
+    throw new Error(
+      `Nutzen-Punkt «${punkt.titel}» hat ${saetze} Sätze — erlaubt sind 1 bis ${MAX_SAETZE}.`,
+    );
+  }
+}
+---
+
+<Abschnitt name="nutzen">
+  {ueberschrift && <h2>{ueberschrift}</h2>}
+  <ul class="nutzen__liste">
+    {punkte.map((punkt) => (
+      <li class="nutzen__punkt">
+        <h3>{punkt.titel}</h3>
+        <p>{punkt.text}</p>
+      </li>
+    ))}
+  </ul>
+</Abschnitt>

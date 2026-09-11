@@ -215,3 +215,22 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   und im schlimmsten Fall Ladezeit.
 - **Folge für Sie:** Keine. Ein Produktfoto im Handy-Format ist ca. 10–60 KB
   gross statt 3–8 MB. Fotos weiterhin einfach in Originalgrösse liefern.
+
+### 21. Die Bausteine halten die Design-Regeln selbst ein
+- **Was:** Hero und Nutzen-Abschnitt zählen Wörter und Sätze. Hat die
+  Hero-Überschrift mehr als 8 Wörter, die Unterzeile mehr als einen Satz oder
+  ein Nutzen-Punkt mehr als 2 Sätze (bzw. mehr als 3 Punkte), bricht das Bauen
+  mit einer Meldung ab. Abkürzungen wie «ca.» oder «z.B.» und Daten wie
+  «15.12.2026» beenden keinen Satz. Fehlt im Hero das Produktfoto, ebenso.
+- **Warum:** So kann keine Seite die Regeln aus Versehen brechen, auch nicht
+  bei späteren Textänderungen.
+- **Folge für Sie:** Wenn Sie Texte ändern und das Bauen meldet «hat 9 Wörter»,
+  bitte kürzen — die Meldung nennt den betroffenen Text.
+
+### 22. Musterseite nur in der Vorschau
+- **Was:** Unter http://localhost:4321/muster/ zeigt die Vorschau
+  (`npm run dev`) die Bausteine mit Mustertexten. Beim Bauen für den Anbieter
+  entsteht diese Seite nicht.
+- **Warum:** Sie können Aussehen und Abstände prüfen, bevor die echte Seite
+  zusammengesetzt wird — ohne dass Mustertexte je öffentlich werden.
+- **Folge für Sie:** Keine.

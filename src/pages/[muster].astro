@@ -1,0 +1,62 @@
+---
+// Musterseite der Bausteine — NUR in der Vorschau (npm run dev) unter /muster/.
+// Beim Bauen liefert getStaticPaths nichts, die Seite wird nie veröffentlicht.
+// Zweck: Sichtprüfung von Hero, Kauf-Button, Abständen und Nutzen, bevor die
+// echte Seite (Aufgabe 015) sie verwendet. Texte sind Muster, nicht endgültig.
+import Bild from "../components/Bild.astro";
+import Hero from "../components/Hero.astro";
+import Nutzen from "../components/Nutzen.astro";
+import Seite from "../layouts/Seite.astro";
+import { getSite } from "../lib/sites";
+
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { muster: "muster" } }] : [];
+}
+
+const site = getSite("geschenkshop-ssbl");
+---
+
+<Seite site={site}>
+  <main>
+    <p>
+      <strong>Musterseite (nur Vorschau):</strong> zeigt die Bausteine mit
+      Mustertexten. Die echten Texte folgen mit Aufgabe 015.
+    </p>
+    <Hero
+      ueberschrift="Sinnvolle Geschenke aus den Werkstätten der SSBL"
+      unterzeile="Bestellen Sie bis 15.12.2026 und holen Sie im Lädeli ab oder lassen Sie liefern."
+      ctaText="Jetzt bestellen"
+      ctaHref="#bestellen"
+    >
+      <Bild
+        slot="bild"
+        src="assets/products/keramik-schalen-set.jpg"
+        alt="Drei Keramikschalen in Rosa, Blau und Rot mit eingeritzten Mustern"
+        sizes="(min-width: 48rem) 40rem, 100vw"
+        loading="eager"
+      />
+    </Hero>
+    <Nutzen
+      ueberschrift="Warum ein Geschenk aus der SSBL"
+      punkte={[
+        {
+          titel: "Gutes tun",
+          text: "Mit Ihrem Kauf unterstützen Sie die SSBL.",
+        },
+        {
+          titel: "Sinnvoll schenken",
+          text: "Sie finden ein sinnvolles Geschenk, ohne stundenlang zu suchen.",
+        },
+        {
+          titel: "Mit echter Geschichte",
+          text: "Jedes Geschenk hat eine Geschichte statt etwas Beliebigem.",
+        },
+      ]}
+    />
+    <section id="bestellen" data-abschnitt="kauf" class="abschnitt">
+      <div class="abschnitt__inhalt">
+        <h2>Kauf-Bereich (folgt mit Aufgabe 007)</h2>
+      </div>
+    </section>
+  </main>
+</Seite>
