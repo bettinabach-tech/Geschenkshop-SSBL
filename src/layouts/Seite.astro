@@ -1,0 +1,42 @@
+---
+// Grundgerüst jeder Landingpage: Sprache, Kopfdaten, Schrift, Farben.
+// Alle Angaben kommen aus der Seiten-Konfiguration (src/sites/<slug>/site.ts).
+import "@fontsource/poppins/latin-400.css";
+import "@fontsource/poppins/latin-600.css";
+import "../styles/tokens.css";
+import "../styles/basis.css";
+import { ladeLogo } from "../lib/logo";
+import type { Site } from "../lib/site";
+
+interface Props {
+  site: Site;
+  /** Bild für die Social-Media-Vorschau (URL). Erscheint nur, wenn site.adresse gesetzt ist. */
+  ogBild?: string;
+}
+
+const { site, ogBild } = Astro.props;
+const logo = await ladeLogo(site.logo);
+const ogBildUrl =
+  site.adresse && ogBild ? new URL(ogBild, site.adresse).href : undefined;
+const iconTyp =
+  logo.format === "svg" ? "image/svg+xml" : `image/${logo.format}`;
+---
+
+<!doctype html>
+<html lang="de" style={`--farbe-primaer: ${site.farben.primaer}`}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.titel}</title>
+    <meta name="description" content={site.beschreibung} />
+    <link rel="icon" href={logo.src} type={iconTyp} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={site.titel} />
+    <meta property="og:description" content={site.beschreibung} />
+    {site.adresse && <meta property="og:url" content={site.adresse} />}
+    {ogBildUrl && <meta property="og:image" content={ogBildUrl} />}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

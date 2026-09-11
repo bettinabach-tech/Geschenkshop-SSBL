@@ -1,0 +1,9 @@
+/* tokens.css — Grundwerte aller Seiten (Skill fabrik-design).
+   Die Primärfarbe kann eine Seite in ihrer site.ts überschreiben; das Layout
+   setzt sie dann als Inline-Variable am <html>. Kontrast wird beim Bauen geprüft. */
+:root {
+  --farbe-primaer: #005ca9;
+  --farbe-text: #1a1a1a;
+  --farbe-hintergrund: #ffffff;
+  --schrift: "Poppins", system-ui, sans-serif;
+}

@@ -3,7 +3,7 @@ id: 002
 title: "Grundlayout mit Schrift, Farben und Kopfdaten bauen"
 depends_on: [001]
 features: [F-02, F-03, F-04, F-05, F-06, F-08, F-09, F-24, F-31]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/layout.test.ts"

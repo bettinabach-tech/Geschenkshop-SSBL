@@ -1,0 +1,35 @@
+/* basis.css — Grundstil aller Seiten: Poppins Regular für Text,
+   Poppins SemiBold für Überschriften, dunkler Text auf Weiss. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--schrift);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--farbe-text);
+  background: var(--farbe-hintergrund);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--schrift);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p {
+  max-width: 65ch;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

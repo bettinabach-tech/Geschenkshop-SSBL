@@ -1,21 +1,13 @@
 ---
-// Seite «Geschenkshop SSBL». Vorerst minimal; Layout folgt mit Aufgabe 002.
+// Seite «Geschenkshop SSBL». Abschnitte folgen mit den Aufgaben 005–016.
+import Seite from "../../layouts/Seite.astro";
 import { getSite } from "../../lib/sites";
 
 const site = getSite("geschenkshop-ssbl");
 ---
 
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{site.titel}</title>
-    <meta name="description" content={site.beschreibung} />
-  </head>
-  <body>
-    <main>
-      <h1>{site.titel}</h1>
-    </main>
-  </body>
-</html>
+<Seite site={site}>
+  <main>
+    <h1>{site.titel}</h1>
+  </main>
+</Seite>

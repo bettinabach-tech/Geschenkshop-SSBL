@@ -7,14 +7,14 @@
 ## Fabrik
 
 - [FAILING] F-01 Die Seite ist auf einem Handy mit 375 px Breite ohne seitliches Scrollen vollständig lesbar.
-- [FAILING] F-02 Überschriften erscheinen in Poppins SemiBold, Fliesstext in Poppins Regular.
-- [FAILING] F-03 Die Schrift kommt vom eigenen Server; beim Aufruf der Seite gehen keine Daten an Google oder andere Dritte.
-- [FAILING] F-04 Die Seite setzt kein Cookie und enthält kein Tracking.
-- [FAILING] F-05 Text erscheint dunkel (#1a1a1a) auf Weiss; die Primärfarbe (#005CA9) kommt nur beim Kauf-Button und bei Hervorhebungen vor.
-- [FAILING] F-06 Jede Text-/Hintergrund-Kombination hat einen Kontrast von mindestens 4.5:1.
+- [PASSING] F-02 Überschriften erscheinen in Poppins SemiBold, Fliesstext in Poppins Regular.
+- [PASSING] F-03 Die Schrift kommt vom eigenen Server; beim Aufruf der Seite gehen keine Daten an Google oder andere Dritte.
+- [PASSING] F-04 Die Seite setzt kein Cookie und enthält kein Tracking.
+- [PASSING] F-05 Text erscheint dunkel (#1a1a1a) auf Weiss; die Primärfarbe (#005CA9) kommt nur beim Kauf-Button und bei Hervorhebungen vor.
+- [PASSING] F-06 Jede Text-/Hintergrund-Kombination hat einen Kontrast von mindestens 4.5:1.
 - [FAILING] F-07 Das Logo steht oben auf der Seite, mindestens 32 px hoch, unverzerrt und mit freier Schutzzone ringsum.
-- [FAILING] F-08 Der Browser-Tab zeigt den Seitentitel und das Logo als kleines Symbol.
-- [FAILING] F-09 Beim Teilen des Links auf Social Media erscheint eine Vorschau mit Titel, Beschreibung und Bild.
+- [PASSING] F-08 Der Browser-Tab zeigt den Seitentitel und das Logo als kleines Symbol.
+- [PASSING] F-09 Beim Teilen des Links auf Social Media erscheint eine Vorschau mit Titel, Beschreibung und Bild.
 - [FAILING] F-10 Die Abschnitte folgen immer der Reihenfolge Hero, Nutzen, Vertrauen, Kauf-Bereich, Footer.
 - [FAILING] F-11 Der Hero zeigt eine Überschrift von höchstens 8 Wörtern, eine Unterzeile von einem Satz, den Kauf-Button und ein Produktbild.
 - [FAILING] F-12 Der Nutzen-Abschnitt zeigt höchstens 3 Punkte mit je höchstens 2 Sätzen.
@@ -29,14 +29,14 @@
 - [FAILING] F-21 Bilder laden in passender Grösse und modernem Format; kein Bild ist auf dem Handy grösser als 300 KB.
 - [FAILING] F-22 Die Seite erreicht in Lighthouse (Handy) mindestens 90 Punkte in Performance, Barrierefreiheit, Best Practices und SEO.
 - [FAILING] F-23 Alle Links, Buttons und Formularfelder sind per Tastatur erreichbar und haben einen sichtbaren Fokusrahmen.
-- [FAILING] F-24 Die Seite ist als deutschsprachig ausgezeichnet, damit Screenreader sie deutsch vorlesen.
+- [PASSING] F-24 Die Seite ist als deutschsprachig ausgezeichnet, damit Screenreader sie deutsch vorlesen.
 - [FAILING] F-25 Eine falsche Adresse zeigt eine freundliche Fehlerseite mit Link zur Startseite.
 - [FAILING] F-26 Pflichtfelder im Formular sind sichtbar als Pflicht markiert.
 - [FAILING] F-27 Ein fehlendes oder falsch ausgefülltes Feld zeigt seinen Hinweis direkt am Feld, bevor abgeschickt wird.
 - [FAILING] F-28 Nach dem ersten Klick auf «Absenden» ist der Button gesperrt und zeigt, dass gesendet wird.
 - [FAILING] F-29 Nach erfolgreichem Absenden erscheint eine Danke-Meldung anstelle des Formulars.
 - [FAILING] F-30 Schlägt das Absenden technisch fehl, erscheint eine Meldung mit Telefonnummer und E-Mail-Adresse, und alle Eingaben bleiben erhalten.
-- [FAILING] F-31 Jede Seite kann eigene Primärfarbe und eigenes Logo zeigen, ohne andere Seiten zu verändern.
+- [PASSING] F-31 Jede Seite kann eigene Primärfarbe und eigenes Logo zeigen, ohne andere Seiten zu verändern.
 
 ## Geschenkshop SSBL
 

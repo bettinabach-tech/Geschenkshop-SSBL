@@ -4,6 +4,7 @@
 // Felder mit «optional bis Live-Gang» dürfen fehlen; die Prüfung vor dem
 // Live-Gang (Aufgabe 013) meldet sie. Unbekanntes nie raten.
 import { z } from "astro/zod";
+import { MINDESTKONTRAST, kontrast } from "./kontrast";
 
 const httpsUrl = z
   .url({ protocol: /^https$/, error: "muss eine https://-Adresse sein" })
@@ -21,9 +22,20 @@ export const siteSchema = z.object({
   adresse: httpsUrl,
   farben: z
     .object({
+      // Weisse Schrift auf dem Kauf-Button muss lesbar bleiben (WCAG AA).
       primaer: z
         .string()
-        .regex(/^#[0-9a-fA-F]{6}$/, "Farbe im Format #rrggbb")
+        .regex(/^#[0-9a-fA-F]{6}$/, {
+          error: "Farbe im Format #rrggbb",
+          abort: true,
+        })
+        .refine((farbe) => kontrast(farbe, "#ffffff") >= MINDESTKONTRAST, {
+          error: (issue) => {
+            const farbe = String(issue.input);
+            const wert = kontrast(farbe, "#ffffff").toFixed(2);
+            return `Primärfarbe ${farbe} ist gegen Weiss zu hell (Kontrast ${wert}:1, nötig ${MINDESTKONTRAST}:1) — bitte eine dunklere Farbe wählen.`;
+          },
+        })
         .default("#005CA9"),
     })
     .prefault({}),

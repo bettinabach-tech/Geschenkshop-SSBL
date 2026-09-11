@@ -36,7 +36,13 @@
 
 ## Bekannte Fallen
 
-- (leer — wächst durch Erfahrung, nicht durch Vorhersage)
+- `import.meta.glob` über Bilder (auch lazy) liefert JEDE getroffene Datei
+  nach dist/ aus — `/assets/**` schleppte 25 MB Produktfotos mit. Muster eng
+  halten; nach dem Build `ls dist/_astro` prüfen (002, src/lib/logo.ts).
+- Prettier schreibt Hex-Farben in CSS klein (#005ca9) — Farbtests ohne
+  Rücksicht auf Gross-/Kleinschreibung vergleichen.
+- Zod v4: `.regex()` bricht die Prüfkette nicht ab; ein folgendes `.refine()`
+  läuft auch bei falschem Format → `{ abort: true }` setzen.
 
 ## Projektzustand
 

@@ -158,3 +158,23 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   Es fehlte keine Skill, die das Profil vorsieht — kein Ersatz-Standard nötig.
 - **Folge für Sie:** Änderungen an Farben, Schrift oder Aufbau gehen über diese
   Datei, nicht über einzelne Seiten.
+
+### 16. Farbe pro Seite nur, wenn die Schrift darauf lesbar bleibt
+- **Was:** Jede Seite kann in ihren Einstellungen eine eigene Hauptfarbe (für
+  den Kauf-Button) wählen. Beim Bauen wird nachgerechnet, ob weisse Schrift auf
+  dieser Farbe gut lesbar ist (Kontrast mind. 4.5:1). Ist sie zu hell, bricht
+  das Bauen mit einer Meldung ab, die den gemessenen Wert nennt.
+- **Warum:** Design-Regel «Kontrast mind. 4.5:1». Eine zu helle Farbe fällt
+  am Bildschirm oft nicht auf, für Menschen mit Sehschwäche ist der Button dann
+  aber kaum lesbar.
+- **Folge für Sie:** Der Geschenkshop nutzt das SSBL-Blau #005CA9 (6.77:1). Eine
+  zu helle Farbe kann gar nicht erst online gehen.
+
+### 17. Logo als Browser-Symbol, nur SVG/PNG direkt in assets/
+- **Was:** Das Logo aus den Einstellungen erscheint auch als kleines Symbol im
+  Browser-Tab. Logos liegen als .svg oder .png direkt im Ordner `assets/`.
+- **Warum:** Beim ersten Versuch hat das Werkzeug alle Bilder in `assets/`
+  mitgeliefert, auch die ungenutzten Produktfotos (25 MB). Mit der engeren
+  Regel liefert die Seite nur, was sie wirklich braucht (ca. 45 KB).
+- **Folge für Sie:** Keine. Ein neues Logo für eine andere Seite einfach als
+  SVG oder PNG in `assets/` legen.
