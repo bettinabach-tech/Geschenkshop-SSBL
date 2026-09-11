@@ -12,9 +12,13 @@ interface Props {
   site: Site;
   /** Bild für die Social-Media-Vorschau (URL). Erscheint nur, wenn site.adresse gesetzt ist. */
   ogBild?: string;
+  /** Eigener Tab-Titel statt site.titel (z.B. für die Fehlerseite). */
+  titel?: string;
+  /** Seite für Suchmaschinen sperren (z.B. Fehlerseite). */
+  noindex?: boolean;
 }
 
-const { site, ogBild } = Astro.props;
+const { site, ogBild, titel = site.titel, noindex = false } = Astro.props;
 const logo = await ladeLogo(site.logo);
 const ogBildUrl =
   site.adresse && ogBild ? new URL(ogBild, site.adresse).href : undefined;
@@ -27,8 +31,9 @@ const iconTyp =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{site.titel}</title>
+    <title>{titel}</title>
     <meta name="description" content={site.beschreibung} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" href={logo.src} type={iconTyp} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={site.titel} />

@@ -1,0 +1,31 @@
+---
+// Fehlerseite für falsche Adressen (Aufgabe 011, F-25). Wird zu dist/404.html;
+// der Hosting-Anbieter zeigt sie bei jeder unbekannten Adresse (Einrichtung: 027).
+// Wortlaut vom Auftraggeber freigegeben am 11.09.2026 (Variante A).
+// «Zur Startseite» ist ein Textlink, kein Button: Der einzige Button einer
+// Seite ist der Kauf-Button (Skill fabrik-design).
+import Abschnitt from "../components/Abschnitt.astro";
+import Footer from "../components/Footer.astro";
+import Kopf from "../components/Kopf.astro";
+import Seite from "../layouts/Seite.astro";
+import { getSite } from "../lib/sites";
+
+const site = getSite("geschenkshop-ssbl");
+---
+
+<Seite site={site} titel="Seite nicht gefunden – Geschenkshop SSBL" noindex>
+  <Kopf site={site} />
+  <main>
+    <Abschnitt name="fehler">
+      <h1>Diese Seite gibt es leider nicht</h1>
+      <p>
+        Vielleicht hat sich in der Adresse ein Tippfehler eingeschlichen, oder
+        der Link ist nicht mehr aktuell.
+      </p>
+      <p>
+        <a href="/">Zur Startseite</a>
+      </p>
+    </Abschnitt>
+  </main>
+  <Footer site={site} />
+</Seite>

@@ -280,3 +280,19 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Internet:** Nur der Link-Test fragt fremde Adressen ab, die auf der Seite
   verlinkt sind (heute: keine). Das macht das Prüfprogramm, nicht Claude.
 - **Folge für Sie:** `--deep` dauert jetzt ca. 1,5 Minuten. Keine Kosten.
+
+### 26. Fehlerseite für falsche Adressen (Aufgabe 011)
+- **Was:** Wer eine falsche Adresse aufruft, sieht das SSBL-Logo, die
+  Überschrift «Diese Seite gibt es leider nicht», einen erklärenden Satz und
+  den Textlink «Zur Startseite», unten den Kontakt-Link. Wortlaut: Ihre
+  Freigabe vom 11.09.2026 (Variante A).
+- **Warum ein Textlink:** Der einzige Button jeder Seite ist der Kauf-Button.
+- **Suchmaschinen:** Die Fehlerseite ist für Google gesperrt («noindex»), damit
+  sie nie in Suchergebnissen erscheint. Lighthouse zieht dafür Punkte ab, weil
+  es davon ausgeht, dass jede Seite gefunden werden will. Bei gesperrten Seiten
+  wird darum nur dieser eine Messpunkt nicht gewertet. Die Schwelle 90 gilt
+  unverändert für alles andere (Ergebnis: 100 Punkte). Ein Test stellt sicher,
+  dass die Shop-Seite selbst nie gesperrt ist.
+- **Folge für Sie:** «Zur Startseite» führt auf die Hauptadresse (`/`). Dass
+  dort beim Anbieter der Geschenkshop erscheint, wird beim Hosting (027/028)
+  eingerichtet. In der Vorschau zeigt `/` noch die interne Übersicht.

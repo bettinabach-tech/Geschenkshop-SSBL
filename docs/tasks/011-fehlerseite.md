@@ -3,7 +3,7 @@ id: 011
 title: "Fehlerseite für falsche Adressen bauen"
 depends_on: [002]
 features: [F-25]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/fehlerseite.test.ts"

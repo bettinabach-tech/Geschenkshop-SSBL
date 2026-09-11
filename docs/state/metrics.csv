@@ -9,3 +9,4 @@ task_id,class,model,rounds,tokens_total,outcome,date
 015,open,claude-opus-5,2,90000,done,2026-09-11
 016,open,claude-opus-5,1,90000,done,2026-09-11
 004,patterned,claude-opus-5,2,90000,done,2026-09-11
+011,open,claude-opus-5,2,60000,done,2026-09-11

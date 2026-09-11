@@ -25,14 +25,25 @@ for (const pfad of seiten()) {
       channel: "msedge",
       args: [`--remote-debugging-port=${DEBUG_PORT}`],
     });
+    const url = `http://localhost:${PORT}${pfad}`;
+    // Seiten, die sich bewusst für Suchmaschinen sperren (z.B. die
+    // Fehlerseite, Aufgabe 011), ohne den Messpunkt «is-crawlable» werten:
+    // Er misst genau diese gewollte Sperre. Alle anderen SEO-Punkte zählen
+    // weiter, die Schwelle bleibt 90. Die Shop-Seite darf nie gesperrt sein
+    // (Gegenprobe in tests/fehlerseite.test.ts).
+    const gesperrt = /<meta name="robots" content="noindex"/.test(
+      await (await fetch(url)).text(),
+    );
     const punkte: Record<string, number[]> = {};
     try {
       for (let lauf = 0; lauf < LAEUFE; lauf++) {
-        const ergebnis = await lighthouse(
-          `http://localhost:${PORT}${pfad}`,
-          { port: DEBUG_PORT, logLevel: "error", onlyCategories: KATEGORIEN },
-          // Standard von Lighthouse: Handy-Ansicht mit gedrosseltem Netz/CPU.
-        );
+        // Standard von Lighthouse: Handy-Ansicht mit gedrosseltem Netz/CPU.
+        const ergebnis = await lighthouse(url, {
+          port: DEBUG_PORT,
+          logLevel: "error",
+          onlyCategories: KATEGORIEN,
+          skipAudits: gesperrt ? ["is-crawlable"] : [],
+        });
         if (!ergebnis) throw new Error("Lighthouse lieferte kein Ergebnis.");
         for (const k of KATEGORIEN) {
           (punkte[k] ??= []).push(
@@ -44,7 +55,7 @@ for (const pfad of seiten()) {
       await browser.close();
     }
     console.log(
-      `Lighthouse ${pfad}: ` +
+      `Lighthouse ${pfad}${gesperrt ? " (noindex: ohne is-crawlable)" : ""}: ` +
         KATEGORIEN.map((k) => `${k} ${punkte[k].join("/")}`).join(" · "),
     );
     const zuTief = KATEGORIEN.filter((k) => median(punkte[k]) < SCHWELLE).map(

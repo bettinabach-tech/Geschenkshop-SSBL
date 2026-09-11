@@ -30,7 +30,7 @@
 - [FAILING] F-22 Die Seite erreicht in Lighthouse (Handy) mindestens 90 Punkte in Performance, Barrierefreiheit, Best Practices und SEO.
 - [FAILING] F-23 Alle Links, Buttons und Formularfelder sind per Tastatur erreichbar und haben einen sichtbaren Fokusrahmen.
 - [PASSING] F-24 Die Seite ist als deutschsprachig ausgezeichnet, damit Screenreader sie deutsch vorlesen.
-- [FAILING] F-25 Eine falsche Adresse zeigt eine freundliche Fehlerseite mit Link zur Startseite.
+- [PASSING] F-25 Eine falsche Adresse zeigt eine freundliche Fehlerseite mit Link zur Startseite.
 - [FAILING] F-26 Pflichtfelder im Formular sind sichtbar als Pflicht markiert.
 - [FAILING] F-27 Ein fehlendes oder falsch ausgefülltes Feld zeigt seinen Hinweis direkt am Feld, bevor abgeschickt wird.
 - [FAILING] F-28 Nach dem ersten Klick auf «Absenden» ist der Button gesperrt und zeigt, dass gesendet wird.
