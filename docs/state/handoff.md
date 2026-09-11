@@ -1,4 +1,4 @@
-# Handoff — 2026-09-11 (Aufgaben 001–013, 015–022, 024)
+# Handoff — 2026-09-11 (Aufgaben 001–013, 015–022, 024, 029)
 
 ## Letzte Sitzung
 - 004: `--deep` im Edge (#25) · 011: 404 (#26) · 009: `components/formular/` + `lib/formular/client.ts` (#27).
@@ -12,10 +12,10 @@
 - 013: `check:golive` (`lib/golive.ts` + Haken `sites/<slug>/golive.ts`); Shop heute 21 Mängel, Exit 1 = richtig.
 - 024: site.ts `vorschau` → `/<slug>/vorschau.jpg` (`lib/vorschau.ts`, sharp; #35); og:image erst mit adresse.
 - 003: `npm run new -- <slug>` (`scripts/new-site.mjs`, #36): site.ts + index.astro «im Aufbau», noindex.
+- 029: --deep GREEN (LH 100 überall), F-01/22/23 PASSING; `deckeAllesAuf` prüft auch Aufgeklapptes (#37).
 
 ## Achtung nächste Sitzung
-- Texte auf der Seite nur nach Freigabe ändern. Unbekanntes nie raten.
-- F-01/22/23 erst in 029 PASSING · in 025 `geschichteEingebaut` (site.ts) auf true · ≤ 30 Zeilen.
+- Texte nur nach Freigabe ändern, nie raten · 025: `geschichteEingebaut` (site.ts) auf true · nach 026 `--deep`.
 - Write/heredoc verschlucken `\u…`/`\\` (Regex prüfen) · happy-dom kennt kein CSS.
 
 ## Für den Auftraggeber zu prüfen
@@ -27,4 +27,4 @@
 - SSBL-IT (blockiert 027/028): Anbieter, Mailserver (laedeli@ssbl.ch), geschenke.ssbl.ch; dort muss `/` den Shop zeigen.
 
 ## Vorgeschlagene nächste Aufgabe
-- 029 (Browser-Abnahme) · 014 (braucht Fakten) · danach warten auf Lieferungen (023/025–028).
+- 014 (braucht Fakten) · sonst warten auf Lieferungen (023, 025–028).
