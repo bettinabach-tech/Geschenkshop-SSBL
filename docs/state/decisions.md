@@ -361,3 +361,23 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   Klick (z.B. auf «Bestellung absenden») ging ins Leere.
 - **Folge für Sie:** Keine. Die Ausweiskontrolle beim Wein macht weiterhin
   das Lädeli bei der Übergabe.
+
+### 31. Formular-Empfänger: prüfen, per Mail weiterleiten, nichts speichern (Aufgabe 010)
+- **Was:** Ein kleines Programmstück auf dem Server nimmt jede Bestellung
+  entgegen. Es prüft sie mit denselben Regeln wie die Seite und schickt dann
+  zwei Mails: zuerst an das Lädeli, danach die Bestätigung an die bestellende
+  Person. Gespeichert wird nichts. Spam (unsichtbares Feld ausgefüllt) wird
+  still verworfen, Einsendungen nach dem Bestellschluss abgelehnt,
+  übergrosse Einsendungen (über 20 KB) ebenso.
+- **Wenn etwas scheitert:** Kommt die Mail ans Lädeli nicht an, sieht die
+  Person den Hinweis mit Telefon und E-Mail und kann es nochmals versuchen.
+  Scheitert nur die Bestätigung, gilt die Bestellung trotzdem als
+  eingegangen (sie liegt ja beim Lädeli); der Fehler wird ohne Personendaten
+  protokolliert.
+- **Werkzeug:** nodemailer (Version 10), eine kostenlose Programmbibliothek
+  (freie Lizenz MIT-0) für den Versand über einen normalen Mailserver. Kein
+  zusätzlicher Dienst: Die Daten gehen nur über den Mailserver, den die
+  SSBL-IT bestimmt.
+- **Folge für Sie:** Die Zugangsdaten (SMTP_HOST, SMTP_PORT, SMTP_USER,
+  SMTP_PASS, MAIL_FROM) trägt die SSBL-IT beim Anbieter ein, nie ins Projekt.
+  Fehlt etwas, nennt die Fehlermeldung nur die Namen, nie die Werte.

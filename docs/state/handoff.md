@@ -1,4 +1,4 @@
-# Handoff — 2026-09-11 (Aufgaben 001–002, 004–009, 011, 012, 015, 016, 018–020)
+# Handoff — 2026-09-11 (Aufgaben 001–002, 004–012, 015, 016, 018–020)
 
 ## Letzte Sitzung
 - 004: `--deep` im Edge (`tests/browser/`, #25) · 011: 404-Seite (#26).
@@ -10,6 +10,8 @@
 - 020: #bestellung-adresse / #bestellung-alter, ein-/ausgeblendet in
   bestellformular.ts (#30). Blur-Hinweise warten bei gedrückter Maus bis
   nach dem Klick (client.ts `nachDemLoslassen`). GS-24–28, 30 PASSING.
+- 010: `src/server/empfaenger.ts` (`verarbeiteEinsendung`, Texte kommen über
+  `abh.meldungen` von 021/022) + `src/server/smtp.ts` (nodemailer, #31).
 - verify GREEN; --deep GREEN (~2 min, Lighthouse 99–100).
 
 ## Achtung nächste Sitzung
@@ -27,4 +29,4 @@
 - SSBL-IT (blockiert 027/028): Anbieter, Mailserver (laedeli@ssbl.ch), geschenke.ssbl.ch.
 
 ## Vorgeschlagene nächste Aufgabe
-- 010 (Formular-Empfänger, ohne IT-Zugang baubar) · 017 (Hinweistexte) · 003 · 014.
+- 021 (Bestell-Mails, Texte freigeben lassen) · 017 (Hinweistexte) · 003 · 014.

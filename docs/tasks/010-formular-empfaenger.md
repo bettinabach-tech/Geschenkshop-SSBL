@@ -3,7 +3,7 @@ id: 010
 title: "Formular-Empfänger mit Mailversand bauen"
 depends_on: []
 features: []
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/empfaenger.test.ts"
