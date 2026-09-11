@@ -1,5 +1,8 @@
 ---
-// Skelett-Startseite. Wird durch die Seiten der Fabrik ersetzt (siehe docs/tasks/).
+// Interne Übersicht aller Seiten der Fabrik. Nicht für Suchmaschinen gedacht.
+import { getSites } from "../lib/sites";
+
+const sites = getSites();
 ---
 
 <!doctype html>
@@ -7,11 +10,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>landingpage-fabrik</title>
+    <meta name="robots" content="noindex" />
+    <title>Übersicht – landingpage-fabrik</title>
   </head>
   <body>
     <main>
-      <h1>landingpage-fabrik</h1>
+      <h1>Übersicht der Seiten</h1>
+      <ul>
+        {sites.map((site) => (
+          <li>
+            <a href={`/${site.slug}/`}>{site.titel}</a>
+          </li>
+        ))}
+      </ul>
     </main>
   </body>
 </html>

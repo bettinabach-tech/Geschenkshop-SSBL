@@ -3,7 +3,7 @@ id: 001
 title: "Seiten-Konfiguration pro Brief einführen"
 depends_on: []
 features: []
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/site-config.test.ts"
