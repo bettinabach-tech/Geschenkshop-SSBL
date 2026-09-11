@@ -12,7 +12,7 @@
 - [PASSING] F-04 Die Seite setzt kein Cookie und enthält kein Tracking.
 - [PASSING] F-05 Fliesstext erscheint dunkel (#1a1a1a) auf Weiss; die Primärfarbe (#005CA9) kommt nur bei Überschriften, beim Kauf-Button und bei Hervorhebungen vor.
 - [PASSING] F-06 Jede Text-/Hintergrund-Kombination hat einen Kontrast von mindestens 4.5:1.
-- [FAILING] F-07 Das Logo steht oben auf der Seite, mindestens 32 px hoch, unverzerrt und mit freier Schutzzone ringsum.
+- [PASSING] F-07 Das Logo steht oben auf der Seite, mindestens 32 px hoch, unverzerrt und mit freier Schutzzone ringsum.
 - [PASSING] F-08 Der Browser-Tab zeigt den Seitentitel und das Logo als kleines Symbol.
 - [PASSING] F-09 Beim Teilen des Links auf Social Media erscheint eine Vorschau mit Titel, Beschreibung und Bild.
 - [FAILING] F-10 Die Abschnitte folgen immer der Reihenfolge Hero, Nutzen, Vertrauen, Kauf-Bereich, Footer.
@@ -24,7 +24,7 @@
 - [PASSING] F-16 Buttons sind mindestens 44 px hoch, haben abgerundete Ecken und keine Grossbuchstaben-Schreibweise.
 - [PASSING] F-17 Textzeilen sind höchstens 65 Zeichen breit.
 - [PASSING] F-18 Abschnitte haben 96 px Abstand auf dem Desktop und 64 px auf dem Handy.
-- [FAILING] F-19 Der Footer enthält Links zu Impressum, Datenschutz und Kontakt.
+- [PASSING] F-19 Der Footer enthält Links zu Impressum, Datenschutz und Kontakt.
 - [PASSING] F-20 Jedes Bild hat einen beschreibenden Alternativtext.
 - [PASSING] F-21 Bilder laden in passender Grösse und modernem Format; kein Bild ist auf dem Handy grösser als 300 KB.
 - [FAILING] F-22 Die Seite erreicht in Lighthouse (Handy) mindestens 90 Punkte in Performance, Barrierefreiheit, Best Practices und SEO.

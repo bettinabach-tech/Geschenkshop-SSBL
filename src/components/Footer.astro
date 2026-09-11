@@ -1,0 +1,37 @@
+---
+// Footer (Skill fabrik-design): Impressum, Datenschutz, Kontakt — nur
+// Textlinks, nie Buttons. Fehlt eine Adresse (vor dem Live-Gang), wird der
+// Link weggelassen; der Live-Gang-Check (013) meldet die Lücke.
+import "../styles/kopf-footer.css";
+import type { Site } from "../lib/site";
+
+interface Props {
+  site: Site;
+}
+
+const { site } = Astro.props;
+const { impressumUrl, datenschutzUrl } = site.rechtliches;
+const { email, telefon } = site.kontakt;
+
+const links = [
+  impressumUrl && { text: "Impressum", href: impressumUrl },
+  datenschutzUrl && { text: "Datenschutz", href: datenschutzUrl },
+  { text: "Kontakt", href: `mailto:${email}` },
+  telefon && {
+    text: `Telefon ${telefon}`,
+    href: `tel:${telefon.replace(/[^\d+]/g, "")}`,
+  },
+].filter((link): link is { text: string; href: string } => Boolean(link));
+---
+
+<footer class="footer">
+  <nav class="footer__inhalt" aria-label="Rechtliches und Kontakt">
+    <ul class="footer__links">
+      {links.map((link) => (
+        <li>
+          <a href={link.href}>{link.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</footer>

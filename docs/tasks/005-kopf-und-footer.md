@@ -3,7 +3,7 @@ id: 005
 title: "Kopf mit Logo und Footer bauen"
 depends_on: [002]
 features: [F-07, F-19]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/kopf-footer.test.ts"

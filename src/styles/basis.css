@@ -32,6 +32,19 @@ p {
   max-width: 65ch;
 }
 
+/* Textlinks: Textfarbe + unterstrichen (kein Browser-Blau als Zusatzfarbe) */
+a {
+  color: var(--farbe-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* Sichtbarer Fokusrahmen für die Tastatur, dunkel auf Weiss (17.4:1) */
+a:focus-visible {
+  outline: 3px solid var(--farbe-text);
+  outline-offset: 3px;
+}
+
 img {
   max-width: 100%;
   height: auto;

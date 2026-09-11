@@ -234,3 +234,13 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Warum:** Sie können Aussehen und Abstände prüfen, bevor die echte Seite
   zusammengesetzt wird — ohne dass Mustertexte je öffentlich werden.
 - **Folge für Sie:** Keine.
+
+### 23. Links in Textfarbe, unterstrichen
+- **Was:** Textlinks (z.B. Impressum, Datenschutz, Kontakt im Footer) erscheinen
+  in der dunklen Textfarbe und unterstrichen, nicht im Standard-Blau des
+  Browsers. Mit der Tab-Taste erhalten sie einen deutlichen dunklen Rahmen.
+- **Warum:** Das Browser-Blau wäre eine weitere Farbe, die die Design-Regeln
+  nicht vorsehen, und würde mit dem SSBL-Blau des Kauf-Buttons konkurrieren.
+  Die Unterstreichung zeigt trotzdem klar: Das ist ein Link.
+- **Folge für Sie:** Keine. Fehlen Impressum- oder Datenschutz-Link noch, lässt
+  der Footer sie weg, statt einen leeren Link zu zeigen.

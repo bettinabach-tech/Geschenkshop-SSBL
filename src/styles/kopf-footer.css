@@ -1,0 +1,45 @@
+/* kopf-footer.css — Kopf mit Logo und Footer (Skill fabrik-design). */
+
+/* Schutzzone = halbe Logohöhe (40 px → 20 px) ringsum frei */
+.kopf {
+  padding: 20px;
+}
+
+.kopf__inhalt {
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+/* Logo: feste Höhe, Breite automatisch — nie verzerrt */
+.kopf__logo {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+/* Footer: nur Textlinks, in Textfarbe und unterstrichen */
+.footer {
+  padding-block: 2rem;
+  padding-inline: 1rem;
+  border-top: 1px solid var(--farbe-text);
+}
+
+.footer__inhalt {
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+.footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+/* Links mind. 44 px hoch antippbar, ohne wie ein Button auszusehen */
+.footer__links a {
+  display: inline-block;
+  padding-block: 0.625rem;
+}

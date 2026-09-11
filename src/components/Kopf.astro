@@ -1,0 +1,30 @@
+---
+// Kopf mit Logo (Skill fabrik-design): 40 px hoch, Breite automatisch (nie
+// verzerrt), Schutzzone ringsum = halbe Logohöhe. Stile: kopf-footer.css
+import "../styles/kopf-footer.css";
+import { ladeLogo } from "../lib/logo";
+import type { Site } from "../lib/site";
+
+interface Props {
+  site: Site;
+}
+
+const LOGO_HOEHE = 40;
+const { site } = Astro.props;
+const logo = await ladeLogo(site.logo);
+// Breite aus dem Seitenverhältnis — nur als HTML-Angabe, damit die Seite beim
+// Laden nicht springt; das CSS setzt width: auto.
+const breite = Math.round((LOGO_HOEHE * logo.width) / logo.height);
+---
+
+<header class="kopf">
+  <div class="kopf__inhalt">
+    <img
+      class="kopf__logo"
+      src={logo.src}
+      alt={site.logoAlt}
+      width={breite}
+      height={LOGO_HOEHE}
+    />
+  </div>
+</header>

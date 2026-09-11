@@ -4,7 +4,9 @@
 // Zweck: Sichtprüfung von Hero, Kauf-Button, Abständen und Nutzen, bevor die
 // echte Seite (Aufgabe 015) sie verwendet. Texte sind Muster, nicht endgültig.
 import Bild from "../components/Bild.astro";
+import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
+import Kopf from "../components/Kopf.astro";
 import Nutzen from "../components/Nutzen.astro";
 import Seite from "../layouts/Seite.astro";
 import { getSite } from "../lib/sites";
@@ -17,10 +19,12 @@ const site = getSite("geschenkshop-ssbl");
 ---
 
 <Seite site={site}>
+  <Kopf site={site} />
   <main>
     <p>
       <strong>Musterseite (nur Vorschau):</strong> zeigt die Bausteine mit
-      Mustertexten. Die echten Texte folgen mit Aufgabe 015.
+      Mustertexten. Die echten Texte folgen mit Aufgabe 015. Im Footer fehlen
+      Impressum und Datenschutz, bis die Links geliefert sind (Aufgabe 023).
     </p>
     <Hero
       ueberschrift="Sinnvolle Geschenke aus den Werkstätten der SSBL"
@@ -59,4 +63,5 @@ const site = getSite("geschenkshop-ssbl");
       </div>
     </section>
   </main>
+  <Footer site={site} />
 </Seite>
