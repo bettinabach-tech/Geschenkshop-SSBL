@@ -381,3 +381,22 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Folge für Sie:** Die Zugangsdaten (SMTP_HOST, SMTP_PORT, SMTP_USER,
   SMTP_PASS, MAIL_FROM) trägt die SSBL-IT beim Anbieter ein, nie ins Projekt.
   Fehlt etwas, nennt die Fehlermeldung nur die Namen, nie die Werte.
+
+### 32. Bestell-Mails als reiner Text (Aufgabe 021)
+- **Was:** Pro Bestellung zwei Mails: an laedeli@ssbl.ch mit allen Angaben
+  (Produkte mit Menge und Einzelpreis, Summe ohne Versand, Kontakt, Lieferung
+  oder Abholung, Zahlungsart, bei Wein die Altersbestätigung, Eingangszeit in
+  Zürcher Zeit) und die Bestätigung an die bestellende Person. Antworten auf
+  die Lädeli-Mail gehen direkt an die bestellende Person. Wortlaut: Ihre
+  Freigabe vom 11.09.2026; Beispiel in `docs/state/beispiel-mails.md`.
+- **Warum nur Text:** Kommt in jedem Mailprogramm gleich an, auch auf dem
+  Handy, und kann nicht falsch dargestellt werden.
+- **Sicherheit:** Zeilenumbrüche in Namen oder anderen Feldern werden zu
+  Leerzeichen. So kann niemand über das Formular heimlich weitere Empfänger
+  (z.B. «Bcc:») oder falsche Zeilen einschleusen.
+- **Bestellschluss:** Wer nach dem 16.12.2026, 00:00 Uhr, eine noch offene
+  Seite abschickt, erhält «Bestellschluss vorbei: Seit dem 16.12.2026 nehmen
+  wir keine Bestellungen mehr an. Herzlichen Dank für Ihr Interesse!» (Ihre
+  Wahl vom 11.09.2026). Die Anzeige im Formular folgt mit Aufgabe 022.
+- **Folge für Sie:** Keine. Aktiv wird der Versand mit dem Anschluss an den
+  Anbieter (Aufgabe 027).

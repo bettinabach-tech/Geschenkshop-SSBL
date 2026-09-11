@@ -3,7 +3,7 @@ id: 021
 title: "Bestell-E-Mails an Lädeli und Besteller schreiben"
 depends_on: [010, 018]
 features: [GS-32, GS-33]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/bestell-mails.test.ts"

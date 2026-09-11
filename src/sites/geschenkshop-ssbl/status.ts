@@ -1,6 +1,6 @@
-// status.ts — Zustand eines Produkts für Anzeige und Bestellung
-// (decisions.md Nr. 6). Rein, ohne Dateizugriff: läuft im Build, im Browser
-// und auf dem Server.
+// status.ts — Zustand und Preisanzeige eines Produkts für Anzeige, Bestellung
+// und Mails (decisions.md Nr. 6). Rein, ohne Dateizugriff: läuft im Build, im
+// Browser und auf dem Server.
 import type { Produkt } from "./produkte";
 
 /**
@@ -17,4 +17,9 @@ export function produktStatus(
     return "preis-folgt";
   }
   return produkt.stueck === 0 ? "ausverkauft" : "bestellbar";
+}
+
+/** Preis in Franken mit zwei Stellen: 24.5 → «CHF 24.50». */
+export function formatierePreis(preis: number): string {
+  return `CHF ${preis.toFixed(2)}`;
 }

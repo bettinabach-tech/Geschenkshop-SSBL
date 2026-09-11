@@ -71,8 +71,8 @@
 - [PASSING] GS-29 Die Auswahl der Zahlungsart «Twint» oder «Karte» ist Pflicht.
 - [PASSING] GS-30 Sobald ein Wein gewählt ist, erscheint das Pflicht-Häkchen «Ich bin mindestens 16 Jahre alt»; ohne Wein erscheint es nicht.
 - [FAILING] GS-31 Beim Formular steht ein Hinweis mit Link zur Datenschutzerklärung auf ssbl.ch.
-- [FAILING] GS-32 Die Bestellung kommt als E-Mail bei laedeli@ssbl.ch an, mit allen Angaben der bestellenden Person.
-- [FAILING] GS-33 Die bestellende Person erhält eine Bestätigungs-E-Mail: Eingang bestätigt, Übersicht ihrer Angaben, Rückmeldung des Lädeli innert 2 Arbeitstagen, noch nicht verbindlich.
+- [PASSING] GS-32 Die Bestellung kommt als E-Mail bei laedeli@ssbl.ch an, mit allen Angaben der bestellenden Person.
+- [PASSING] GS-33 Die bestellende Person erhält eine Bestätigungs-E-Mail: Eingang bestätigt, Übersicht ihrer Angaben, Rückmeldung des Lädeli innert 2 Arbeitstagen, noch nicht verbindlich.
 - [PASSING] GS-34 Die Danke-Meldung sagt, dass eine Bestätigung per E-Mail kommt und sich das Lädeli innert 2 Arbeitstagen meldet.
 - [FAILING] GS-35 Schlägt das Absenden fehl, nennt die Meldung die Telefonnummer des Lädeli und laedeli@ssbl.ch.
 - [FAILING] GS-36 Ab 16.12.2026 ist das Formular automatisch ausgeblendet; stattdessen steht ein Hinweis zum Bestellschluss, die Produkte bleiben sichtbar.

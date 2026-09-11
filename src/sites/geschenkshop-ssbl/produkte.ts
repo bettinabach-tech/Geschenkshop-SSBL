@@ -73,12 +73,7 @@ export type Produkt = z.output<typeof produktSchema>;
 
 // Zustand eines Produkts: eigene Datei ohne Dateizugriff, damit auch die
 // Bestellregeln im Browser ihn nutzen können (Aufgabe 018).
-export { produktStatus, type ProduktStatus } from "./status";
-
-/** Preis in Franken mit zwei Stellen: 24.5 → «CHF 24.50». */
-export function formatierePreis(preis: number): string {
-  return `CHF ${preis.toFixed(2)}`;
-}
+export { formatierePreis, produktStatus, type ProduktStatus } from "./status";
 
 /** Prüft bereits gelesene Daten; wirft mit Produkt und Feld in der Meldung. */
 export function pruefeProdukte(daten: unknown): Produkt[] {
