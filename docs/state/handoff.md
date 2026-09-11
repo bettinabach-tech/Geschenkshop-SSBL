@@ -2,14 +2,12 @@
 
 ## Letzte Sitzung
 - 004: `--deep` im Edge (`tests/browser/`, #25) · 011: 404-Seite (#26).
-- 009: `src/components/formular/` + `lib/formular/client.ts` (#27); Gruppen-
-  Hinweise (`mengen`) markieren/entfernen jetzt korrekt. happy-dom: tests/hilfen/dom.ts.
+- 009: `components/formular/` + `lib/formular/client.ts` (#27), happy-dom: tests/hilfen/dom.ts.
 - 018: `bestellregeln.ts` (rein), Formate in lib/formular/regeln.ts (#28).
 - 019: `Bestellformular.astro` + `bestellformular.ts`, Mengen via `<Produktkarten
   formular="bestellung">` (#29). /muster/ = echtes Formular mit Beispielpreisen.
-- 020: #bestellung-adresse / #bestellung-alter, ein-/ausgeblendet in
-  bestellformular.ts (#30). Blur-Hinweise warten bei gedrückter Maus bis
-  nach dem Klick (client.ts `nachDemLoslassen`). GS-24–28, 30 PASSING.
+- 020: Adresse/Alter ein-/ausgeblendet in bestellformular.ts (#30); Blur-Hinweise
+  warten bei gedrückter Maus bis nach dem Klick (client.ts `nachDemLoslassen`).
 - 010: `src/server/empfaenger.ts` (`verarbeiteEinsendung`, Texte kommen über
   `abh.meldungen` von 021/022) + `src/server/smtp.ts` (nodemailer, #31).
 - verify GREEN; --deep GREEN (~2 min, Lighthouse 99–100).
