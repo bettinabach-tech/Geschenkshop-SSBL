@@ -1,8 +1,8 @@
 ---
 // Seite «Geschenkshop SSBL» (Brief: docs/briefs/geschenkshop-ssbl.md).
 // Texte vom Auftraggeber freigegeben am 11.09.2026 (Aufgabe 015).
-// Bestellformular: Aufgaben 019–022. Noch offen: Hinweise (017),
-// Werkstatt-Geschichte + Foto im Vertrauens-Abschnitt (025).
+// Bestellformular: Aufgaben 019–022. Hinweise im Kauf-Bereich: Aufgabe 017.
+// Noch offen: Werkstatt-Geschichte + Foto im Vertrauens-Abschnitt (025).
 import Bild from "../../components/Bild.astro";
 import Hero from "../../components/Hero.astro";
 import KaufBereich from "../../components/KaufBereich.astro";
@@ -12,6 +12,7 @@ import Vertrauen from "../../components/Vertrauen.astro";
 import { istGeschlossen } from "../../lib/formular/schluss";
 import { getSite } from "../../lib/sites";
 import Bestellformular from "../../sites/geschenkshop-ssbl/Bestellformular.astro";
+import Hinweise from "../../sites/geschenkshop-ssbl/Hinweise.astro";
 import Produktkarten from "../../sites/geschenkshop-ssbl/Produktkarten.astro";
 import { produkte } from "../../sites/geschenkshop-ssbl/produkte";
 
@@ -76,6 +77,7 @@ const offen = !istGeschlossen(site.formular.schluss, new Date());
   </Vertrauen>
 
   <KaufBereich slot="kauf" ueberschrift="Geschenke auswählen und bestellen">
+    <Hinweise />
     <Produktkarten
       produkte={produkte}
       formular={offen ? "bestellung" : undefined}

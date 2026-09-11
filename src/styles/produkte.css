@@ -69,3 +69,12 @@
 #mengen-fehler {
   margin-top: 1.5rem;
 }
+
+/* Hinweise oberhalb der Produkte (Aufgabe 017): kurze Liste, Stichwort fett */
+.hinweise {
+  max-width: 65ch;
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+}

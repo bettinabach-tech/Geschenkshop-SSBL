@@ -3,7 +3,7 @@ id: 017
 title: "Hinweise zu Abholung, Versand, Zahlung und Verbindlichkeit schreiben"
 depends_on: [015]
 features: [GS-14, GS-15, GS-16, GS-41]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/hinweise.test.ts"

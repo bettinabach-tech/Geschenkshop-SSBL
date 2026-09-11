@@ -416,3 +416,15 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   prüft auf jeder Seite, dass Ausgeblendetes wirklich unsichtbar ist.
 - **Folge für Sie:** Keine Handarbeit am Stichtag. Bitte bei der Sichtprüfung
   auf /muster/ nochmals kurz «Lieferung»/«Abholung» wechseln.
+
+### 34. Hinweise zu Abholung, Versand, Zahlung und Verbindlichkeit (Aufgabe 017)
+- **Was:** Im Bestellbereich, direkt unter der Überschrift und vor den
+  Produkten, stehen vier kurze Punkte: Bestellschluss und Lieferzeit, Abholung
+  im Lädeli oder Versand in der Schweiz, Zahlung (Twint oder Karte, keine
+  Rechnung; im Lädeli bzw. per Zahlungslink) und wann die Bestellung
+  verbindlich wird. Wortlaut: Ihre Freigabe vom 11.09.2026.
+- **Warum dort:** Wer bestellen will, sieht die Antworten auf «Kommt es
+  rechtzeitig an?» und «Wie bezahle ich?» vor der Auswahl (Einwand im Brief).
+- **Bewusst weggelassen:** Versandkosten (laut Brief nicht auf der Seite),
+  Adresse und Öffnungszeiten des Lädeli (noch nicht geliefert).
+- **Folge für Sie:** Keine.

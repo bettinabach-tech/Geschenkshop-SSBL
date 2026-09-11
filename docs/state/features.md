@@ -53,9 +53,9 @@
 - [PASSING] GS-11 Ein ausverkauftes Produkt bleibt sichtbar, trägt den Hinweis «ausverkauft» und lässt sich nicht bestellen.
 - [PASSING] GS-12 Die beiden Weine tragen den Hinweis «Abgabe ab 16 Jahren».
 - [PASSING] GS-13 Bestellschluss (15.12.2026) und Lieferzeit (ca. eine Woche) stehen im Hero.
-- [FAILING] GS-14 Die Seite erklärt die zwei Wege: Abholung im Lädeli in Rathausen (Emmen) oder Versand innerhalb der Schweiz.
-- [FAILING] GS-15 Die Seite erklärt die Zahlung: Twint oder Karte, keine Rechnung; bei Abholung im Lädeli, bei Versand per Zahlungslink nach der Rückmeldung.
-- [FAILING] GS-16 Die Seite sagt, dass die Bestellung erst mit der Rückmeldung des Lädeli verbindlich wird.
+- [PASSING] GS-14 Die Seite erklärt die zwei Wege: Abholung im Lädeli in Rathausen (Emmen) oder Versand innerhalb der Schweiz.
+- [PASSING] GS-15 Die Seite erklärt die Zahlung: Twint oder Karte, keine Rechnung; bei Abholung im Lädeli, bei Versand per Zahlungslink nach der Rückmeldung.
+- [PASSING] GS-16 Die Seite sagt, dass die Bestellung erst mit der Rückmeldung des Lädeli verbindlich wird.
 - [PASSING] GS-17 Im Formular hat jedes bestellbare Produkt ein Mengenfeld von 0 bis zur verfügbaren Stückzahl.
 - [PASSING] GS-18 Ohne mindestens ein Produkt mit Menge 1 oder mehr lässt sich nicht bestellen; der Hinweis erscheint bei den Mengenfeldern.
 - [PASSING] GS-19 Das Feld «Name» ist Pflicht.
@@ -80,4 +80,4 @@
 - [FAILING] GS-38 Der Footer verlinkt Impressum und Datenschutz auf ssbl.ch und nennt als Kontakt laedeli@ssbl.ch und die Telefonnummer des Lädeli.
 - [FAILING] GS-39 Beim Teilen auf Social Media zeigt die Vorschau ein Produktfoto und einen Titel zum Geschenkshop.
 - [FAILING] GS-40 Die Seite ist unter geschenke.ssbl.ch mit sicherer Verbindung (https) erreichbar.
-- [FAILING] GS-41 Bestellschluss (15.12.2026) und Lieferzeit (ca. eine Woche) stehen im Bestellbereich.
+- [PASSING] GS-41 Bestellschluss (15.12.2026) und Lieferzeit (ca. eine Woche) stehen im Bestellbereich.
