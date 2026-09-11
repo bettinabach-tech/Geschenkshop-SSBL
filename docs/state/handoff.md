@@ -1,4 +1,4 @@
-# Handoff — 2026-09-11 (Aufgaben 001–002, 004–013, 015–022)
+# Handoff — 2026-09-11 (Aufgaben 001–002, 004–013, 015–022, 024)
 
 ## Letzte Sitzung
 - 004: `--deep` im Edge (#25) · 011: 404 (#26) · 009: `components/formular/` +
@@ -11,6 +11,7 @@
   Schluss (#33); Fix `[hidden]{display:none!important}` (basis.css) + --deep-Prüfung.
 - 017: `Hinweise.astro` über den Produkten (#34), GS-14–16/41 PASSING · verify/--deep GREEN.
 - 013: `check:golive` (`lib/golive.ts` + Haken `sites/<slug>/golive.ts`); Shop heute 21 Mängel, Exit 1 = richtig.
+- 024: site.ts `vorschau` → `/<slug>/vorschau.jpg` (`lib/vorschau.ts`, sharp; #35); og:image erst mit adresse.
 
 ## Achtung nächste Sitzung
 - Texte auf der Seite nur nach Freigabe ändern. Unbekanntes nie raten.
@@ -18,13 +19,12 @@
 - Write/heredoc verschlucken `\u…`/`\\` (Regex prüfen) · happy-dom kennt kein CSS.
 
 ## Für den Auftraggeber zu prüfen
-- **Sichtprüfung:** `npm run dev` → localhost:4321/muster/ (Lieferung/Abholung
-  wechseln, Wein-Menge 1), /geschenkshop-ssbl/ (Hinweise über den Produkten), /gibtsnicht.
+- **Sichtprüfung:** `npm run dev` → localhost:4321/muster/ (Lieferung/Abholung wechseln,
+  Wein-Menge 1), /geschenkshop-ssbl/ (Hinweise), /geschenkshop-ssbl/vorschau.jpg (Ausschnitt ok?), /gibtsnicht.
 - **Bestell-Mails:** Wortlaut in `docs/state/beispiel-mails.md` (4 Beispiele).
-- 027/028: `/` muss beim Anbieter den Shop zeigen (Link der Fehlerseite).
 - Zu liefern (blockiert 023/025/026; Liste: `npm run check:golive -- geschenkshop-ssbl`):
   Preis + Stückzahl je Produkt · Telefon Lädeli · Impressum/Datenschutz · Geschichte + Foto · 014-Fakten.
-- SSBL-IT (blockiert 027/028): Anbieter, Mailserver (laedeli@ssbl.ch), geschenke.ssbl.ch.
+- SSBL-IT (blockiert 027/028): Anbieter, Mailserver (laedeli@ssbl.ch), geschenke.ssbl.ch; dort muss `/` den Shop zeigen.
 
 ## Vorgeschlagene nächste Aufgabe
-- 024 (Social-Media-Vorschau) · 003 · 014 (braucht Fakten) · 029 (Browser-Abnahme).
+- 003 (Befehl für neue Seiten) · 029 (Browser-Abnahme) · 014 (braucht Fakten).
