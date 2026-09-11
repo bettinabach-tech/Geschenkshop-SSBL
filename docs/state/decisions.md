@@ -247,3 +247,16 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   Die Unterstreichung zeigt trotzdem klar: Das ist ein Link.
 - **Folge für Sie:** Keine. Fehlen Impressum- oder Datenschutz-Link noch, lässt
   der Footer sie weg, statt einen leeren Link zu zeigen.
+
+### 24. Browser-Werkzeug für Claude (Playwright MCP)
+- **Was:** Claude kann über das kostenlose Microsoft-Werkzeug «Playwright MCP»
+  (Version 0.0.80, eingetragen in `.mcp.json`) einen Edge-Browser steuern: die
+  Vorschau öffnen, Bildschirmfotos machen, Klicks und Handy-Breite ausprobieren.
+  Der Browser darf NUR die lokale Vorschau http://localhost:4321 öffnen und
+  vergisst nach jeder Sitzung alles (keine Cookies, kein Verlauf).
+- **Warum:** Auf Ihren Wunsch. Claude kann damit Sichtprüfungen vorbereiten,
+  statt nur Code zu lesen. Die Beschränkung auf localhost erhält die Regel
+  «Claude greift nicht aufs Internet zu» (KURSANLEITUNG).
+- **Kosten / Datenschutz:** Keine Kosten. Beim Start lädt npm das Werkzeug
+  einmalig herunter; danach läuft alles auf Ihrem Rechner. Die Besucher der
+  Seite merken davon nichts — es ist nur ein Werkzeug für die Entwicklung.
