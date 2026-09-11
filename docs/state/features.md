@@ -78,6 +78,6 @@
 - [PASSING] GS-36 Ab 16.12.2026 ist das Formular automatisch ausgeblendet; stattdessen steht ein Hinweis zum Bestellschluss, die Produkte bleiben sichtbar.
 - [PASSING] GS-37 Wer nach Bestellschluss eine noch offene Seite abschickt, erhält den Hinweis «Bestellschluss vorbei» statt einer Bestätigung.
 - [FAILING] GS-38 Der Footer verlinkt Impressum und Datenschutz auf ssbl.ch und nennt als Kontakt laedeli@ssbl.ch und die Telefonnummer des Lädeli.
-- [FAILING] GS-39 Beim Teilen auf Social Media zeigt die Vorschau ein Produktfoto und einen Titel zum Geschenkshop.
+- [PASSING] GS-39 Beim Teilen auf Social Media zeigt die Vorschau ein Produktfoto und einen Titel zum Geschenkshop.
 - [FAILING] GS-40 Die Seite ist unter geschenke.ssbl.ch mit sicherer Verbindung (https) erreichbar.
 - [PASSING] GS-41 Bestellschluss (15.12.2026) und Lieferzeit (ca. eine Woche) stehen im Bestellbereich.

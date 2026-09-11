@@ -60,6 +60,27 @@ export const siteSchema = z.object({
     // Zeitpunkt mit Zeitzone, z.B. 2026-12-16T00:00:00+01:00
     schluss: z.iso.datetime({ offset: true, local: false }).optional(),
   }),
+  // Social-Media-Vorschau (Aufgabe 024). titel/beschreibung dürfen vom <title>
+  // abweichen; fehlen sie, gelten die Angaben oben. Das Bild wird beim Bauen
+  // auf 1200 × 630 zugeschnitten (src/lib/vorschau.ts).
+  vorschau: z
+    .object({
+      titel: z.string().min(1).max(90).optional(),
+      beschreibung: z.string().min(1).max(200).optional(),
+      bild: z
+        .string()
+        .regex(
+          /^assets\/.+\.(jpg|jpeg|png|webp)$/,
+          "Foto unter assets/ (jpg, png, webp)",
+        )
+        .optional(),
+      bildAlt: z.string().trim().min(1).optional(),
+    })
+    .refine((v) => !v.bild || v.bildAlt, {
+      error: "Vorschaubild braucht eine Bildbeschreibung (vorschau.bildAlt)",
+      path: ["bildAlt"],
+    })
+    .prefault({}),
 });
 
 /** Was in src/sites/<slug>/site.ts steht (Standardwerte dürfen fehlen). */

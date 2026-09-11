@@ -428,3 +428,26 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Bewusst weggelassen:** Versandkosten (laut Brief nicht auf der Seite),
   Adresse und Öffnungszeiten des Lädeli (noch nicht geliefert).
 - **Folge für Sie:** Keine.
+
+### 35. Social-Media-Vorschau (Aufgabe 024)
+- **Was:** Wer den Link zum Geschenkshop teilt (WhatsApp, Facebook, LinkedIn
+  …), sieht das Foto der Keramik-Pflanzenstecker, den Titel «Weihnachtsgeschenke
+  aus der SSBL, die doppelt Freude machen» und den Text «Keramik, Anzündholz
+  und Klosterwein aus der SSBL: Mit jedem Geschenk unterstützen Sie die
+  Stiftung. Bestellen bis 15.12.2026.» (Ihre Wahl vom 11.09.2026). Der Titel im
+  Browser-Tab bleibt, wie er ist.
+- **Wie:** Das Foto wird beim Bauen automatisch auf das Vorschau-Format
+  1200 × 630 Pixel zugeschnitten (unter 300 KB) und liegt unter
+  `/geschenkshop-ssbl/vorschau.jpg`. Der Ausschnitt richtet sich nach dem
+  Bereich mit den meisten Details. Das Werkzeug dafür («sharp») verkleinert
+  schon heute alle Fotos für Astro; es ist jetzt ausdrücklich eingetragen.
+  Kein externer Dienst, keine Kosten, keine Daten verlassen den Computer.
+- **Warum nicht die Weinflaschen:** Hochformat-Fotos zeigen im breiten
+  Vorschau-Format nur den Flaschenhals.
+- **Kein Tracking:** Keine Facebook-/Instagram-Kennungen (Pixel, App-ID); ein
+  Test prüft das.
+- **Folge für Sie:** Die Vorschau mit Bild erscheint erst, wenn die
+  Internetadresse feststeht (Aufgabe 028) — die Plattformen brauchen eine
+  vollständige Adresse. Anderes Foto oder anderer Text: in
+  `src/sites/geschenkshop-ssbl/site.ts` unter `vorschau`. Die Plattformen
+  merken sich eine Vorschau oft tagelang; eine Änderung erscheint verzögert.

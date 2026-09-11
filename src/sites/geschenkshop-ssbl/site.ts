@@ -22,4 +22,14 @@ export default defineSite({
     // Bestellschluss 15.12.2026 → ab 16.12.2026, 00:00 Zürcher Zeit geschlossen
     schluss: "2026-12-16T00:00:00+01:00",
   },
+  // Social-Media-Vorschau: Foto, Titel und Text vom Auftraggeber gewählt am
+  // 11.09.2026 (Aufgabe 024).
+  vorschau: {
+    titel: "Weihnachtsgeschenke aus der SSBL, die doppelt Freude machen",
+    beschreibung:
+      "Keramik, Anzündholz und Klosterwein aus der SSBL: Mit jedem Geschenk unterstützen Sie die Stiftung. Bestellen bis 15.12.2026.",
+    bild: "assets/products/keramik-pflanzenstecker-kraeuter.jpg",
+    bildAlt:
+      "Fünf Pflanzenstecker aus heller Keramik mit türkis glasierten, gemusterten Spitzen, beschriftet mit Basilikum, Rosmarin, Schnittlauch und Oregano",
+  },
 });

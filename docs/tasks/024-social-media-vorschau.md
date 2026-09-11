@@ -3,7 +3,7 @@ id: 024
 title: "Social-Media-Vorschau für den Geschenkshop erstellen"
 depends_on: [015]
 features: [GS-39]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/vorschau.test.ts"
