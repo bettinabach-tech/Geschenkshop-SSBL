@@ -1,8 +1,14 @@
-# Shell-Skripte müssen überall LF behalten. Mit CRLF (Windows-Standard beim
-# Klonen) scheitert schon die Shebang-Zeile — Git Bash meldet dann
-# "bad interpreter" bzw. "$'\r': command not found", und verify.sh sowie das
-# Commit-Gate laufen still ins Leere.
+# Alle Textdateien behalten LF — auch unter Windows. Mit CRLF (Windows-Standard
+# beim Klonen) meldet Prettier jede Datei als falsch formatiert, und die
+# Frontmatter-Auswertung (next-tasks.sh, finish-task.sh) liest "todo\r" statt "todo".
+* text=auto eol=lf
+
+# Shell-Skripte müssen überall LF behalten. Mit CRLF scheitert schon die
+# Shebang-Zeile — Git Bash meldet dann "bad interpreter" bzw.
+# "$'\r': command not found", und verify.sh sowie das Commit-Gate laufen still ins Leere.
 *.sh text eol=lf
 
-# Die Kursanleitung als Word-Datei ist binär — nie Zeilenenden umwandeln.
+# Binärdateien — nie Zeilenenden umwandeln.
 *.docx binary
+*.jpg binary
+*.png binary

@@ -8,7 +8,7 @@ set -uo pipefail
 cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}" || exit 1
 ls docs/tasks/*.md >/dev/null 2>&1 || { echo "keine Aufgaben in docs/tasks/"; exit 0; }
 
-front() { awk '/^---[[:space:]]*$/{n++; next} n==1' "$1"; }
+front() { tr -d '\r' < "$1" | awk '/^---[[:space:]]*$/{n++; next} n==1'; }   # CRLF-fest
 field() {   # field <datei> <name> — Wert ohne Anführungszeichen und Kommentar
   front "$1" | sed -n "s/^$2:[[:space:]]*//p" | head -n 1 \
     | sed -e 's/[[:space:]]\{1,\}#.*$//' -e 's/^"\(.*\)"$/\1/'
