@@ -1,8 +1,7 @@
-# Handoff — 2026-09-11 (Aufgaben 001–002, 004–013, 015–022, 024)
+# Handoff — 2026-09-11 (Aufgaben 001–013, 015–022, 024)
 
 ## Letzte Sitzung
-- 004: `--deep` im Edge (#25) · 011: 404 (#26) · 009: `components/formular/` +
-  `lib/formular/client.ts` (#27), happy-dom: tests/hilfen/dom.ts.
+- 004: `--deep` im Edge (#25) · 011: 404 (#26) · 009: `components/formular/` + `lib/formular/client.ts` (#27).
 - 018: `bestellregeln.ts` (#28) · 019/020: `Bestellformular.astro` + `bestellformular.ts`
   (#29, #30), Mengen via `<Produktkarten formular=…>`; /muster/ mit Beispielpreisen.
 - 010: `server/empfaenger.ts` + `smtp.ts` (#31) · 021: `mails.ts` + Shop-`empfaenger.ts`
@@ -12,6 +11,7 @@
 - 017: `Hinweise.astro` über den Produkten (#34), GS-14–16/41 PASSING · verify/--deep GREEN.
 - 013: `check:golive` (`lib/golive.ts` + Haken `sites/<slug>/golive.ts`); Shop heute 21 Mängel, Exit 1 = richtig.
 - 024: site.ts `vorschau` → `/<slug>/vorschau.jpg` (`lib/vorschau.ts`, sharp; #35); og:image erst mit adresse.
+- 003: `npm run new -- <slug>` (`scripts/new-site.mjs`, #36): site.ts + index.astro «im Aufbau», noindex.
 
 ## Achtung nächste Sitzung
 - Texte auf der Seite nur nach Freigabe ändern. Unbekanntes nie raten.
@@ -27,4 +27,4 @@
 - SSBL-IT (blockiert 027/028): Anbieter, Mailserver (laedeli@ssbl.ch), geschenke.ssbl.ch; dort muss `/` den Shop zeigen.
 
 ## Vorgeschlagene nächste Aufgabe
-- 003 (Befehl für neue Seiten) · 029 (Browser-Abnahme) · 014 (braucht Fakten).
+- 029 (Browser-Abnahme) · 014 (braucht Fakten) · danach warten auf Lieferungen (023/025–028).
