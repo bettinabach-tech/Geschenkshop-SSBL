@@ -451,3 +451,21 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   vollständige Adresse. Anderes Foto oder anderer Text: in
   `src/sites/geschenkshop-ssbl/site.ts` unter `vorschau`. Die Plattformen
   merken sich eine Vorschau oft tagelang; eine Änderung erscheint verzögert.
+
+### 36. Neue Seiten per Befehl (Aufgabe 003)
+- **Was:** `npm run new -- <slug>` legt aus dem Brief `docs/briefs/<slug>.md`
+  zwei Dateien an: die Einstellungen (`src/sites/<slug>/site.ts`) und die
+  Seite (`src/pages/<slug>/index.astro`). Er überschreibt nie etwas: Gibt es
+  die Seite schon, fehlt der Brief oder ist er unvollständig, bricht er mit
+  einem Hinweis ab, was zu tun ist.
+- **Aus dem Brief übernommen:** der Titel (erste Zeile «# Brief — <Name>»), die
+  E-Mail-Adresse bei «Wohin gehen die Daten?» (für Kontakt und Formular) und
+  das Ziel als vorläufige Kurzbeschreibung für Google, die später mit Ihnen
+  abgestimmt wird. Adresse, Telefon und Rechtslinks bleiben leer, bis Sie sie
+  liefern; der Live-Gang-Check (`npm run check:golive -- <slug>`) meldet sie.
+- **Die neue Seite zeigt vorerst nur «Diese Seite ist im Aufbau.»** und ist für
+  Suchmaschinen gesperrt. So entsteht nie eine halbfertige Seite mit
+  erfundenen Texten. Die Abschnitte baut Claude danach mit den Aufgaben für
+  diese Seite (KURSANLEITUNG «Weitere Seiten»); der Befehl gibt am Ende die
+  nächsten Schritte aus.
+- **Folge für Sie:** Keine. Der Befehl erzeugt weder Aufgaben noch Texte.

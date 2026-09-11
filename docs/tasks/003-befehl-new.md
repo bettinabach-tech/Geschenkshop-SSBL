@@ -3,7 +3,7 @@ id: 003
 title: "Befehl «npm run new» für neue Seiten bauen"
 depends_on: [001]
 features: []
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/new-site.test.ts"
