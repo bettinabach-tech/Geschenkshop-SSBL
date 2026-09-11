@@ -1,0 +1,37 @@
+---
+// Textfeld (Aufgabe 009): Text, E-Mail oder Telefon. Pflichtfelder zeigen «*»
+// und tragen aria-required; der Hinweis erscheint in #<name>-fehler.
+import Stern from "./Stern.astro";
+
+interface Props {
+  name: string;
+  label: string;
+  typ?: "text" | "email" | "tel";
+  pflicht?: boolean;
+  /** Vorschlag des Browsers, z.B. «family-name»; Standard je nach typ. */
+  autocomplete?: string;
+}
+
+const { name, label, typ = "text", pflicht = false } = Astro.props;
+const autocomplete =
+  Astro.props.autocomplete ??
+  { email: "email", tel: "tel", text: undefined }[typ];
+---
+
+<div class="feld">
+  <label class="feld__label" for={name}>
+    {label}
+    <Stern pflicht={pflicht} />
+  </label>
+  <input
+    class="feld__eingabe"
+    id={name}
+    name={name}
+    type={typ}
+    autocomplete={autocomplete}
+    aria-required={pflicht ? "true" : undefined}
+    aria-describedby={`${name}-fehler`}
+    data-pflicht={pflicht ? "" : undefined}
+  />
+  <p class="feld__fehler" id={`${name}-fehler`} hidden></p>
+</div>

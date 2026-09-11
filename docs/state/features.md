@@ -31,11 +31,11 @@
 - [FAILING] F-23 Alle Links, Buttons und Formularfelder sind per Tastatur erreichbar und haben einen sichtbaren Fokusrahmen.
 - [PASSING] F-24 Die Seite ist als deutschsprachig ausgezeichnet, damit Screenreader sie deutsch vorlesen.
 - [PASSING] F-25 Eine falsche Adresse zeigt eine freundliche Fehlerseite mit Link zur Startseite.
-- [FAILING] F-26 Pflichtfelder im Formular sind sichtbar als Pflicht markiert.
-- [FAILING] F-27 Ein fehlendes oder falsch ausgefülltes Feld zeigt seinen Hinweis direkt am Feld, bevor abgeschickt wird.
-- [FAILING] F-28 Nach dem ersten Klick auf «Absenden» ist der Button gesperrt und zeigt, dass gesendet wird.
-- [FAILING] F-29 Nach erfolgreichem Absenden erscheint eine Danke-Meldung anstelle des Formulars.
-- [FAILING] F-30 Schlägt das Absenden technisch fehl, erscheint eine Meldung mit Telefonnummer und E-Mail-Adresse, und alle Eingaben bleiben erhalten.
+- [PASSING] F-26 Pflichtfelder im Formular sind sichtbar als Pflicht markiert.
+- [PASSING] F-27 Ein fehlendes oder falsch ausgefülltes Feld zeigt seinen Hinweis direkt am Feld, bevor abgeschickt wird.
+- [PASSING] F-28 Nach dem ersten Klick auf «Absenden» ist der Button gesperrt und zeigt, dass gesendet wird.
+- [PASSING] F-29 Nach erfolgreichem Absenden erscheint eine Danke-Meldung anstelle des Formulars.
+- [PASSING] F-30 Schlägt das Absenden technisch fehl, erscheint eine Meldung mit Telefonnummer und E-Mail-Adresse, und alle Eingaben bleiben erhalten.
 - [PASSING] F-31 Jede Seite kann eigene Primärfarbe und eigenes Logo zeigen, ohne andere Seiten zu verändern.
 
 ## Geschenkshop SSBL

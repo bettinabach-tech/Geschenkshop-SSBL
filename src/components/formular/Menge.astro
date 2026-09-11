@@ -1,0 +1,61 @@
+---
+// Menge (Aufgabe 009): ganze Zahl zwischen min und max, z.B. Stückzahl eines
+// Produkts. Mit gruppe/schluessel landet der Wert verschachtelt in den Daten
+// (gruppe «mengen», schluessel «keramik» → { mengen: { keramik: 2 } }).
+// Das Feld darf ausserhalb des <form> stehen (z.B. in einer Produktkarte),
+// dann verbindet es das Attribut `form` mit dem Formular.
+import Stern from "./Stern.astro";
+
+interface Props {
+  name: string;
+  label: string;
+  min?: number;
+  max: number;
+  wert?: number;
+  pflicht?: boolean;
+  gruppe?: string;
+  schluessel?: string;
+  /** id des Formulars, falls das Feld ausserhalb des <form> steht. */
+  form?: string;
+}
+
+const {
+  name,
+  label,
+  min = 0,
+  max,
+  wert = min,
+  pflicht = false,
+  gruppe,
+  schluessel,
+  form,
+} = Astro.props;
+if (!Number.isInteger(min) || !Number.isInteger(max) || max < min) {
+  throw new Error(`Menge «${name}»: min ${min} / max ${max} ungültig.`);
+}
+---
+
+<div class="feld feld--menge">
+  <label class="feld__label" for={name}>
+    {label}
+    <Stern pflicht={pflicht} />
+  </label>
+  <input
+    class="feld__eingabe"
+    id={name}
+    name={name}
+    type="number"
+    inputmode="numeric"
+    step="1"
+    min={min}
+    max={max}
+    value={wert}
+    form={form}
+    aria-required={pflicht ? "true" : undefined}
+    aria-describedby={`${name}-fehler`}
+    data-pflicht={pflicht ? "" : undefined}
+    data-gruppe={gruppe}
+    data-schluessel={schluessel}
+  />
+  <p class="feld__fehler" id={`${name}-fehler`} hidden></p>
+</div>

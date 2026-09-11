@@ -42,7 +42,8 @@ export async function breiteProbleme(page: Page): Promise<string[]> {
 }
 
 /** F-23: Mit der Tab-Taste jedes fokussierbare Element erreichen; jedes zeigt
- *  einen sichtbaren Fokusrahmen (outline oder box-shadow). */
+ *  einen sichtbaren Fokusrahmen (outline oder box-shadow). Eine Gruppe von
+ *  Radio-Knöpfen ist EIN Tab-Halt (innerhalb wechseln die Pfeiltasten). */
 export async function fokusProbleme(page: Page): Promise<string[]> {
   const anzahl = await page.evaluate(() => {
     const kandidaten = document.querySelectorAll<HTMLElement>(
@@ -54,8 +55,15 @@ export async function fokusProbleme(page: Page): Promise<string[]> {
         !el.matches(":disabled") &&
         el.checkVisibility({ checkVisibilityCSS: true }),
     );
-    fokussierbar.forEach((el, i) => (el.dataset.fokusNr = String(i)));
-    return fokussierbar.length;
+    const nummern = new Map<unknown, number>();
+    for (const el of fokussierbar) {
+      const radio = el instanceof HTMLInputElement && el.type === "radio";
+      const schluessel =
+        radio && el.name ? `radio:${el.form?.id ?? ""}:${el.name}` : el;
+      if (!nummern.has(schluessel)) nummern.set(schluessel, nummern.size);
+      el.dataset.fokusNr = String(nummern.get(schluessel));
+    }
+    return nummern.size;
   });
 
   const erreicht = new Map<number, string | null>(); // Nr -> Problem oder null

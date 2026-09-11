@@ -1,0 +1,39 @@
+---
+// Testformular mit allen Formular-Bausteinen (tests/formular.test.ts).
+import Auswahl from "../../src/components/formular/Auswahl.astro";
+import Formular from "../../src/components/formular/Formular.astro";
+import Haekchen from "../../src/components/formular/Haekchen.astro";
+import Menge from "../../src/components/formular/Menge.astro";
+import Textfeld from "../../src/components/formular/Textfeld.astro";
+import type { Site } from "../../src/lib/site";
+
+interface Props {
+  site: Site;
+}
+const { site } = Astro.props;
+---
+
+<Formular site={site} id="test" sendenText="Absenden">
+  <Textfeld name="name" label="Name" pflicht />
+  <Textfeld name="email" label="E-Mail" typ="email" pflicht />
+  <Textfeld name="telefon" label="Telefon" typ="tel" pflicht />
+  <Textfeld name="bemerkung" label="Bemerkung" />
+  <Auswahl
+    name="weg"
+    legende="Lieferung oder Abholung"
+    optionen={[
+      { wert: "lieferung", text: "Lieferung" },
+      { wert: "abholung", text: "Abholung" },
+    ]}
+    pflicht
+  />
+  <Menge
+    name="menge-keramik"
+    label="Keramik"
+    max={5}
+    gruppe="mengen"
+    schluessel="keramik"
+  />
+  <Haekchen name="alter16" label="Ich bin mindestens 16 Jahre alt" pflicht />
+  <p slot="danke">Danke für Ihre Bestellung.</p>
+</Formular>

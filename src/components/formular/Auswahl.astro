@@ -1,0 +1,41 @@
+---
+// Auswahl (Aufgabe 009): Gruppe von Radio-Knöpfen, z.B. Lieferung/Abholung.
+// Die Gruppe trägt aria-required und den Fehlerzustand; Hinweis in #<name>-fehler.
+import Stern from "./Stern.astro";
+
+interface Props {
+  name: string;
+  legende: string;
+  optionen: { wert: string; text: string }[];
+  pflicht?: boolean;
+}
+
+const { name, legende, optionen, pflicht = false } = Astro.props;
+if (optionen.length < 2) {
+  throw new Error(`Auswahl «${name}» braucht mindestens 2 Optionen.`);
+}
+---
+
+<fieldset
+  class="feld feld--auswahl"
+  role="radiogroup"
+  aria-required={pflicht ? "true" : undefined}
+  aria-describedby={`${name}-fehler`}
+>
+  <legend class="feld__label">
+    {legende}
+    <Stern pflicht={pflicht} />
+  </legend>
+  {optionen.map((option) => (
+    <label class="feld__option">
+      <input
+        type="radio"
+        name={name}
+        value={option.wert}
+        data-pflicht={pflicht ? "" : undefined}
+      />
+      {option.text}
+    </label>
+  ))}
+  <p class="feld__fehler" id={`${name}-fehler`} hidden></p>
+</fieldset>

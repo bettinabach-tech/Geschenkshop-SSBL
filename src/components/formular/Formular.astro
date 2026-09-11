@@ -1,0 +1,69 @@
+---
+// Formular (Aufgabe 009): Rahmen für alle Fabrik-Formulare. Felder kommen in
+// den Standard-Slot (Textfeld, Auswahl, Menge, Haekchen), der Danke-Text in
+// den Slot «danke». Prüfung und Versand: src/lib/formular/client.ts.
+// Der Absende-Button ist die Kaufhandlung der Seite und sieht darum wie der
+// Kauf-Button aus (Skill fabrik-design: genau ein primärer Button).
+import "../../styles/abschnitte.css";
+import "../../styles/formular.css";
+import type { Site } from "../../lib/site";
+
+interface Props {
+  site: Site;
+  /** Eindeutige id, z.B. «bestellung». Hinweise: #<id>-meldung, #<id>-danke. */
+  id: string;
+  /** Text des Absende-Buttons, z.B. «Bestellung absenden». */
+  sendenText: string;
+}
+
+const { site, id, sendenText } = Astro.props;
+if (!sendenText?.trim())
+  throw new Error(`Formular «${id}» braucht sendenText.`);
+if (!Astro.slots.has("danke")) {
+  throw new Error(`Formular «${id}» braucht einen Danke-Text (Slot «danke»).`);
+}
+---
+
+<form
+  id={id}
+  class="formular"
+  method="post"
+  action={site.formular.endpunkt}
+  novalidate
+  data-formular
+  data-endpunkt={site.formular.endpunkt}
+  data-telefon={site.kontakt.telefon}
+  data-email={site.kontakt.email}
+>
+  <p class="formular__pflicht">* Pflichtfeld</p>
+  <div
+    id={`${id}-meldung`}
+    class="formular__meldung"
+    role="alert"
+    tabindex="-1"
+    hidden
+  ></div>
+  <slot />
+  {/* Spam-Falle (decisions.md Nr. 9): Menschen sehen und erreichen sie nicht. */}
+  <div class="formular__falle" aria-hidden="true">
+    <label for={`${id}-website`}>Website</label>
+    <input
+      id={`${id}-website`}
+      name="website"
+      type="text"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+  <button type="submit" class="kauf-button formular__senden">
+    {sendenText}
+  </button>
+</form>
+<div id={`${id}-danke`} class="formular__danke" tabindex="-1" hidden>
+  <slot name="danke" />
+</div>
+
+<script>
+  import { verbindeAlle } from "../../lib/formular/client";
+  verbindeAlle();
+</script>

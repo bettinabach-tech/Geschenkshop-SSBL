@@ -3,7 +3,7 @@ id: 009
 title: "Formular-Bausteine mit Prüfung am Feld bauen"
 depends_on: [002]
 features: [F-26, F-27, F-28, F-29, F-30]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/formular.test.ts"

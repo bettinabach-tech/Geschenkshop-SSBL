@@ -1,0 +1,15 @@
+---
+// Pflicht-Stern hinter einer Beschriftung. Für Screenreader ausgeblendet, weil
+// das Feld selbst aria-required trägt (sonst hiesse es doppelt «Pflicht»).
+interface Props {
+  pflicht: boolean;
+}
+const { pflicht } = Astro.props;
+---
+
+{pflicht && (
+  <span class="feld__stern" aria-hidden="true">
+    {" "}
+    *
+  </span>
+)}

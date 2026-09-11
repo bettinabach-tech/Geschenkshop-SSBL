@@ -296,3 +296,23 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
 - **Folge für Sie:** «Zur Startseite» führt auf die Hauptadresse (`/`). Dass
   dort beim Anbieter der Geschenkshop erscheint, wird beim Hosting (027/028)
   eingerichtet. In der Vorschau zeigt `/` noch die interne Übersicht.
+
+### 27. Formular-Bausteine: Hinweise am Feld, ohne neue Farbe (Aufgabe 009)
+- **Was:** Alle Formulare der Fabrik bestehen aus denselben Bausteinen
+  (Textfeld, Auswahl, Menge, Häkchen). Pflichtfelder tragen «*», darüber steht
+  «* Pflichtfeld». Hinweise erscheinen direkt am Feld, sobald man es verlässt
+  und beim Absenden, und das Formular springt zum ersten falschen Feld. Die
+  Hinweistexte haben Sie am 11.09.2026 freigegeben.
+- **Aussehen der Hinweise:** fett in der dunklen Textfarbe mit «⚠», das Feld
+  bekommt einen dickeren Rahmen, kein Rot (Ihre Wahl vom 11.09.2026).
+- **Absenden:** Der Button sperrt sich und zeigt «Wird gesendet …», so gibt es
+  bei einem Doppelklick nur eine Bestellung. Klappt das Senden, erscheint der
+  Danke-Text statt des Formulars. Scheitert es technisch, erscheint ein
+  Hinweis mit Telefon und E-Mail, und alle Eingaben bleiben stehen.
+- **Telefon:** Erlaubt sind Ziffern, Leerzeichen und + - / ( ), mindestens 9
+  Ziffern. Das ist dieselbe Regel wie später auf dem Server (Aufgabe 018),
+  damit der Browser nichts ablehnt, was der Server annehmen würde.
+- **Folge für Sie:** Solange die Telefonnummer des Lädeli fehlt, nennt der
+  Fehler-Hinweis nur die E-Mail-Adresse. Solange es keinen Empfänger gibt
+  (Aufgabe 010/027), endet jedes Absenden mit diesem Hinweis. Ausprobieren
+  können Sie das auf http://localhost:4321/muster/.

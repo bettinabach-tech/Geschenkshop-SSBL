@@ -1,0 +1,31 @@
+---
+// Häkchen (Aufgabe 009): Checkbox, z.B. «Ich bin mindestens 16 Jahre alt».
+// Gesendet wird true/false; Hinweis in #<name>-fehler.
+import Stern from "./Stern.astro";
+
+interface Props {
+  name: string;
+  label: string;
+  pflicht?: boolean;
+}
+
+const { name, label, pflicht = false } = Astro.props;
+---
+
+<div class="feld feld--haekchen">
+  <input
+    class="feld__haekchen"
+    id={name}
+    name={name}
+    type="checkbox"
+    value="ja"
+    aria-required={pflicht ? "true" : undefined}
+    aria-describedby={`${name}-fehler`}
+    data-pflicht={pflicht ? "" : undefined}
+  />
+  <label class="feld__label" for={name}>
+    {label}
+    <Stern pflicht={pflicht} />
+  </label>
+  <p class="feld__fehler" id={`${name}-fehler`} hidden></p>
+</div>
