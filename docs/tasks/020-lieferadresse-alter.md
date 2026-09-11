@@ -3,7 +3,7 @@ id: 020
 title: "Lieferadresse und Altersbestätigung ins Bestellformular einbauen"
 depends_on: [019]
 features: [GS-24, GS-25, GS-26, GS-27, GS-28, GS-30]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/bestellformular-bedingt.test.ts"

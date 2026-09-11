@@ -346,3 +346,18 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   sind (Aufgabe 026), erscheinen die Felder von selbst. Adresse und
   Altersbestätigung für Wein folgen mit Aufgabe 020; vorher ist die Seite
   nicht bereit für echte Bestellungen.
+
+### 30. Lieferadresse und Altersbestätigung nur bei Bedarf (Aufgabe 020)
+- **Was:** Wählt man «Lieferung per Post», erscheint unter der Auswahl die
+  «Lieferadresse» mit dem Hinweis «Lieferung nur innerhalb der Schweiz» und
+  den Pflichtfeldern Strasse und Nr., PLZ (4 Ziffern) und Ort. Bei «Abholung»
+  verschwindet sie wieder samt allen Hinweisen und wird nicht mitgeschickt.
+  Das Häkchen «Ich bin mindestens 16 Jahre alt» erscheint vor dem Button,
+  sobald ein Wein eine Menge von 1 oder mehr hat. Aufbau: Ihre Freigabe vom
+  11.09.2026.
+- **Verbesserung für alle Formulare:** Solange die Maustaste oder der Finger
+  gedrückt ist, erscheint ein Hinweis erst nach dem Loslassen. Vorher konnte
+  ein neuer Hinweis beim Verlassen eines Feldes die Seite verschieben, und der
+  Klick (z.B. auf «Bestellung absenden») ging ins Leere.
+- **Folge für Sie:** Keine. Die Ausweiskontrolle beim Wein macht weiterhin
+  das Lädeli bei der Übergabe.

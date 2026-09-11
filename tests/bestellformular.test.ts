@@ -209,17 +209,22 @@ describe("GS-23 und GS-29: Lieferweg und Zahlungsart", () => {
     zeigt("zahlung", FORM.auswahl);
   });
 
-  it("Reihenfolge: Name · Vorname · E-Mail · Telefon · Weg · Zahlungsart", () => {
+  it("Reihenfolge: Name · Vorname · E-Mail · Telefon · Weg · (Adresse) · Zahlungsart · (Alter)", () => {
     const namen = Array.from(form.querySelectorAll("input"))
       .map((el) => el.name)
       .filter((n, i, alle) => n !== "website" && alle.indexOf(n) === i);
+    // Adresse und Alter (Aufgabe 020) sind nur bei Bedarf sichtbar.
     expect(namen).toEqual([
       "name",
       "vorname",
       "email",
       "telefon",
       "weg",
+      "strasse",
+      "plz",
+      "ort",
       "zahlung",
+      "alter16",
     ]);
   });
 });

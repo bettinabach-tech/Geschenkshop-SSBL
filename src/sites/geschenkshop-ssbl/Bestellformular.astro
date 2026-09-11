@@ -4,9 +4,10 @@
 // (<Produktkarten formular="bestellung">) und gehören per form= dazu.
 // Prüfung: Formular-Bausteine (009) + Bestellregeln (018).
 // Texte: vom Auftraggeber freigegeben am 11.09.2026.
-// Noch offen: Adresse und Altersbestätigung (020), Datenschutz-Hinweis (023).
+// Adresse und Altersbestätigung: Aufgabe 020. Noch offen: Datenschutz-Hinweis (023).
 import Auswahl from "../../components/formular/Auswahl.astro";
 import Formular from "../../components/formular/Formular.astro";
+import Haekchen from "../../components/formular/Haekchen.astro";
 import Textfeld from "../../components/formular/Textfeld.astro";
 import type { Site } from "../../lib/site";
 import { BESTELLFORMULAR_ID, regelDaten } from "./bestellformular";
@@ -38,6 +39,26 @@ const id = BESTELLFORMULAR_ID;
     ]}
     pflicht
   />
+  {/* Nur bei «Lieferung» sichtbar (bestellformular.ts); ausgeblendet wird
+      nichts davon geprüft oder gesendet. */}
+  <fieldset id={`${id}-adresse`} class="feld-gruppe" hidden>
+    <legend class="feld-gruppe__titel">Lieferadresse</legend>
+    <p class="feld-gruppe__hinweis">Lieferung nur innerhalb der Schweiz</p>
+    <Textfeld
+      name="strasse"
+      label="Strasse und Nr."
+      autocomplete="address-line1"
+      pflicht
+    />
+    <Textfeld
+      name="plz"
+      label="PLZ"
+      autocomplete="postal-code"
+      inputmode="numeric"
+      pflicht
+    />
+    <Textfeld name="ort" label="Ort" autocomplete="address-level2" pflicht />
+  </fieldset>
   <Auswahl
     name="zahlung"
     legende="Zahlungsart"
@@ -47,6 +68,10 @@ const id = BESTELLFORMULAR_ID;
     ]}
     pflicht
   />
+  {/* Nur sichtbar, sobald ein Wein eine Menge ≥ 1 hat. */}
+  <div id={`${id}-alter`} hidden>
+    <Haekchen name="alter16" label="Ich bin mindestens 16 Jahre alt" pflicht />
+  </div>
   <div slot="danke">
     <h3>Vielen Dank für Ihre Bestellung!</h3>
     <p>

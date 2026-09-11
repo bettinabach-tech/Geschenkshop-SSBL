@@ -63,13 +63,13 @@
 - [PASSING] GS-21 Das Feld «E-Mail» ist Pflicht und wird auf gültiges Format geprüft.
 - [PASSING] GS-22 Das Feld «Telefon» ist Pflicht und wird auf gültiges Format geprüft.
 - [PASSING] GS-23 Die Auswahl «Lieferung» oder «Abholung» ist Pflicht.
-- [FAILING] GS-24 Bei «Lieferung» erscheinen die Adressfelder; bei «Abholung» sind sie ausgeblendet und nicht Pflicht.
-- [FAILING] GS-25 Das Feld «Strasse und Nr.» ist bei Lieferung Pflicht.
-- [FAILING] GS-26 Das Feld «PLZ» ist bei Lieferung Pflicht und muss 4-stellig sein.
-- [FAILING] GS-27 Das Feld «Ort» ist bei Lieferung Pflicht.
-- [FAILING] GS-28 Beim Adressbereich steht «Lieferung nur innerhalb der Schweiz».
+- [PASSING] GS-24 Bei «Lieferung» erscheinen die Adressfelder; bei «Abholung» sind sie ausgeblendet und nicht Pflicht.
+- [PASSING] GS-25 Das Feld «Strasse und Nr.» ist bei Lieferung Pflicht.
+- [PASSING] GS-26 Das Feld «PLZ» ist bei Lieferung Pflicht und muss 4-stellig sein.
+- [PASSING] GS-27 Das Feld «Ort» ist bei Lieferung Pflicht.
+- [PASSING] GS-28 Beim Adressbereich steht «Lieferung nur innerhalb der Schweiz».
 - [PASSING] GS-29 Die Auswahl der Zahlungsart «Twint» oder «Karte» ist Pflicht.
-- [FAILING] GS-30 Sobald ein Wein gewählt ist, erscheint das Pflicht-Häkchen «Ich bin mindestens 16 Jahre alt»; ohne Wein erscheint es nicht.
+- [PASSING] GS-30 Sobald ein Wein gewählt ist, erscheint das Pflicht-Häkchen «Ich bin mindestens 16 Jahre alt»; ohne Wein erscheint es nicht.
 - [FAILING] GS-31 Beim Formular steht ein Hinweis mit Link zur Datenschutzerklärung auf ssbl.ch.
 - [FAILING] GS-32 Die Bestellung kommt als E-Mail bei laedeli@ssbl.ch an, mit allen Angaben der bestellenden Person.
 - [FAILING] GS-33 Die bestellende Person erhält eine Bestätigungs-E-Mail: Eingang bestätigt, Übersicht ihrer Angaben, Rückmeldung des Lädeli innert 2 Arbeitstagen, noch nicht verbindlich.

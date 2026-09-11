@@ -147,3 +147,28 @@
   font-size: 1.25rem;
   margin: 0;
 }
+
+/* Bereich mit mehreren Feldern, z.B. Lieferadresse (Aufgabe 020) */
+.feld-gruppe {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.feld-gruppe__titel {
+  padding: 0;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.feld-gruppe__hinweis {
+  margin: 0;
+}
+
+/* PLZ: schmales Feld (4 Ziffern); Hinweis darunter hat die volle Breite */
+.feld__eingabe[autocomplete="postal-code"] {
+  max-width: 8rem;
+}

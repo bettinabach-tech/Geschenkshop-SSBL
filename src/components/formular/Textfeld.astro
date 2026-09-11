@@ -10,9 +10,11 @@ interface Props {
   pflicht?: boolean;
   /** Vorschlag des Browsers, z.B. «family-name»; Standard je nach typ. */
   autocomplete?: string;
+  /** Tastatur auf dem Handy, z.B. «numeric» für die PLZ. */
+  inputmode?: "numeric" | "text";
 }
 
-const { name, label, typ = "text", pflicht = false } = Astro.props;
+const { name, label, typ = "text", pflicht = false, inputmode } = Astro.props;
 const autocomplete =
   Astro.props.autocomplete ??
   { email: "email", tel: "tel", text: undefined }[typ];
@@ -29,6 +31,7 @@ const autocomplete =
     name={name}
     type={typ}
     autocomplete={autocomplete}
+    inputmode={inputmode}
     aria-required={pflicht ? "true" : undefined}
     aria-describedby={`${name}-fehler`}
     data-pflicht={pflicht ? "" : undefined}

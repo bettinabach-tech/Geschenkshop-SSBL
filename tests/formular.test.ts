@@ -134,6 +134,15 @@ describe("F-27: Hinweis direkt am Feld", () => {
     expect(feld("email").getAttribute("aria-invalid")).toBe("true");
   });
 
+  it("F-27: bei gedrückter Maus erscheint der Hinweis erst nach dem Loslassen (Klick verrutscht nicht)", async () => {
+    document.dispatchEvent(new Event("pointerdown"));
+    tippe("email", "abc");
+    verlasse("email");
+    expect(hinweis("email").hidden).toBe(true);
+    document.dispatchEvent(new Event("pointerup"));
+    await vi.waitFor(() => zeigt(hinweis("email"), MELDUNG.email));
+  });
+
   it("F-27: gültige E-Mail → kein Hinweis", () => {
     tippe("email", "anna@example.ch");
     verlasse("email");

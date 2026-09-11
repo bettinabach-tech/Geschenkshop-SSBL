@@ -288,6 +288,31 @@ async function werteAus(form: HTMLFormElement, antwort: Response) {
   return false;
 }
 
+// Maustaste oder Finger gedrückt? Dann erscheint ein Hinweis erst nach dem
+// Loslassen. Sonst schiebt der neue Hinweis beim Verlassen eines Feldes alles
+// darunter nach unten, und der Klick (z.B. auf «Absenden») trifft ins Leere.
+let zeigerGedrueckt = false;
+let zeigerBeobachtet = false;
+function beobachteZeiger(): void {
+  if (zeigerBeobachtet) return;
+  zeigerBeobachtet = true;
+  document.addEventListener(
+    "pointerdown",
+    () => (zeigerGedrueckt = true),
+    true,
+  );
+  for (const typ of ["pointerup", "pointercancel"]) {
+    document.addEventListener(typ, () => (zeigerGedrueckt = false), true);
+  }
+}
+function nachDemLoslassen(aufgabe: () => void): void {
+  if (!zeigerGedrueckt) return aufgabe();
+  // Nach dem Loslassen kommt noch der Klick; erst danach den Hinweis zeigen.
+  const danach = () => setTimeout(aufgabe, 0);
+  document.addEventListener("pointerup", danach, { once: true });
+  document.addEventListener("pointercancel", danach, { once: true });
+}
+
 /** Verbindet ein Formular mit Prüfung und Versand. */
 export function verbinde(
   form: HTMLFormElement,
@@ -295,6 +320,7 @@ export function verbinde(
 ): void {
   if (form.dataset.verbunden !== undefined) return;
   form.dataset.verbunden = "";
+  beobachteZeiger();
   let sendet = false;
 
   // Beim Verlassen eines Feldes: nur dieses Feld prüfen und seinen Hinweis
@@ -320,7 +346,9 @@ export function verbinde(
       continue;
     }
     const name = el.name;
-    el.addEventListener("blur", () => pruefeEines(name));
+    el.addEventListener("blur", () =>
+      nachDemLoslassen(() => pruefeEines(name)),
+    );
     const nachkorrektur = () => {
       const ziel = el.type === "radio" ? el.closest("fieldset") : el;
       if (ziel?.getAttribute("aria-invalid") === "true") pruefeEines(name);
