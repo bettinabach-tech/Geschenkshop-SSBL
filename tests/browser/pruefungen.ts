@@ -54,6 +54,64 @@ export async function versteckteProbleme(page: Page): Promise<string[]> {
   );
 }
 
+/** Deckt auf, was ein Besucher aufklappen kann (Aufgabe 029): Mengenfelder auf
+ *  1 (z.B. Häkchen «mindestens 16» beim Wein) und je Radio-Gruppe die Wahl, die
+ *  am meisten zeigt (z.B. «Lieferung» → Lieferadresse). Setzt die Werte per
+ *  Skript, ohne den Fokus zu bewegen — sonst begänne der Tab-Durchlauf mitten
+ *  auf der Seite. Liefert die dadurch neu sichtbaren Elemente. */
+export async function deckeAllesAuf(page: Page): Promise<string[]> {
+  return page.evaluate(() => {
+    const sichtbar = () =>
+      new Set(
+        [
+          ...document.querySelectorAll<HTMLElement>(
+            "a[href], button, input, select, textarea",
+          ),
+        ].filter((el) => el.checkVisibility({ checkVisibilityCSS: true })),
+      );
+    const melde = (el: HTMLInputElement) => {
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+    };
+    const vorher = sichtbar();
+
+    for (const menge of document.querySelectorAll<HTMLInputElement>(
+      'input[type="number"]',
+    )) {
+      if (menge.disabled || !menge.checkVisibility()) continue;
+      menge.value = String(Math.max(1, Number(menge.min) || 0));
+      melde(menge);
+    }
+
+    const gruppen = new Map<string, HTMLInputElement[]>();
+    for (const radio of document.querySelectorAll<HTMLInputElement>(
+      'input[type="radio"]',
+    )) {
+      const schluessel = `${radio.form?.id ?? ""}:${radio.name}`;
+      gruppen.set(schluessel, [...(gruppen.get(schluessel) ?? []), radio]);
+    }
+    for (const optionen of gruppen.values()) {
+      let beste = optionen[0];
+      let meiste = -1;
+      for (const option of optionen) {
+        option.checked = true;
+        melde(option);
+        const anzahl = sichtbar().size;
+        if (anzahl > meiste) [beste, meiste] = [option, anzahl];
+      }
+      beste.checked = true;
+      melde(beste);
+    }
+
+    return [...sichtbar()]
+      .filter((el) => !vorher.has(el))
+      .map(
+        (el) =>
+          `<${el.tagName.toLowerCase()} name="${el.getAttribute("name") ?? ""}">`,
+      );
+  });
+}
+
 /** F-23: Mit der Tab-Taste jedes fokussierbare Element erreichen; jedes zeigt
  *  einen sichtbaren Fokusrahmen (outline oder box-shadow). Eine Gruppe von
  *  Radio-Knöpfen ist EIN Tab-Halt (innerhalb wechseln die Pfeiltasten). */

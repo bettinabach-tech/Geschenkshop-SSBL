@@ -469,3 +469,19 @@ Zur Nachvollziehbarkeit — diese hat der Auftraggeber getroffen, nicht der Agen
   diese Seite (KURSANLEITUNG «Weitere Seiten»); der Befehl gibt am Ende die
   nächsten Schritte aus.
 - **Folge für Sie:** Keine. Der Befehl erzeugt weder Aufgaben noch Texte.
+
+### 37. Browser-Abnahme: auch aufgeklappte Formularteile geprüft (Aufgabe 029)
+- **Ergebnis:** Die Shop-Seite besteht alle Browser-Prüfungen: Auf dem Handy
+  (375 px) steht nichts seitlich über, alles ist per Tab-Taste mit sichtbarem
+  Rahmen erreichbar, Lighthouse (Handy) gibt in allen vier Bereichen 100
+  Punkte. An der Seite musste nichts geändert werden.
+- **Ergänzt:** Bisher prüften die Tests nur, was beim Laden sichtbar ist. Die
+  Lieferadresse (erscheint bei «Lieferung») blieb so ungeprüft. Jetzt klappt
+  die Prüfung alles auf, was ein Besucher aufklappen kann, und prüft Breite
+  und Tastatur ein zweites Mal. Ein Selbsttest beweist, dass sie einen Fehler
+  in einem aufgeklappten Bereich findet.
+- **Noch nicht im Browser geprüft:** Mengenfelder und das Häkchen «mindestens
+  16» beim Wein — beides gibt es auf der echten Seite erst, wenn Preise und
+  Stückzahlen eingetragen sind (Aufgabe 026). Die Prüfung erfasst sie dann von
+  selbst; nach 026 `./scripts/verify.sh --deep` erneut laufen lassen.
+- **Folge für Sie:** Keine.

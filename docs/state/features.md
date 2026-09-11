@@ -6,7 +6,7 @@
 
 ## Fabrik
 
-- [FAILING] F-01 Die Seite ist auf einem Handy mit 375 px Breite ohne seitliches Scrollen vollständig lesbar.
+- [PASSING] F-01 Die Seite ist auf einem Handy mit 375 px Breite ohne seitliches Scrollen vollständig lesbar.
 - [PASSING] F-02 Überschriften erscheinen in Poppins SemiBold, Fliesstext in Poppins Regular.
 - [PASSING] F-03 Die Schrift kommt vom eigenen Server; beim Aufruf der Seite gehen keine Daten an Google oder andere Dritte.
 - [PASSING] F-04 Die Seite setzt kein Cookie und enthält kein Tracking.
@@ -27,8 +27,8 @@
 - [PASSING] F-19 Der Footer enthält Links zu Impressum, Datenschutz und Kontakt.
 - [PASSING] F-20 Jedes Bild hat einen beschreibenden Alternativtext.
 - [PASSING] F-21 Bilder laden in passender Grösse und modernem Format; kein Bild ist auf dem Handy grösser als 300 KB.
-- [FAILING] F-22 Die Seite erreicht in Lighthouse (Handy) mindestens 90 Punkte in Performance, Barrierefreiheit, Best Practices und SEO.
-- [FAILING] F-23 Alle Links, Buttons und Formularfelder sind per Tastatur erreichbar und haben einen sichtbaren Fokusrahmen.
+- [PASSING] F-22 Die Seite erreicht in Lighthouse (Handy) mindestens 90 Punkte in Performance, Barrierefreiheit, Best Practices und SEO.
+- [PASSING] F-23 Alle Links, Buttons und Formularfelder sind per Tastatur erreichbar und haben einen sichtbaren Fokusrahmen.
 - [PASSING] F-24 Die Seite ist als deutschsprachig ausgezeichnet, damit Screenreader sie deutsch vorlesen.
 - [PASSING] F-25 Eine falsche Adresse zeigt eine freundliche Fehlerseite mit Link zur Startseite.
 - [PASSING] F-26 Pflichtfelder im Formular sind sichtbar als Pflicht markiert.

@@ -1,0 +1,39 @@
+<!doctype html>
+<!-- Selbsttest F-23 (Aufgabe 029): Das Feld «strasse» erscheint erst bei
+     «Lieferung» und hat absichtlich KEINEN Fokusrahmen. -->
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fixture: aufklappbarer Bereich ohne Fokusrahmen</title>
+    <style>
+      :focus-visible {
+        outline: 3px solid #1a1a1a;
+      }
+      #adresse input:focus-visible {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="f">
+      <label
+        ><input type="radio" name="weg" value="abholung" checked />
+        Abholung</label
+      >
+      <label
+        ><input type="radio" name="weg" value="lieferung" /> Lieferung</label
+      >
+      <fieldset id="adresse" hidden>
+        <label>Strasse <input name="strasse" /></label>
+      </fieldset>
+    </form>
+    <script>
+      const lieferung = document.querySelector('input[value="lieferung"]');
+      for (const radio of document.querySelectorAll('input[name="weg"]')) {
+        radio.addEventListener("change", () => {
+          document.getElementById("adresse").hidden = !lieferung.checked;
+        });
+      }
+    </script>
+  </body>
+</html>

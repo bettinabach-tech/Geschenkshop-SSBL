@@ -3,7 +3,7 @@ id: 029
 title: "Browser-Abnahme: Handy, Tastatur, Lighthouse"
 depends_on: [004, 015, 020]
 features: [F-01, F-22, F-23]
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "./scripts/verify.sh --deep"

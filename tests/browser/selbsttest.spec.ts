@@ -6,6 +6,7 @@ import { expect, test } from "@playwright/test";
 import {
   HANDY_BREITE,
   breiteProbleme,
+  deckeAllesAuf,
   fokusProbleme,
   versteckteProbleme,
 } from "./pruefungen";
@@ -44,6 +45,17 @@ test("Selbsttest F-23: Gegenprobe — mit Fokusrahmen besteht die Seite", async 
 }) => {
   await page.setContent(fixture("mit-fokusrahmen.html"));
   expect(await fokusProbleme(page)).toEqual([]);
+});
+
+test("Selbsttest F-23: ein Feld ohne Fokusrahmen im aufklappbaren Bereich fällt erst aufgedeckt auf", async ({
+  page,
+}) => {
+  await page.setContent(fixture("aufklappbar.html"));
+  expect(await fokusProbleme(page)).toEqual([]); // eingeklappt: Feld versteckt
+  expect(await deckeAllesAuf(page)).toEqual(['<input name="strasse">']);
+  expect(await fokusProbleme(page)).toEqual([
+    "<input> «strasse» hat keinen sichtbaren Fokusrahmen.",
+  ]);
 });
 
 test("Selbsttest F-23: ein nicht per Tab erreichbares Element wird gemeldet", async ({

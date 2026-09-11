@@ -6,6 +6,7 @@ import { expect, test } from "@playwright/test";
 import {
   HANDY_BREITE,
   breiteProbleme,
+  deckeAllesAuf,
   fokusProbleme,
   versteckteProbleme,
   seiten,
@@ -25,6 +26,26 @@ for (const pfad of seiten()) {
       page,
     }) => {
       await page.goto(pfad);
+      expect(await fokusProbleme(page)).toEqual([]);
+    });
+
+    // Aufklappbare Bereiche (z.B. Lieferadresse) sind beim Laden versteckt und
+    // würden sonst nie geprüft (Aufgabe 029).
+    test("F-01: aufgeklappt bei 375 px kein seitliches Scrollen", async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width: HANDY_BREITE, height: 800 });
+      await page.goto(pfad);
+      await deckeAllesAuf(page);
+      expect(await breiteProbleme(page)).toEqual([]);
+    });
+
+    test("F-23: aufgeklappt alles per Tab erreichbar, mit Fokusrahmen", async ({
+      page,
+    }) => {
+      await page.goto(pfad);
+      const neu = await deckeAllesAuf(page);
+      console.log(`Aufgedeckt ${pfad}: ${neu.join(" ") || "(nichts)"}`);
       expect(await fokusProbleme(page)).toEqual([]);
     });
 
