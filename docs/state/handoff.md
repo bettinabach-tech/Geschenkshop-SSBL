@@ -25,4 +25,4 @@
 - SSBL-IT (blockiert 027/028): Anbieter, Mailserver (laedeli@ssbl.ch), geschenke.ssbl.ch.
 
 ## Vorgeschlagene nächste Aufgabe
-- 004 (Browser-Prüfungen, u.a. 375 px) oder 016 (Produktkarten; braucht 014).
+- 016 (Produktkarten; gibt 014 Beschreibungen frei) oder 004 (Browser-Prüfungen, 375 px).
