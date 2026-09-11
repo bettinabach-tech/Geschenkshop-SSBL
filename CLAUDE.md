@@ -14,6 +14,8 @@
   `npm run new -- <slug>` (neue Seite aus docs/briefs/<slug>.md)
 - `./scripts/verify.sh --quick` (Commit-Hook) · `--deep` (Browser, Lighthouse, audit)
 - `./scripts/next-tasks.sh` — bereite Aufgaben
+- `npm run check:golive -- <slug>` — was fehlt vor dem Live-Gang (Exit 1 bis
+  alles da ist; bewusst nicht in verify.sh)
 
 ## Nicht-offensichtliche Konventionen
 

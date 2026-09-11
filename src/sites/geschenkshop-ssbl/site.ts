@@ -4,6 +4,10 @@
 // kontakt.telefon, rechtliches.impressumUrl/datenschutzUrl, formular.endpunkt.
 import { defineSite } from "../../lib/site";
 
+// Merker für den Live-Gang-Check (Aufgabe 013): auf true setzen, sobald die
+// Werkstatt-Geschichte mit Foto im Vertrauens-Abschnitt steht (Aufgabe 025).
+export const geschichteEingebaut = false;
+
 export default defineSite({
   slug: "geschenkshop-ssbl",
   titel: "Weihnachtsgeschenke aus der SSBL – Geschenkshop",

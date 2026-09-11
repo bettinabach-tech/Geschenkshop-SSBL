@@ -3,7 +3,7 @@ id: 013
 title: "Live-Gang-Check für fehlende Inhalte bauen"
 depends_on: [001, 012]
 features: []
-status: todo
+status: done
 acceptance:
   - "./scripts/verify.sh"
   - "node_modules/.bin/vitest run tests/golive.test.ts"
